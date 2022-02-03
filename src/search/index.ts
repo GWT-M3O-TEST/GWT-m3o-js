@@ -6,7 +6,15 @@ export class SearchService {
   constructor(token: string) {
     this.client = new m3o.Client({ token: token });
   }
-  // Delete an index.
+  // Create an index by name
+  createIndex(request: CreateIndexRequest): Promise<CreateIndexResponse> {
+    return this.client.call(
+      "search",
+      "CreateIndex",
+      request
+    ) as Promise<CreateIndexResponse>;
+  }
+  // Delete an index by name
   deleteIndex(request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
     return this.client.call(
       "search",
@@ -41,8 +49,7 @@ export class SearchService {
 }
 
 export interface CreateIndexRequest {
-  fields?: Field[];
-  // the name of the index
+  // The name of the index
   index?: string;
 }
 
@@ -80,7 +87,7 @@ export interface Field {
 
 export interface IndexRequest {
   // The document to index
-  document?: { [key: string]: any };
+  document?: Document;
   // The index this document belongs to
   index?: string;
 }
@@ -90,10 +97,10 @@ export interface IndexResponse {
 }
 
 export interface SearchRequest {
-  // The index the document belongs to
-  index?: string;
   // The query. See docs for query language examples
   query?: string;
+  // The index the document belongs to
+  index?: string;
 }
 
 export interface SearchResponse {

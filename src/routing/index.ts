@@ -38,7 +38,7 @@ export interface Direction {
   // intersections on route
   intersections?: Intersection[];
   // maneuver to take
-  maneuver?: { [key: string]: any };
+  maneuver?: Maneuver;
   // street name or location
   name?: string;
   // alternative reference
@@ -53,14 +53,14 @@ export interface DirectionsRequest {
 }
 
 export interface DirectionsResponse {
+  // The waypoints on the route
+  waypoints?: Waypoint[];
   // Turn by turn directions
   directions?: Direction[];
   // Estimated distance of the route in meters
   distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
-  // The waypoints on the route
-  waypoints?: Waypoint[];
 }
 
 export interface EtaRequest {

@@ -3,12 +3,12 @@ const { SearchService } = require("m3o/search");
 
 const searchService = new SearchService(process.env.M3O_API_TOKEN);
 
-// Delete an index by name
-async function deleteAnIndex() {
-  const rsp = await searchService.deleteIndex({
+// Create an index by name
+async function createAnIndex() {
+  const rsp = await searchService.createIndex({
     index: "customers",
   });
   console.log(rsp);
 }
 
-deleteAnIndex();
+createAnIndex();

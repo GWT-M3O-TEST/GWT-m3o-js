@@ -135,14 +135,6 @@ export class UserService {
 
 export interface Account {
   // unix timestamp
-  created?: number;
-  // an email address
-  email?: string;
-  // unique account id
-  id?: string;
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
-  // unix timestamp
   updated?: number;
   // alphanumeric username
   username?: string;
@@ -150,11 +142,17 @@ export interface Account {
   verificationDate?: number;
   // if the account is verified
   verified?: boolean;
+  // unix timestamp
+  created?: number;
+  // an email address
+  email?: string;
+  // unique account id
+  id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
 }
 
 export interface CreateRequest {
-  // the email address
-  email?: string;
   // optional account id
   id?: string;
   // the user password
@@ -163,10 +161,12 @@ export interface CreateRequest {
   profile?: { [key: string]: string };
   // the username
   username?: string;
+  // the email address
+  email?: string;
 }
 
 export interface CreateResponse {
-  account?: { [key: string]: any };
+  account?: Account;
 }
 
 export interface DeleteRequest {
@@ -198,7 +198,7 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   // The session of the logged in  user
-  session?: { [key: string]: any };
+  session?: Session;
 }
 
 export interface LogoutRequest {
@@ -218,7 +218,7 @@ export interface ReadRequest {
 }
 
 export interface ReadResponse {
-  account?: { [key: string]: any };
+  account?: Account;
 }
 
 export interface ReadSessionRequest {
@@ -228,7 +228,7 @@ export interface ReadSessionRequest {
 
 export interface ReadSessionResponse {
   // the session for the user
-  session?: { [key: string]: any };
+  session?: Session;
 }
 
 export interface ResetPasswordRequest {
@@ -245,6 +245,10 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  subject?: string;
+  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  textContent?: string;
   // Your web site address, example www.example.com or user.example.com
   address?: string;
   // the email address of the user
@@ -255,10 +259,6 @@ export interface SendMagicLinkRequest {
   endpoint?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   fromName?: string;
-  subject?: string;
-  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  textContent?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -278,6 +278,9 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  textContent?: string;
   // email address to send the verification code
   email?: string;
   failureRedirectUrl?: string;
@@ -286,9 +289,6 @@ export interface SendVerificationEmailRequest {
   redirectUrl?: string;
   // subject of the email
   subject?: string;
-  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  textContent?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -346,5 +346,5 @@ export interface VerifyTokenRequest {
 export interface VerifyTokenResponse {
   is_valid?: boolean;
   message?: string;
-  session?: { [key: string]: any };
+  session?: Session;
 }

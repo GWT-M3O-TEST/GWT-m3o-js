@@ -34,7 +34,7 @@ export interface TextRequest {
 
 export interface TextResponse {
   // The translated text
-  translation?: { [key: string]: any };
+  translation?: Translation;
 }
 
 export interface Translation {

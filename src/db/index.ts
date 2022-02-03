@@ -71,12 +71,12 @@ export interface CountResponse {
 }
 
 export interface CreateRequest {
-  // optional record id to use
-  id?: string;
   // JSON encoded record or records (can be array or object)
   record?: { [key: string]: any };
   // Optional table name. Defaults to 'default'
   table?: string;
+  // optional record id to use
+  id?: string;
 }
 
 export interface CreateResponse {
@@ -107,14 +107,6 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
-  // Read by id. Equivalent to 'id == "your-id"'
-  id?: string;
-  // Maximum number of records to return. Default limit is 25.
-  // Maximum limit is 1000. Anything higher will return an error.
-  limit?: number;
-  offset?: number;
-  // 'asc' (default), 'desc'
-  order?: string;
   // field name to order by
   orderBy?: string;
   // Examples: 'age >= 18', 'age >= 18 and verified == true'
@@ -125,6 +117,14 @@ export interface ReadRequest {
   query?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
+  // Read by id. Equivalent to 'id == "your-id"'
+  id?: string;
+  // Maximum number of records to return. Default limit is 25.
+  // Maximum limit is 1000. Anything higher will return an error.
+  limit?: number;
+  offset?: number;
+  // 'asc' (default), 'desc'
+  order?: string;
 }
 
 export interface ReadResponse {

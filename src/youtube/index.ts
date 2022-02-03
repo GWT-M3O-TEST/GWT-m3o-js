@@ -51,11 +51,11 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
+  // the associated url
+  url?: string;
   // if live broadcast then indicates activity.
   // none, upcoming, live, completed
   broadcasting?: string;
-  // the channel id
-  channel_id?: string;
   // the channel title
   channel_title?: string;
   // the result description
@@ -68,6 +68,6 @@ export interface SearchResult {
   published_at?: string;
   // title of the result
   title?: string;
-  // the associated url
-  url?: string;
+  // the channel id
+  channel_id?: string;
 }
