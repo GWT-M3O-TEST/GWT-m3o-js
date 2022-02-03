@@ -42,6 +42,12 @@ export interface AddRequest {
 export interface AddResponse {}
 
 export interface Entry {
+  // rss feed url of the entry
+  link?: string;
+  // article summary
+  summary?: string;
+  // title of the entry
+  title?: string;
   // article content
   content?: string;
   // data of the entry
@@ -50,34 +56,28 @@ export interface Entry {
   feed?: string;
   // unique id of the entry
   id?: string;
-  // rss feed url of the entry
-  link?: string;
-  // article summary
-  summary?: string;
-  // title of the entry
-  title?: string;
 }
 
 export interface Feed {
+  // category of the feed e.g news
+  category?: string;
+  // unique id
+  id?: string;
   // rss feed name
   // eg. a16z
   name?: string;
   // rss feed url
   // eg. http://a16z.com/feed/
   url?: string;
-  // category of the feed e.g news
-  category?: string;
-  // unique id
-  id?: string;
 }
 
 export interface FeedRequest {
-  // limit entries returned
-  limit?: number;
   // rss feed name
   name?: string;
   // offset entries
   offset?: number;
+  // limit entries returned
+  limit?: number;
 }
 
 export interface FeedResponse {

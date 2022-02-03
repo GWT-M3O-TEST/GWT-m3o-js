@@ -113,12 +113,12 @@ export interface HeadResponse {
 }
 
 export interface ListObject {
+  created?: string;
   // when was this last modified
   modified?: string;
   name?: string;
   url?: string;
   visibility?: string;
-  created?: string;
 }
 
 export interface ListRequest {

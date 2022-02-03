@@ -44,36 +44,36 @@ export class SunnahService {
 }
 
 export interface Book {
-  // arabic name of the book
-  arabic_name?: string;
   // number of hadiths in the book
   hadiths?: number;
   // number of the book e.g 1
   id?: number;
   // name of the book
   name?: string;
+  // arabic name of the book
+  arabic_name?: string;
 }
 
 export interface BooksRequest {
+  // Name of the collection
+  collection?: string;
   // Limit the number of books returned
   limit?: number;
   // The page in the pagination
   page?: number;
-  // Name of the collection
-  collection?: string;
 }
 
 export interface BooksResponse {
+  // The total overall books
+  total?: number;
+  // A list of books
+  books?: Book[];
   // Name of the collection
   collection?: string;
   // The limit specified
   limit?: number;
   // The page requested
   page?: number;
-  // The total overall books
-  total?: number;
-  // A list of books
-  books?: Book[];
 }
 
 export interface Chapter {
@@ -101,6 +101,8 @@ export interface ChaptersRequest {
 }
 
 export interface ChaptersResponse {
+  // Total chapters in the book
+  total?: number;
   // number of the book
   book?: number;
   // The chapters of the book
@@ -111,13 +113,9 @@ export interface ChaptersResponse {
   limit?: number;
   // The page in the pagination
   page?: number;
-  // Total chapters in the book
-  total?: number;
 }
 
 export interface Collection {
-  // Arabic title if available
-  arabic_title?: string;
   // Total hadiths in the collection
   hadiths?: number;
   // Name of the collection e.g bukhari
@@ -126,13 +124,15 @@ export interface Collection {
   summary?: string;
   // Title of the collection e.g Sahih al-Bukhari
   title?: string;
+  // Arabic title if available
+  arabic_title?: string;
 }
 
 export interface CollectionsRequest {
-  // Number of collections to limit to
-  limit?: number;
   // The page in the pagination
   page?: number;
+  // Number of collections to limit to
+  limit?: number;
 }
 
 export interface CollectionsResponse {
@@ -140,6 +140,12 @@ export interface CollectionsResponse {
 }
 
 export interface Hadith {
+  // the arabic chapter title
+  arabic_chapter_title?: string;
+  // the arabic text
+  arabic_text?: string;
+  // the chapter id
+  chapter?: number;
   // the chapter key
   chapter_key?: string;
   // the chapter title
@@ -148,26 +154,22 @@ export interface Hadith {
   id?: number;
   // hadith text
   text?: string;
-  // the arabic chapter title
-  arabic_chapter_title?: string;
-  // the arabic text
-  arabic_text?: string;
-  // the chapter id
-  chapter?: number;
 }
 
 export interface HadithsRequest {
-  // number of the book
-  book?: number;
-  // name of the collection
-  collection?: string;
   // Limit the number of hadiths
   limit?: number;
   // The page in the pagination
   page?: number;
+  // number of the book
+  book?: number;
+  // name of the collection
+  collection?: string;
 }
 
 export interface HadithsResponse {
+  // Total hadiths in the  book
+  total?: number;
   // number of the book
   book?: number;
   // name of the collection
@@ -178,6 +180,4 @@ export interface HadithsResponse {
   limit?: number;
   // The page in the pagination
   page?: number;
-  // Total hadiths in the  book
-  total?: number;
 }

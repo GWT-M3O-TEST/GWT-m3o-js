@@ -21,32 +21,32 @@ export class WeatherService {
 }
 
 export interface Forecast {
-  // the average temp in celsius
-  avg_temp_c?: number;
   // the average temp in fahrenheit
   avg_temp_f?: number;
-  // the URL of forecast condition icon. Simply prefix with either http or https to use it
-  icon_url?: string;
-  // max temp in celsius
-  max_temp_c?: number;
-  // time of sunset
-  sunset?: string;
-  // will it rain
-  will_it_rain?: boolean;
-  // time of sunrise
-  sunrise?: string;
   // chance of rain (percentage)
   chance_of_rain?: number;
   // forecast condition
   condition?: string;
   // date of the forecast
   date?: string;
-  // max temp in fahrenheit
-  max_temp_f?: number;
+  // max temp in celsius
+  max_temp_c?: number;
   // minimum temp in celsius
   min_temp_c?: number;
   // minimum temp in fahrenheit
   min_temp_f?: number;
+  // the average temp in celsius
+  avg_temp_c?: number;
+  // time of sunset
+  sunset?: string;
+  // will it rain
+  will_it_rain?: boolean;
+  // time of sunrise
+  sunrise?: string;
+  // max temp in fahrenheit
+  max_temp_f?: number;
+  // the URL of forecast condition icon. Simply prefix with either http or https to use it
+  icon_url?: string;
 }
 
 export interface ForecastRequest {
@@ -57,6 +57,8 @@ export interface ForecastRequest {
 }
 
 export interface ForecastResponse {
+  // forecast for the next number of days
+  forecast?: Forecast[];
   // e.g 37.55
   latitude?: number;
   // the local time
@@ -71,8 +73,6 @@ export interface ForecastResponse {
   timezone?: string;
   // country of the request
   country?: string;
-  // forecast for the next number of days
-  forecast?: Forecast[];
 }
 
 export interface NowRequest {
@@ -81,44 +81,44 @@ export interface NowRequest {
 }
 
 export interface NowResponse {
-  // e.g -77.46
-  longitude?: number;
-  // wind degree
-  wind_degree?: number;
   // country of the request
   country?: string;
-  // the URL of the related icon. Simply prefix with either http or https to use it
-  icon_url?: string;
   // e.g 37.55
   latitude?: number;
+  // location of the request
+  location?: string;
+  // temperature in fahrenheit
+  temp_f?: number;
+  // wind degree
+  wind_degree?: number;
+  // wind direction
+  wind_direction?: string;
+  // whether its daytime
+  daytime?: boolean;
+  // timezone of the location
+  timezone?: string;
+  // feels like in celsius
+  feels_like_c?: number;
+  // the humidity percentage
+  humidity?: number;
+  // e.g -77.46
+  longitude?: number;
+  // cloud cover percentage
+  cloud?: number;
+  // the weather condition
+  condition?: string;
+  // feels like in fahrenheit
+  feels_like_f?: number;
+  // the URL of the related icon. Simply prefix with either http or https to use it
+  icon_url?: string;
+  // the local time
+  local_time?: string;
+  // region related to the location
+  region?: string;
   // temperature in celsius
   temp_c?: number;
   // wind in kph
   wind_kph?: number;
   // wind in mph
   wind_mph?: number;
-  // feels like in celsius
-  feels_like_c?: number;
-  // feels like in fahrenheit
-  feels_like_f?: number;
-  // cloud cover percentage
-  cloud?: number;
-  // the weather condition
-  condition?: string;
-  // the local time
-  local_time?: string;
-  // location of the request
-  location?: string;
-  // region related to the location
-  region?: string;
-  // temperature in fahrenheit
-  temp_f?: number;
-  // timezone of the location
-  timezone?: string;
-  // wind direction
-  wind_direction?: string;
-  // whether its daytime
-  daytime?: boolean;
-  // the humidity percentage
-  humidity?: number;
 }

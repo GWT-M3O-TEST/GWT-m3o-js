@@ -134,6 +134,12 @@ export class UserService {
 }
 
 export interface Account {
+  // an email address
+  email?: string;
+  // unique account id
+  id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
   // alphanumeric username
@@ -144,25 +150,19 @@ export interface Account {
   verified?: boolean;
   // unix timestamp
   created?: number;
-  // an email address
-  email?: string;
-  // unique account id
-  id?: string;
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
 }
 
 export interface CreateRequest {
-  // optional account id
-  id?: string;
-  // the user password
-  password?: string;
   // optional user profile as map<string,string>
   profile?: { [key: string]: string };
   // the username
   username?: string;
   // the email address
   email?: string;
+  // optional account id
+  id?: string;
+  // the user password
+  password?: string;
 }
 
 export interface CreateResponse {
@@ -177,10 +177,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface ListRequest {
+  offset?: number;
   // Maximum number of records to return. Default limit is 25.
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
-  offset?: number;
 }
 
 export interface ListResponse {
@@ -245,12 +245,6 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  subject?: string;
-  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  textContent?: string;
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -259,25 +253,34 @@ export interface SendMagicLinkRequest {
   endpoint?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   fromName?: string;
+  subject?: string;
+  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  textContent?: string;
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
-  // email address to send reset for
-  email?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  fromName?: string;
   // subject of the email
   subject?: string;
   // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
   // HTML emails are not available currently.
   textContent?: string;
+  // email address to send reset for
+  email?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  fromName?: string;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  redirectUrl?: string;
+  // subject of the email
+  subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   textContent?: string;
@@ -286,9 +289,6 @@ export interface SendVerificationEmailRequest {
   failureRedirectUrl?: string;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   fromName?: string;
-  redirectUrl?: string;
-  // subject of the email
-  subject?: string;
 }
 
 export interface SendVerificationEmailResponse {}

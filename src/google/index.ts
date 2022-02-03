@@ -27,10 +27,6 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
-  // title of the result
-  title?: string;
-  // the full url for the result
-  url?: string;
   // abridged version of this search result’s URL, e.g. www.exampe.com
   display_url?: string;
   // id of the result
@@ -39,4 +35,8 @@ export interface SearchResult {
   kind?: string;
   // the result snippet
   snippet?: string;
+  // title of the result
+  title?: string;
+  // the full url for the result
+  url?: string;
 }

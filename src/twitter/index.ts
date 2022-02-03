@@ -41,8 +41,6 @@ export class TwitterService {
 }
 
 export interface Profile {
-  // if the account is verified
-  verified?: boolean;
   // the user id
   id?: number;
   // The user's profile picture
@@ -53,6 +51,8 @@ export interface Profile {
   username?: string;
   // if the account is private
   private?: boolean;
+  // if the account is verified
+  verified?: boolean;
   // the account creation date
   created_at?: string;
   // the user description
@@ -88,12 +88,12 @@ export interface TimelineResponse {
 }
 
 export interface Trend {
+  // the twitter url
+  url?: string;
   // name of the trend
   name?: string;
   // the volume of tweets in last 24 hours
   tweet_volume?: number;
-  // the twitter url
-  url?: string;
 }
 
 export interface TrendsRequest {}
@@ -104,10 +104,6 @@ export interface TrendsResponse {
 }
 
 export interface Tweet {
-  // number of times favourited
-  favourited_count?: number;
-  // id of the tweet
-  id?: number;
   // number of times retweeted
   retweeted_count?: number;
   // text of the tweet
@@ -116,6 +112,10 @@ export interface Tweet {
   username?: string;
   // time of tweet
   created_at?: string;
+  // number of times favourited
+  favourited_count?: number;
+  // id of the tweet
+  id?: number;
 }
 
 export interface UserRequest {

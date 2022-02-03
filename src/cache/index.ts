@@ -49,17 +49,17 @@ export class CacheService {
 }
 
 export interface DecrementRequest {
-  // The key to decrement
-  key?: string;
   // The amount to decrement the value by
   value?: number;
+  // The key to decrement
+  key?: string;
 }
 
 export interface DecrementResponse {
-  // The new value
-  value?: number;
   // The key decremented
   key?: string;
+  // The new value
+  value?: number;
 }
 
 export interface DeleteRequest {
@@ -87,10 +87,10 @@ export interface GetResponse {
 }
 
 export interface IncrementRequest {
-  // The amount to increment the value by
-  value?: number;
   // The key to increment
   key?: string;
+  // The amount to increment the value by
+  value?: number;
 }
 
 export interface IncrementResponse {
@@ -107,12 +107,12 @@ export interface ListKeysResponse {
 }
 
 export interface SetRequest {
+  // The key to update
+  key?: string;
   // Time to live in seconds
   ttl?: number;
   // The value to set
   value?: string;
-  // The key to update
-  key?: string;
 }
 
 export interface SetResponse {
