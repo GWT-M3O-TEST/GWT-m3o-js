@@ -55,6 +55,12 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the close price
+  close?: number;
+  // the date
+  date?: string;
+  // the peak price
+  high?: number;
   // the low price
   low?: number;
   // the open price
@@ -63,12 +69,6 @@ export interface HistoryResponse {
   symbol?: string;
   // the volume
   volume?: number;
-  // the close price
-  close?: number;
-  // the date
-  date?: string;
-  // the peak price
-  high?: number;
 }
 
 export interface NewsRequest {
@@ -101,6 +101,8 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the UTC timestamp of the quote
+  timestamp?: string;
   // the asking price
   ask_price?: number;
   // the ask size
@@ -111,6 +113,4 @@ export interface QuoteResponse {
   bid_size?: number;
   // the crypto symbol
   symbol?: string;
-  // the UTC timestamp of the quote
-  timestamp?: string;
 }

@@ -17,10 +17,6 @@ export class TranslateService {
 }
 
 export interface TextRequest {
-  // The contents to be translated
-  content?: string;
-  // The string format, `text` or `html`
-  format?: string;
   // The model to use for translation, `nmt` or `base`,
   // See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
   model?: string;
@@ -30,6 +26,10 @@ export interface TextRequest {
   // Target language, format in ISO-639-1 codes
   // See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   target?: string;
+  // The contents to be translated
+  content?: string;
+  // The string format, `text` or `html`
+  format?: string;
 }
 
 export interface TextResponse {

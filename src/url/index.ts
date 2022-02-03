@@ -54,10 +54,10 @@ export interface ShortenResponse {
 }
 
 export interface URLPair {
+  // time of creation
+  created?: string;
   // destination url
   destinationURL?: string;
   // shortened url
   shortURL?: string;
-  // time of creation
-  created?: string;
 }

@@ -100,6 +100,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // github url to repo
+  repo?: string;
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -116,10 +120,6 @@ export interface DeployRequest {
   env_vars?: { [key: string]: string };
   // function name
   name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
-  // github url to repo
-  repo?: string;
 }
 
 export interface DeployResponse {
@@ -137,36 +137,36 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // time it was updated
-  updated?: string;
+  // function name
+  // limitation: must be unique across projects
+  name?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // git repo address
+  repo?: string;
+  // runtime/language of the function e.g php74,
+  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+  // python37, python38, python39
+  runtime?: string;
+  // subfolder path to entrypoint
+  subfolder?: string;
   // unique url of the function
   url?: string;
   // branch to deploy. defaults to master
   branch?: string;
   // time of creation
   created?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // git repo address
-  repo?: string;
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // subfolder path to entrypoint
-  subfolder?: string;
-  // name of handler in source code
-  entrypoint?: string;
   // id of the function
   id?: string;
-  // function name
-  // limitation: must be unique across projects
-  name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
-  // runtime/language of the function e.g php74,
-  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-  // python37, python38, python39
-  runtime?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
+  // time it was updated
+  updated?: string;
+  // name of handler in source code
+  entrypoint?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
 }
 
 export interface ListRequest {}
@@ -193,16 +193,16 @@ export interface RegionsResponse {
 }
 
 export interface Reservation {
+  // owner id
+  owner?: string;
+  // associated token
+  token?: string;
   // time of reservation
   created?: string;
   // time reservation expires
   expires?: string;
   // name of the app
   name?: string;
-  // owner id
-  owner?: string;
-  // associated token
-  token?: string;
 }
 
 export interface ReserveRequest {

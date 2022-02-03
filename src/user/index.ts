@@ -134,14 +134,6 @@ export class UserService {
 }
 
 export interface Account {
-  // an email address
-  email?: string;
-  // unique account id
-  id?: string;
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
-  // unix timestamp
-  updated?: number;
   // alphanumeric username
   username?: string;
   // date of verification
@@ -150,9 +142,19 @@ export interface Account {
   verified?: boolean;
   // unix timestamp
   created?: number;
+  // an email address
+  email?: string;
+  // unique account id
+  id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
+  // unix timestamp
+  updated?: number;
 }
 
 export interface CreateRequest {
+  // the user password
+  password?: string;
   // optional user profile as map<string,string>
   profile?: { [key: string]: string };
   // the username
@@ -161,8 +163,6 @@ export interface CreateRequest {
   email?: string;
   // optional account id
   id?: string;
-  // the user password
-  password?: string;
 }
 
 export interface CreateResponse {
@@ -177,10 +177,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface ListRequest {
-  offset?: number;
   // Maximum number of records to return. Default limit is 25.
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
+  offset?: number;
 }
 
 export interface ListResponse {
@@ -188,12 +188,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
+  // The username of the user
+  username?: string;
   // The email address of the user
   email?: string;
   // The password of the user
   password?: string;
-  // The username of the user
-  username?: string;
 }
 
 export interface LoginResponse {
@@ -232,19 +232,21 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
-  // The code from the verification email
-  code?: string;
   // confirm new password
   confirmPassword?: string;
   // the email to reset the password for
   email?: string;
   // the new password
   newPassword?: string;
+  // The code from the verification email
+  code?: string;
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -257,8 +259,6 @@ export interface SendMagicLinkRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   textContent?: string;
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -278,6 +278,9 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  failureRedirectUrl?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  fromName?: string;
   redirectUrl?: string;
   // subject of the email
   subject?: string;
@@ -286,9 +289,6 @@ export interface SendVerificationEmailRequest {
   textContent?: string;
   // email address to send the verification code
   email?: string;
-  failureRedirectUrl?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  fromName?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -318,14 +318,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the new email address
-  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
+  // the new email address
+  email?: string;
 }
 
 export interface UpdateResponse {}

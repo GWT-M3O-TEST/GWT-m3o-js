@@ -107,8 +107,6 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
-  // 'asc' (default), 'desc'
-  order?: string;
   // field name to order by
   orderBy?: string;
   // Examples: 'age >= 18', 'age >= 18 and verified == true'
@@ -125,6 +123,8 @@ export interface ReadRequest {
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
   offset?: number;
+  // 'asc' (default), 'desc'
+  order?: string;
 }
 
 export interface ReadResponse {
@@ -148,12 +148,12 @@ export interface TruncateRequest {
 export interface TruncateResponse {}
 
 export interface UpdateRequest {
+  // The id of the record. If not specified it is inferred from the 'id' field of the record
+  id?: string;
   // record, JSON object
   record?: { [key: string]: any };
   // Optional table name. Defaults to 'default'
   table?: string;
-  // The id of the record. If not specified it is inferred from the 'id' field of the record
-  id?: string;
 }
 
 export interface UpdateResponse {}

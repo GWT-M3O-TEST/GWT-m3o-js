@@ -54,23 +54,23 @@ export interface CodesResponse {
 }
 
 export interface ConvertRequest {
-  // target code to convert to e.g GBP
-  to?: string;
   // optional amount to convert e.g 10.0
   amount?: number;
   // base code to convert from e.g USD
   from?: string;
+  // target code to convert to e.g GBP
+  to?: string;
 }
 
 export interface ConvertResponse {
-  // converted amount e.g 7.10
-  amount?: number;
-  // the base code e.g USD
-  from?: string;
   // conversion rate e.g 0.71
   rate?: number;
   // the target code e.g GBP
   to?: string;
+  // converted amount e.g 7.10
+  amount?: number;
+  // the base code e.g USD
+  from?: string;
 }
 
 export interface HistoryRequest {
@@ -81,12 +81,12 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // The code of the request
+  code?: string;
   // The date requested
   date?: string;
   // The rate for the day as code:rate
   rates?: { [key: string]: number };
-  // The code of the request
-  code?: string;
 }
 
 export interface RatesRequest {
