@@ -63,10 +63,10 @@ export interface DeleteIndexRequest {
 export interface DeleteIndexResponse {}
 
 export interface DeleteRequest {
-  // The ID of the document to delete
-  id?: string;
   // The index the document belongs to
   index?: string;
+  // The ID of the document to delete
+  id?: string;
 }
 
 export interface DeleteResponse {}
@@ -79,17 +79,17 @@ export interface Document {
 }
 
 export interface Field {
-  // The type of the field - string, number
-  type?: string;
   // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   name?: string;
+  // The type of the field - string, number
+  type?: string;
 }
 
 export interface IndexRequest {
-  // The document to index
-  document?: Document;
   // The index this document belongs to
   index?: string;
+  // The document to index
+  document?: Document;
 }
 
 export interface IndexResponse {

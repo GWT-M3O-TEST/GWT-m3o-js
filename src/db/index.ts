@@ -107,6 +107,8 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
+  // 'asc' (default), 'desc'
+  order?: string;
   // field name to order by
   orderBy?: string;
   // Examples: 'age >= 18', 'age >= 18 and verified == true'
@@ -123,8 +125,6 @@ export interface ReadRequest {
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
   offset?: number;
-  // 'asc' (default), 'desc'
-  order?: string;
 }
 
 export interface ReadResponse {
