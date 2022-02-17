@@ -72,17 +72,17 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Document {
-  // The JSON contents of the document
-  contents?: { [key: string]: any };
   // The ID for this document. If blank, one will be generated
   id?: string;
+  // The JSON contents of the document
+  contents?: { [key: string]: any };
 }
 
 export interface Field {
-  // The type of the field - string, number
-  type?: string;
   // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   name?: string;
+  // The type of the field - string, number
+  type?: string;
 }
 
 export interface IndexRequest {

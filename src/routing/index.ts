@@ -29,12 +29,6 @@ export class RoutingService {
 }
 
 export interface Direction {
-  // intersections on route
-  intersections?: Intersection[];
-  // maneuver to take
-  maneuver?: Maneuver;
-  // street name or location
-  name?: string;
   // alternative reference
   reference?: string;
   // distance to travel in meters
@@ -43,6 +37,12 @@ export interface Direction {
   duration?: number;
   // human readable instruction
   instruction?: string;
+  // intersections on route
+  intersections?: Intersection[];
+  // maneuver to take
+  maneuver?: Maneuver;
+  // street name or location
+  name?: string;
 }
 
 export interface DirectionsRequest {
@@ -53,14 +53,14 @@ export interface DirectionsRequest {
 }
 
 export interface DirectionsResponse {
-  // The waypoints on the route
-  waypoints?: Waypoint[];
   // Turn by turn directions
   directions?: Direction[];
   // Estimated distance of the route in meters
   distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
+  // The waypoints on the route
+  waypoints?: Waypoint[];
 }
 
 export interface EtaRequest {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  action?: string;
+  bearing_after?: number;
   bearing_before?: number;
   direction?: string;
   location?: Point;
-  action?: string;
-  bearing_after?: number;
 }
 
 export interface Point {
@@ -100,24 +100,24 @@ export interface Point {
 }
 
 export interface RouteRequest {
-  // Point of destination for the trip
-  destination?: Point;
   // Point of origin for the trip
   origin?: Point;
+  // Point of destination for the trip
+  destination?: Point;
 }
 
 export interface RouteResponse {
-  // estimated distance in meters
-  distance?: number;
   // estimated duration in seconds
   duration?: number;
   // waypoints on the route
   waypoints?: Waypoint[];
+  // estimated distance in meters
+  distance?: number;
 }
 
 export interface Waypoint {
-  // street name or related reference
-  name?: string;
   // gps point coordinates
   location?: Point;
+  // street name or related reference
+  name?: string;
 }

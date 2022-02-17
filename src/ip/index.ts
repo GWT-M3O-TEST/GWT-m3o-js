@@ -18,14 +18,6 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // Latitude e.g 52.523219
-  latitude?: number;
-  // Longitude e.g 13.428555
-  longitude?: number;
-  // Timezone e.g Europe/Rome
-  timezone?: string;
-  // Autonomous system number
-  asn?: number;
   // Name of the city
   city?: string;
   // Name of the continent
@@ -34,4 +26,12 @@ export interface LookupResponse {
   country?: string;
   // IP of the query
   ip?: string;
+  // Latitude e.g 52.523219
+  latitude?: number;
+  // Longitude e.g 13.428555
+  longitude?: number;
+  // Timezone e.g Europe/Rome
+  timezone?: string;
+  // Autonomous system number
+  asn?: number;
 }

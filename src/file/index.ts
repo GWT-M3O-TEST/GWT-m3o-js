@@ -64,6 +64,8 @@ export interface ReadResponse {
 }
 
 export interface Record {
+  // Time the file was updated e.g 2021-05-20T13:37:21Z
+  updated?: string;
   // File contents
   content?: string;
   // Time the file was created e.g 2021-05-20T13:37:21Z
@@ -75,8 +77,6 @@ export interface Record {
   // A custom project to group files
   // eg. file-of-mywebsite.com
   project?: string;
-  // Time the file was updated e.g 2021-05-20T13:37:21Z
-  updated?: string;
 }
 
 export interface SaveRequest {

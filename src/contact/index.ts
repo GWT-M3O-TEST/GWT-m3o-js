@@ -58,26 +58,26 @@ export interface Address {
 export interface ContactInfo {
   // the emails
   emails?: Email[];
-  // the phone numbers
-  phones?: Phone[];
-  // update date string in RFC3339
-  updated_at?: string;
-  // create date string in RFC3339
-  created_at?: string;
-  // the birthday
-  birthday?: string;
   // contact id
   id?: string;
+  // note of the contact
+  note?: string;
+  // the address
+  addresses?: Address[];
+  // the birthday
+  birthday?: string;
+  // create date string in RFC3339
+  created_at?: string;
+  // the social media username
+  social_medias?: SocialMedia;
+  // update date string in RFC3339
+  updated_at?: string;
   // the contact links
   links?: Link[];
   // the contact name
   name?: string;
-  // note of the contact
-  note?: string;
-  // the social media username
-  social_medias?: SocialMedia;
-  // the address
-  addresses?: Address[];
+  // the phone numbers
+  phones?: Phone[];
 }
 
 export interface CreateRequest {
@@ -125,10 +125,10 @@ export interface Link {
 }
 
 export interface ListRequest {
-  // optional
-  offset?: number;
   // optional, default is 30
   limit?: number;
+  // optional
+  offset?: number;
 }
 
 export interface ListResponse {
@@ -158,24 +158,24 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
-  // optional, addresses
-  addresses?: Address[];
-  // optional, birthday
-  birthday?: string;
-  // required, the contact id
-  id?: string;
-  // required, the name
-  name?: string;
-  // optional, note
-  note?: string;
   // optional, emails
   emails?: Email[];
   // optional, links
   links?: Link[];
-  // optional, phone number
-  phones?: Phone[];
+  // required, the name
+  name?: string;
   // optional, social media
   social_medias?: SocialMedia;
+  // optional, addresses
+  addresses?: Address[];
+  // optional, birthday
+  birthday?: string;
+  // optional, phone number
+  phones?: Phone[];
+  // required, the contact id
+  id?: string;
+  // optional, note
+  note?: string;
 }
 
 export interface UpdateResponse {

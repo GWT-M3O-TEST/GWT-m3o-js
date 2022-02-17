@@ -33,34 +33,34 @@ export class NftService {
 }
 
 export interface Asset {
-  // associated collection
-  collection?: Collection;
-  // related description
-  description?: string;
-  // id of the asset
-  id?: number;
-  // listing date
-  listing_date?: string;
-  // is it a presale
-  presale?: boolean;
-  // asset contract
-  contract?: Contract;
-  // Creator of the NFT
-  creator?: User;
-  // the image url
-  image_url?: string;
-  // last time sold
-  last_sale?: Sale;
-  // name of the asset
-  name?: string;
-  // Owner of the NFT
-  owner?: User;
-  // number of sales
-  sales?: number;
   // the permalink
   permalink?: string;
+  // number of sales
+  sales?: number;
+  // listing date
+  listing_date?: string;
+  // last time sold
+  last_sale?: Sale;
+  // Owner of the NFT
+  owner?: User;
   // the token id
   token_id?: string;
+  // associated collection
+  collection?: Collection;
+  // id of the asset
+  id?: number;
+  // name of the asset
+  name?: string;
+  // is it a presale
+  presale?: boolean;
+  // Creator of the NFT
+  creator?: User;
+  // related description
+  description?: string;
+  // the image url
+  image_url?: string;
+  // asset contract
+  contract?: Contract;
 }
 
 export interface AssetsRequest {
@@ -82,12 +82,12 @@ export interface AssetsResponse {
 }
 
 export interface Collection {
+  slug?: string;
   created_at?: string;
   description?: string;
   image_url?: string;
   name?: string;
   payout_address?: string;
-  slug?: string;
 }
 
 export interface CollectionsRequest {
@@ -102,14 +102,6 @@ export interface CollectionsResponse {
 export interface Contract {
   // ethereum address
   address?: string;
-  // owner id
-  owner?: number;
-  // aka "ERC1155"
-  schema?: string;
-  // timestamp of creation
-  created_at?: string;
-  // description of contract
-  description?: string;
   // name of contract
   name?: string;
   // payout address
@@ -120,6 +112,14 @@ export interface Contract {
   symbol?: string;
   // type of contract e.g "semi-fungible"
   type?: string;
+  // timestamp of creation
+  created_at?: string;
+  // description of contract
+  description?: string;
+  // owner id
+  owner?: number;
+  // aka "ERC1155"
+  schema?: string;
 }
 
 export interface CreateRequest {
@@ -138,18 +138,19 @@ export interface CreateResponse {
 }
 
 export interface Sale {
+  asset_decimals?: number;
+  payment_token?: Token;
   total_price?: string;
+  transaction?: Transaction;
   asset_token_id?: string;
   created_at?: string;
-  payment_token?: Token;
-  quantity?: string;
-  asset_decimals?: number;
   event_timestamp?: string;
   event_type?: string;
-  transaction?: Transaction;
+  quantity?: string;
 }
 
 export interface Token {
+  address?: string;
   decimals?: number;
   eth_price?: string;
   id?: number;
@@ -157,18 +158,17 @@ export interface Token {
   name?: string;
   symbol?: string;
   usd_price?: string;
-  address?: string;
 }
 
 export interface Transaction {
+  id?: number;
+  timestamp?: string;
   to_account?: User;
   transaction_hash?: string;
   transaction_index?: string;
   block_hash?: string;
   block_number?: string;
   from_account?: User;
-  id?: number;
-  timestamp?: string;
 }
 
 export interface User {
