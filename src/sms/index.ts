@@ -22,8 +22,8 @@ export interface SendRequest {
 }
 
 export interface SendResponse {
-  // any additional info
-  info?: string;
   // will return "ok" if successful
   status?: string;
+  // any additional info
+  info?: string;
 }

@@ -30,10 +30,10 @@ export interface OffsetResponse {
 }
 
 export interface Project {
-  // name of the project
-  name?: string;
   // percentage that went to this
   percentage?: number;
   // amount in tonnes
   tonnes?: number;
+  // name of the project
+  name?: string;
 }

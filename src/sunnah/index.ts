@@ -101,8 +101,6 @@ export interface ChaptersRequest {
 }
 
 export interface ChaptersResponse {
-  // number of the book
-  book?: number;
   // The chapters of the book
   chapters?: Chapter[];
   // name of the collection
@@ -113,26 +111,28 @@ export interface ChaptersResponse {
   page?: number;
   // Total chapters in the book
   total?: number;
+  // number of the book
+  book?: number;
 }
 
 export interface Collection {
+  // An introduction explaining the collection
+  summary?: string;
+  // Title of the collection e.g Sahih al-Bukhari
+  title?: string;
   // Arabic title if available
   arabic_title?: string;
   // Total hadiths in the collection
   hadiths?: number;
   // Name of the collection e.g bukhari
   name?: string;
-  // An introduction explaining the collection
-  summary?: string;
-  // Title of the collection e.g Sahih al-Bukhari
-  title?: string;
 }
 
 export interface CollectionsRequest {
-  // Number of collections to limit to
-  limit?: number;
   // The page in the pagination
   page?: number;
+  // Number of collections to limit to
+  limit?: number;
 }
 
 export interface CollectionsResponse {
@@ -140,12 +140,6 @@ export interface CollectionsResponse {
 }
 
 export interface Hadith {
-  // the chapter key
-  chapter_key?: string;
-  // the chapter title
-  chapter_title?: string;
-  // hadith id
-  id?: number;
   // hadith text
   text?: string;
   // the arabic chapter title
@@ -154,30 +148,36 @@ export interface Hadith {
   arabic_text?: string;
   // the chapter id
   chapter?: number;
+  // the chapter key
+  chapter_key?: string;
+  // the chapter title
+  chapter_title?: string;
+  // hadith id
+  id?: number;
 }
 
 export interface HadithsRequest {
-  // number of the book
-  book?: number;
-  // name of the collection
-  collection?: string;
   // Limit the number of hadiths
   limit?: number;
   // The page in the pagination
   page?: number;
+  // number of the book
+  book?: number;
+  // name of the collection
+  collection?: string;
 }
 
 export interface HadithsResponse {
-  // Limit the number of hadiths returned
-  limit?: number;
-  // The page in the pagination
-  page?: number;
-  // Total hadiths in the  book
-  total?: number;
   // number of the book
   book?: number;
   // name of the collection
   collection?: string;
   // The hadiths of the book
   hadiths?: Hadith[];
+  // Limit the number of hadiths returned
+  limit?: number;
+  // The page in the pagination
+  page?: number;
+  // Total hadiths in the  book
+  total?: number;
 }

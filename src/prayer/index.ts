@@ -17,10 +17,6 @@ export class PrayerService {
 }
 
 export interface PrayerTime {
-  // time of sunrise
-  sunrise?: string;
-  // zuhr time
-  zuhr?: string;
   // asr time
   asr?: string;
   // date for prayer times in YYYY-MM-DD format
@@ -31,6 +27,10 @@ export interface PrayerTime {
   isha?: string;
   // maghrib time
   maghrib?: string;
+  // time of sunrise
+  sunrise?: string;
+  // zuhr time
+  zuhr?: string;
 }
 
 export interface TimesRequest {
@@ -48,10 +48,6 @@ export interface TimesRequest {
 }
 
 export interface TimesResponse {
-  // longitude of location
-  longitude?: number;
-  // prayer times for the given location
-  times?: PrayerTime[];
   // date of request
   date?: string;
   // number of days
@@ -60,4 +56,8 @@ export interface TimesResponse {
   latitude?: number;
   // location for the request
   location?: string;
+  // longitude of location
+  longitude?: number;
+  // prayer times for the given location
+  times?: PrayerTime[];
 }

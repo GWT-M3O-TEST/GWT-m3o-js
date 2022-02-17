@@ -43,26 +43,26 @@ export class QuranService {
 }
 
 export interface Chapter {
-  // The id of the chapter as a number e.g 1
-  id?: number;
+  // The simple name of the chapter
+  name?: string;
   // Should the chapter start with bismillah
   prefix_bismillah?: boolean;
   // The place of revelation
   revelation_place?: string;
-  // The translated name
-  translated_name?: string;
   // The arabic name of the chapter
   arabic_name?: string;
   // The complex name of the chapter
   complex_name?: string;
-  // The order in which it was revealed
-  revelation_order?: number;
-  // The number of verses in the chapter
-  verses?: number;
-  // The simple name of the chapter
-  name?: string;
+  // The id of the chapter as a number e.g 1
+  id?: number;
   // The pages from and to e.g 1, 1
   pages?: number[];
+  // The order in which it was revealed
+  revelation_order?: number;
+  // The translated name
+  translated_name?: string;
+  // The number of verses in the chapter
+  verses?: number;
 }
 
 export interface ChaptersRequest {
@@ -75,34 +75,34 @@ export interface ChaptersResponse {
 }
 
 export interface Interpretation {
+  // The unique id of the interpretation
+  id?: number;
   // The source of the interpretation
   source?: string;
   // The translated text
   text?: string;
-  // The unique id of the interpretation
-  id?: number;
 }
 
 export interface Result {
+  // The verse key e.g 1:1
+  verse_key?: string;
   // The associated arabic text
   text?: string;
   // The related translations to the text
   translations?: Translation[];
   // The unique verse id across the Quran
   verse_id?: number;
-  // The verse key e.g 1:1
-  verse_key?: string;
 }
 
 export interface SearchRequest {
+  // The query to ask
+  query?: string;
   // The language for translation
   language?: string;
   // The number of results to return
   limit?: number;
   // The pagination number
   page?: number;
-  // The query to ask
-  query?: string;
 }
 
 export interface SearchResponse {
@@ -126,14 +126,14 @@ export interface SummaryRequest {
 }
 
 export interface SummaryResponse {
-  // The chapter id
-  chapter?: number;
-  // The source of the summary
-  source?: string;
   // The short summary for the chapter
   summary?: string;
   // The full description for the chapter
   text?: string;
+  // The chapter id
+  chapter?: number;
+  // The source of the summary
+  source?: string;
 }
 
 export interface Translation {
@@ -146,31 +146,29 @@ export interface Translation {
 }
 
 export interface Verse {
+  // The interpretations of the verse
+  interpretations?: Interpretation[];
   // The arabic text for this verse
   text?: string;
   // The basic translation of the verse
   translated_text?: string;
-  // The alternative translations for the verse
-  translations?: Translation[];
   // The individual words within the verse (Ayah)
   words?: Word[];
-  // The interpretations of the verse
-  interpretations?: Interpretation[];
-  // The page of the Quran this verse is on
-  page?: number;
-  // The verse number in this chapter
-  number?: number;
+  // The alternative translations for the verse
+  translations?: Translation[];
   // The phonetic transliteration from arabic
   transliteration?: string;
   // The unique id of the verse in the whole book
   id?: number;
   // The key of this verse (chapter:verse) e.g 1:1
   key?: string;
+  // The verse number in this chapter
+  number?: number;
+  // The page of the Quran this verse is on
+  page?: number;
 }
 
 export interface VersesRequest {
-  // Return the individual words with the verses
-  words?: boolean;
   // The chapter id to retrieve
   chapter?: number;
   // Return the interpretation (tafsir)
@@ -183,36 +181,38 @@ export interface VersesRequest {
   page?: number;
   // Return alternate translations
   translate?: boolean;
+  // Return the individual words with the verses
+  words?: boolean;
 }
 
 export interface VersesResponse {
-  // The chapter requested
-  chapter?: number;
   // The page requested
   page?: number;
   // The total pages
   total_pages?: number;
   // The verses on the page
   verses?: Verse[];
+  // The chapter requested
+  chapter?: number;
 }
 
 export interface Word {
-  // The position of the word
-  position?: number;
-  // The arabic text for this word
-  text?: string;
-  // The translated text
-  translation?: string;
   // The character type e.g word, end
   char_type?: string;
-  // The page number
-  page?: number;
-  // The line number
-  line?: number;
-  // The transliteration text
-  transliteration?: string;
+  // The arabic text for this word
+  text?: string;
   // The QCF v2 font code
   code?: string;
   // The id of the word within the verse
   id?: number;
+  // The line number
+  line?: number;
+  // The page number
+  page?: number;
+  // The position of the word
+  position?: number;
+  // The translated text
+  translation?: string;
+  // The transliteration text
+  transliteration?: string;
 }

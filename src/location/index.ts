@@ -39,9 +39,9 @@ export interface Entity {
 }
 
 export interface Point {
+  longitude?: number;
   timestamp?: number;
   latitude?: number;
-  longitude?: number;
 }
 
 export interface ReadRequest {

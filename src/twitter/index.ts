@@ -41,26 +41,26 @@ export class TwitterService {
 }
 
 export interface Profile {
-  // if the account is private
-  private?: boolean;
-  // the username
-  username?: string;
-  // The user's profile picture
-  image_url?: string;
-  // the user's location
-  location?: string;
-  // display name of the user
-  name?: string;
-  // if the account is verified
-  verified?: boolean;
   // the account creation date
   created_at?: string;
+  // the user id
+  id?: number;
+  // The user's profile picture
+  image_url?: string;
+  // if the account is verified
+  verified?: boolean;
   // the user description
   description?: string;
   // the follower count
   followers?: number;
-  // the user id
-  id?: number;
+  // the user's location
+  location?: string;
+  // display name of the user
+  name?: string;
+  // if the account is private
+  private?: boolean;
+  // the username
+  username?: string;
 }
 
 export interface SearchRequest {
@@ -124,8 +124,8 @@ export interface UserRequest {
 }
 
 export interface UserResponse {
-  // the current user status
-  status?: Tweet;
   // The requested user profile
   profile?: Profile;
+  // the current user status
+  status?: Tweet;
 }

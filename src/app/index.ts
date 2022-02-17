@@ -42,7 +42,7 @@ export class AppService {
       request
     ) as Promise<ResolveResponse>;
   }
-  // Run an app from a source repo. Specify region etc.
+  // Run an app from source
   run(request: RunRequest): Promise<RunResponse> {
     return this.client.call("app", "Run", request) as Promise<RunResponse>;
   }
@@ -118,18 +118,18 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
+  // source repository
+  repo?: string;
+  // branch. defaults to master
+  branch?: string;
+  // associated env vars to pass in
+  env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
   // port to run on
   port?: number;
   // region to run in
   region?: string;
-  // source repository
-  repo?: string;
-  // branch. defaults to master
-  branch?: string;
-  // associatede env vars to pass in
-  env_vars?: { [key: string]: string };
 }
 
 export interface RunResponse {
@@ -138,20 +138,6 @@ export interface RunResponse {
 }
 
 export interface Service {
-  // last updated
-  updated?: string;
-  // custom domains
-  custom_domains?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // port running on
-  port?: number;
-  // region running in
-  region?: string;
-  // source repository
-  repo?: string;
-  // status of the app
-  status?: string;
   // branch of code
   branch?: string;
   // time of creation
@@ -160,8 +146,22 @@ export interface Service {
   id?: string;
   // name of the app
   name?: string;
+  // source repository
+  repo?: string;
   // app url
   url?: string;
+  // custom domains
+  custom_domains?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // port running on
+  port?: number;
+  // region running in
+  region?: string;
+  // status of the app
+  status?: string;
+  // last updated
+  updated?: string;
 }
 
 export interface StatusRequest {

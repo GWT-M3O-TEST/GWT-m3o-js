@@ -29,6 +29,10 @@ export class RoutingService {
 }
 
 export interface Direction {
+  // human readable instruction
+  instruction?: string;
+  // intersections on route
+  intersections?: Intersection[];
   // maneuver to take
   maneuver?: Maneuver;
   // street name or location
@@ -39,28 +43,24 @@ export interface Direction {
   distance?: number;
   // duration to travel in seconds
   duration?: number;
-  // human readable instruction
-  instruction?: string;
-  // intersections on route
-  intersections?: Intersection[];
 }
 
 export interface DirectionsRequest {
-  // The destination of the journey
-  destination?: Point;
   // The staring point for the journey
   origin?: Point;
+  // The destination of the journey
+  destination?: Point;
 }
 
 export interface DirectionsResponse {
-  // Estimated duration of the route in seconds
-  duration?: number;
-  // The waypoints on the route
-  waypoints?: Waypoint[];
   // Turn by turn directions
   directions?: Direction[];
   // Estimated distance of the route in meters
   distance?: number;
+  // Estimated duration of the route in seconds
+  duration?: number;
+  // The waypoints on the route
+  waypoints?: Waypoint[];
 }
 
 export interface EtaRequest {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
-  location?: Point;
   action?: string;
   bearing_after?: number;
   bearing_before?: number;
   direction?: string;
+  location?: Point;
 }
 
 export interface Point {

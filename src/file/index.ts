@@ -52,10 +52,10 @@ export interface ListResponse {
 }
 
 export interface ReadRequest {
-  // Path to the file
-  path?: string;
   // Project name
   project?: string;
+  // Path to the file
+  path?: string;
 }
 
 export interface ReadResponse {
@@ -80,7 +80,13 @@ export interface Record {
 }
 
 export interface SaveRequest {
+  // The file to save
   file?: Record;
+  // Make the file public: true or false
+  public?: boolean;
 }
 
-export interface SaveResponse {}
+export interface SaveResponse {
+  // The permalink for the file if made public
+  url?: string;
+}
