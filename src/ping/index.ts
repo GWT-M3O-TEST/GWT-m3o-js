@@ -40,22 +40,22 @@ export interface TcpRequest {
 }
 
 export interface TcpResponse {
-  // response data if any
-  data?: string;
   // response status
   status?: string;
+  // response data if any
+  data?: string;
 }
 
 export interface UrlRequest {
-  // address to use
-  address?: string;
   // method of the call
   method?: string;
+  // address to use
+  address?: string;
 }
 
 export interface UrlResponse {
-  // the response status
-  status?: string;
   // the response code
   code?: number;
+  // the response status
+  status?: string;
 }

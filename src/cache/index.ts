@@ -49,10 +49,10 @@ export class CacheService {
 }
 
 export interface DecrementRequest {
-  // The amount to decrement the value by
-  value?: number;
   // The key to decrement
   key?: string;
+  // The amount to decrement the value by
+  value?: number;
 }
 
 export interface DecrementResponse {

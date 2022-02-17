@@ -41,17 +41,13 @@ export class StockService {
 }
 
 export interface HistoryRequest {
-  // date to retrieve as YYYY-MM-DD
-  date?: string;
   // the stock symbol e.g AAPL
   stock?: string;
+  // date to retrieve as YYYY-MM-DD
+  date?: string;
 }
 
 export interface HistoryResponse {
-  // the volume
-  volume?: number;
-  // the close price
-  close?: number;
   // the date
   date?: string;
   // the peak price
@@ -62,6 +58,10 @@ export interface HistoryResponse {
   open?: number;
   // the stock symbol
   symbol?: string;
+  // the volume
+  volume?: number;
+  // the close price
+  close?: number;
 }
 
 export interface Order {
@@ -78,6 +78,8 @@ export interface Order {
 }
 
 export interface OrderBookRequest {
+  // the date in format YYYY-MM-dd
+  date?: string;
   // optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
   end?: string;
   // limit number of prices
@@ -86,8 +88,6 @@ export interface OrderBookRequest {
   start?: string;
   // stock to retrieve e.g AAPL
   stock?: string;
-  // the date in format YYYY-MM-dd
-  date?: string;
 }
 
 export interface OrderBookResponse {

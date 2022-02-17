@@ -118,8 +118,6 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
-  // source repository
-  repo?: string;
   // branch. defaults to master
   branch?: string;
   // associated env vars to pass in
@@ -130,6 +128,8 @@ export interface RunRequest {
   port?: number;
   // region to run in
   region?: string;
+  // source repository
+  repo?: string;
 }
 
 export interface RunResponse {
@@ -138,26 +138,26 @@ export interface RunResponse {
 }
 
 export interface Service {
+  // name of the app
+  name?: string;
+  // region running in
+  region?: string;
+  // app url
+  url?: string;
   // branch of code
   branch?: string;
   // time of creation
   created?: string;
-  // unique id
-  id?: string;
-  // name of the app
-  name?: string;
-  // source repository
-  repo?: string;
-  // app url
-  url?: string;
   // custom domains
   custom_domains?: string;
   // associated env vars
   env_vars?: { [key: string]: string };
+  // unique id
+  id?: string;
   // port running on
   port?: number;
-  // region running in
-  region?: string;
+  // source repository
+  repo?: string;
   // status of the app
   status?: string;
   // last updated

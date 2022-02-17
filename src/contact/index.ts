@@ -56,31 +56,35 @@ export interface Address {
 }
 
 export interface ContactInfo {
-  // the birthday
-  birthday?: string;
-  // the emails
-  emails?: Email[];
   // contact id
   id?: string;
-  // note of the contact
-  note?: string;
-  // the phone numbers
-  phones?: Phone[];
-  // the social media username
-  social_medias?: SocialMedia;
-  // the address
-  addresses?: Address[];
-  // create date string in RFC3339
-  created_at?: string;
   // the contact links
   links?: Link[];
   // the contact name
   name?: string;
+  // the social media username
+  social_medias?: SocialMedia;
+  // the address
+  addresses?: Address[];
+  // the birthday
+  birthday?: string;
+  // note of the contact
+  note?: string;
+  // the phone numbers
+  phones?: Phone[];
   // update date string in RFC3339
   updated_at?: string;
+  // create date string in RFC3339
+  created_at?: string;
+  // the emails
+  emails?: Email[];
 }
 
 export interface CreateRequest {
+  // optional, location
+  addresses?: Address[];
+  // optional, birthday
+  birthday?: string;
   // optional, emails
   emails?: Email[];
   // optional, links
@@ -93,10 +97,6 @@ export interface CreateRequest {
   phones?: Phone[];
   // optional, social media
   social_medias?: SocialMedia;
-  // optional, location
-  addresses?: Address[];
-  // optional, birthday
-  birthday?: string;
 }
 
 export interface CreateResponse {
@@ -158,24 +158,24 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
-  // optional, birthday
-  birthday?: string;
   // optional, emails
   emails?: Email[];
-  // optional, links
-  links?: Link[];
-  // optional, social media
-  social_medias?: SocialMedia;
-  // optional, addresses
-  addresses?: Address[];
-  // required, the contact id
-  id?: string;
   // required, the name
   name?: string;
+  // optional, addresses
+  addresses?: Address[];
+  // optional, birthday
+  birthday?: string;
   // optional, note
   note?: string;
   // optional, phone number
   phones?: Phone[];
+  // optional, social media
+  social_medias?: SocialMedia;
+  // required, the contact id
+  id?: string;
+  // optional, links
+  links?: Link[];
 }
 
 export interface UpdateResponse {

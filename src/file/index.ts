@@ -52,10 +52,10 @@ export interface ListResponse {
 }
 
 export interface ReadRequest {
-  // Project name
-  project?: string;
   // Path to the file
   path?: string;
+  // Project name
+  project?: string;
 }
 
 export interface ReadResponse {

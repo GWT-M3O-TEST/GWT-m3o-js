@@ -27,10 +27,6 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
-  // kind of result; "search"
-  kind?: string;
-  // the result snippet
-  snippet?: string;
   // title of the result
   title?: string;
   // the full url for the result
@@ -39,4 +35,8 @@ export interface SearchResult {
   display_url?: string;
   // id of the result
   id?: string;
+  // kind of result; "search"
+  kind?: string;
+  // the result snippet
+  snippet?: string;
 }

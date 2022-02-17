@@ -47,12 +47,12 @@ export interface ConsumeResponse {
 }
 
 export interface Ev {
+  // event message
+  message?: { [key: string]: any };
   // event timestamp
   timestamp?: string;
   // event id
   id?: string;
-  // event message
-  message?: { [key: string]: any };
 }
 
 export interface PublishRequest {

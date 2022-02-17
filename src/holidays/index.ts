@@ -38,6 +38,10 @@ export interface Country {
 }
 
 export interface Holiday {
+  // date of the holiday in yyyy-mm-dd format
+  date?: string;
+  // the local name of the holiday
+  local_name?: string;
   // the name of the holiday in English
   name?: string;
   // the regions within the country that observe this holiday (if not all of them)
@@ -46,10 +50,6 @@ export interface Holiday {
   types?: string[];
   // the country this holiday occurs in
   country_code?: string;
-  // date of the holiday in yyyy-mm-dd format
-  date?: string;
-  // the local name of the holiday
-  local_name?: string;
 }
 
 export interface ListRequest {

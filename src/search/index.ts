@@ -79,17 +79,17 @@ export interface Document {
 }
 
 export interface Field {
-  // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  name?: string;
   // The type of the field - string, number
   type?: string;
+  // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+  name?: string;
 }
 
 export interface IndexRequest {
-  // The index this document belongs to
-  index?: string;
   // The document to index
   document?: Document;
+  // The index this document belongs to
+  index?: string;
 }
 
 export interface IndexResponse {
@@ -97,10 +97,10 @@ export interface IndexResponse {
 }
 
 export interface SearchRequest {
-  // The query. See docs for query language examples
-  query?: string;
   // The index the document belongs to
   index?: string;
+  // The query. See docs for query language examples
+  query?: string;
 }
 
 export interface SearchResponse {
