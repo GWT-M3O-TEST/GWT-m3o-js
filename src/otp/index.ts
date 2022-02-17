@@ -39,10 +39,10 @@ export interface GenerateResponse {
 }
 
 export interface ValidateRequest {
-  // one time pass code to validate
-  code?: string;
   // unique id, email or user for which the code was generated
   id?: string;
+  // one time pass code to validate
+  code?: string;
 }
 
 export interface ValidateResponse {

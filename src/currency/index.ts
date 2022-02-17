@@ -63,21 +63,21 @@ export interface ConvertRequest {
 }
 
 export interface ConvertResponse {
-  // conversion rate e.g 0.71
-  rate?: number;
-  // the target code e.g GBP
-  to?: string;
   // converted amount e.g 7.10
   amount?: number;
   // the base code e.g USD
   from?: string;
+  // conversion rate e.g 0.71
+  rate?: number;
+  // the target code e.g GBP
+  to?: string;
 }
 
 export interface HistoryRequest {
-  // currency code e.g USD
-  code?: string;
   // date formatted as YYYY-MM-DD
   date?: string;
+  // currency code e.g USD
+  code?: string;
 }
 
 export interface HistoryResponse {

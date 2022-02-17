@@ -71,12 +71,12 @@ export interface CountResponse {
 }
 
 export interface CreateRequest {
-  // Optional table name. Defaults to 'default'
-  table?: string;
   // optional record id to use
   id?: string;
   // JSON encoded record or records (can be array or object)
   record?: { [key: string]: any };
+  // Optional table name. Defaults to 'default'
+  table?: string;
 }
 
 export interface CreateResponse {

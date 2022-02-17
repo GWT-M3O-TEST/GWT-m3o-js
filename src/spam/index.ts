@@ -17,6 +17,8 @@ export class SpamService {
 }
 
 export interface ClassifyRequest {
+  // The email address it has been sent from
+  from?: string;
   // the HTML version of the email body
   html_body?: string;
   // The subject of the email
@@ -27,15 +29,13 @@ export interface ClassifyRequest {
   to?: string;
   // The raw body of the email including headers etc per RFC 822. Alternatively, use the other parameters to correctly format the message
   email_body?: string;
-  // The email address it has been sent from
-  from?: string;
 }
 
 export interface ClassifyResponse {
-  // The score evaluated for this email. A higher number means it is more likely to be spam
-  score?: number;
   // The rules that have contributed to this score
   details?: string[];
   // Is it spam? Returns true if its score is > 5
   is_spam?: boolean;
+  // The score evaluated for this email. A higher number means it is more likely to be spam
+  score?: number;
 }

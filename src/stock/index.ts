@@ -41,10 +41,10 @@ export class StockService {
 }
 
 export interface HistoryRequest {
-  // the stock symbol e.g AAPL
-  stock?: string;
   // date to retrieve as YYYY-MM-DD
   date?: string;
+  // the stock symbol e.g AAPL
+  stock?: string;
 }
 
 export interface HistoryResponse {
@@ -65,8 +65,6 @@ export interface HistoryResponse {
 }
 
 export interface Order {
-  // the asking price
-  ask_price?: number;
   // the ask size
   ask_size?: number;
   // the bidding price
@@ -75,6 +73,8 @@ export interface Order {
   bid_size?: number;
   // the UTC timestamp of the quote
   timestamp?: string;
+  // the asking price
+  ask_price?: number;
 }
 
 export interface OrderBookRequest {
@@ -117,16 +117,16 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
-  // the asking price
-  ask_price?: number;
-  // the ask size
-  ask_size?: number;
-  // the bidding price
-  bid_price?: number;
   // the bid size
   bid_size?: number;
   // the stock symbol
   symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
+  // the asking price
+  ask_price?: number;
+  // the ask size
+  ask_size?: number;
+  // the bidding price
+  bid_price?: number;
 }

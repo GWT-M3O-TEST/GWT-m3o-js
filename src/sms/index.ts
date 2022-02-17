@@ -13,17 +13,17 @@ export class SmsService {
 }
 
 export interface SendRequest {
-  // who is the message from? The message will be suffixed with "Sent from <from>"
-  from?: string;
   // the main body of the message to send
   message?: string;
   // the destination phone number including the international dialling code (e.g. +44)
   to?: string;
+  // who is the message from? The message will be suffixed with "Sent from <from>"
+  from?: string;
 }
 
 export interface SendResponse {
-  // will return "ok" if successful
-  status?: string;
   // any additional info
   info?: string;
+  // will return "ok" if successful
+  status?: string;
 }

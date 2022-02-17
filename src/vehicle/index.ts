@@ -22,36 +22,36 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // co2 emmissions
-  co2_emissions?: number;
-  // colour of vehicle
-  colour?: string;
-  // engine capacity
-  engine_capacity?: number;
   // url of logo for the make
   logo_url?: string;
-  // type approvale
-  type_approval?: string;
+  // make of vehicle
+  make?: string;
+  // mot expiry
+  mot_expiry?: string;
+  // mot status
+  mot_status?: string;
   // registration number
   registration?: string;
   // tax due data
   tax_due_date?: string;
   // tax status
   tax_status?: string;
+  // co2 emmissions
+  co2_emissions?: number;
+  // month of first registration
+  month_of_first_registration?: string;
+  // colour of vehicle
+  colour?: string;
   // fuel type e.g petrol, diesel
   fuel_type?: string;
   // date of last v5 issue
   last_v5_issued?: string;
-  // month of first registration
-  month_of_first_registration?: string;
-  // mot expiry
-  mot_expiry?: string;
-  // mot status
-  mot_status?: string;
-  // make of vehicle
-  make?: string;
-  // year of manufacture
-  year_of_manufacture?: number;
+  // engine capacity
+  engine_capacity?: number;
+  // type approvale
+  type_approval?: string;
   // wheel plan
   wheelplan?: string;
+  // year of manufacture
+  year_of_manufacture?: number;
 }

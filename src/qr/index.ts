@@ -17,10 +17,10 @@ export class QrService {
 }
 
 export interface GenerateRequest {
-  // the size (height and width) in pixels of the generated QR code. Defaults to 256
-  size?: number;
   // the text to encode as a QR code (URL, phone number, email, etc)
   text?: string;
+  // the size (height and width) in pixels of the generated QR code. Defaults to 256
+  size?: number;
 }
 
 export interface GenerateResponse {
