@@ -63,19 +63,19 @@ export interface DeleteIndexRequest {
 export interface DeleteIndexResponse {}
 
 export interface DeleteRequest {
-  // The ID of the document to delete
-  id?: string;
   // The index the document belongs to
   index?: string;
+  // The ID of the document to delete
+  id?: string;
 }
 
 export interface DeleteResponse {}
 
 export interface Document {
-  // The ID for this document. If blank, one will be generated
-  id?: string;
   // The JSON contents of the document
   contents?: { [key: string]: any };
+  // The ID for this document. If blank, one will be generated
+  id?: string;
 }
 
 export interface Field {

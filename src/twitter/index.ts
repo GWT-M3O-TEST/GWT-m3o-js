@@ -45,22 +45,22 @@ export interface Profile {
   description?: string;
   // the follower count
   followers?: number;
-  // The user's profile picture
-  image_url?: string;
-  // the account creation date
-  created_at?: string;
-  // the user's location
-  location?: string;
+  // the user id
+  id?: number;
   // display name of the user
   name?: string;
   // if the account is private
   private?: boolean;
   // the username
   username?: string;
+  // the account creation date
+  created_at?: string;
+  // The user's profile picture
+  image_url?: string;
+  // the user's location
+  location?: string;
   // if the account is verified
   verified?: boolean;
-  // the user id
-  id?: number;
 }
 
 export interface SearchRequest {
@@ -76,10 +76,10 @@ export interface SearchResponse {
 }
 
 export interface TimelineRequest {
-  // number of tweets to return. default: 20
-  limit?: number;
   // the username to request the timeline for
   username?: string;
+  // number of tweets to return. default: 20
+  limit?: number;
 }
 
 export interface TimelineResponse {
@@ -88,12 +88,12 @@ export interface TimelineResponse {
 }
 
 export interface Trend {
-  // the volume of tweets in last 24 hours
-  tweet_volume?: number;
   // the twitter url
   url?: string;
   // name of the trend
   name?: string;
+  // the volume of tweets in last 24 hours
+  tweet_volume?: number;
 }
 
 export interface TrendsRequest {}
@@ -104,6 +104,8 @@ export interface TrendsResponse {
 }
 
 export interface Tweet {
+  // text of the tweet
+  text?: string;
   // username of the person who tweeted
   username?: string;
   // time of tweet
@@ -114,8 +116,6 @@ export interface Tweet {
   id?: number;
   // number of times retweeted
   retweeted_count?: number;
-  // text of the tweet
-  text?: string;
 }
 
 export interface UserRequest {

@@ -31,8 +31,8 @@ export interface GenerateRequest {
 }
 
 export interface GenerateResponse {
-  // base64encode string of the avatar image
-  base64?: string;
   // Micro's CDN url of the avatar image
   url?: string;
+  // base64encode string of the avatar image
+  base64?: string;
 }

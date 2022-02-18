@@ -29,21 +29,19 @@ export class RssService {
 }
 
 export interface AddRequest {
+  // category to add e.g news
+  category?: string;
   // rss feed name
   // eg. a16z
   name?: string;
   // rss feed url
   // eg. http://a16z.com/feed/
   url?: string;
-  // category to add e.g news
-  category?: string;
 }
 
 export interface AddResponse {}
 
 export interface Entry {
-  // unique id of the entry
-  id?: string;
   // rss feed url of the entry
   link?: string;
   // article summary
@@ -56,19 +54,21 @@ export interface Entry {
   date?: string;
   // the rss feed where it came from
   feed?: string;
+  // unique id of the entry
+  id?: string;
 }
 
 export interface Feed {
-  // category of the feed e.g news
-  category?: string;
-  // unique id
-  id?: string;
   // rss feed name
   // eg. a16z
   name?: string;
   // rss feed url
   // eg. http://a16z.com/feed/
   url?: string;
+  // category of the feed e.g news
+  category?: string;
+  // unique id
+  id?: string;
 }
 
 export interface FeedRequest {
