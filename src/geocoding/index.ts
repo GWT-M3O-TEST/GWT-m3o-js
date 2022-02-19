@@ -38,10 +38,10 @@ export interface Location {
 }
 
 export interface LookupRequest {
+  address?: string;
   city?: string;
   country?: string;
   postcode?: string;
-  address?: string;
 }
 
 export interface LookupResponse {

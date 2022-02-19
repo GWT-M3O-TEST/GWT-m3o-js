@@ -40,14 +40,16 @@ export interface ZoneRequest {
 }
 
 export interface ZoneResponse {
-  // the abbreviated code e.g BST
-  abbreviation?: string;
   // country of the timezone
   country?: string;
   // is daylight savings
   dst?: boolean;
   // location requested
   location?: string;
+  // the timezone e.g Europe/London
+  timezone?: string;
+  // the abbreviated code e.g BST
+  abbreviation?: string;
   // e.g 51.42
   latitude?: number;
   // the local time
@@ -56,6 +58,4 @@ export interface ZoneResponse {
   longitude?: number;
   // region of timezone
   region?: string;
-  // the timezone e.g Europe/London
-  timezone?: string;
 }

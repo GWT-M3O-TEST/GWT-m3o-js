@@ -37,16 +37,16 @@ export class CryptoService {
 }
 
 export interface Article {
-  // title of the article
-  title?: string;
-  // the source url
-  url?: string;
   // the date published
   date?: string;
   // its description
   description?: string;
   // the source
   source?: string;
+  // title of the article
+  title?: string;
+  // the source url
+  url?: string;
 }
 
 export interface HistoryRequest {
@@ -55,10 +55,6 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
-  // the peak price
-  high?: number;
-  // the low price
-  low?: number;
   // the open price
   open?: number;
   // the crypto symbol
@@ -69,6 +65,10 @@ export interface HistoryResponse {
   close?: number;
   // the date
   date?: string;
+  // the peak price
+  high?: number;
+  // the low price
+  low?: number;
 }
 
 export interface NewsRequest {
@@ -77,10 +77,10 @@ export interface NewsRequest {
 }
 
 export interface NewsResponse {
-  // symbol requested for
-  symbol?: string;
   // list of articles
   articles?: Article[];
+  // symbol requested for
+  symbol?: string;
 }
 
 export interface PriceRequest {

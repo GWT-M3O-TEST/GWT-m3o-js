@@ -41,24 +41,24 @@ export class TwitterService {
 }
 
 export interface Profile {
+  // the account creation date
+  created_at?: string;
   // the user description
   description?: string;
   // the follower count
   followers?: number;
-  // the user id
-  id?: number;
-  // display name of the user
-  name?: string;
   // if the account is private
   private?: boolean;
   // the username
   username?: string;
-  // the account creation date
-  created_at?: string;
+  // the user id
+  id?: number;
   // The user's profile picture
   image_url?: string;
   // the user's location
   location?: string;
+  // display name of the user
+  name?: string;
   // if the account is verified
   verified?: boolean;
 }
@@ -76,10 +76,10 @@ export interface SearchResponse {
 }
 
 export interface TimelineRequest {
-  // the username to request the timeline for
-  username?: string;
   // number of tweets to return. default: 20
   limit?: number;
+  // the username to request the timeline for
+  username?: string;
 }
 
 export interface TimelineResponse {
@@ -88,12 +88,12 @@ export interface TimelineResponse {
 }
 
 export interface Trend {
+  // the volume of tweets in last 24 hours
+  tweet_volume?: number;
   // the twitter url
   url?: string;
   // name of the trend
   name?: string;
-  // the volume of tweets in last 24 hours
-  tweet_volume?: number;
 }
 
 export interface TrendsRequest {}
