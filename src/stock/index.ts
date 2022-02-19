@@ -41,19 +41,13 @@ export class StockService {
 }
 
 export interface HistoryRequest {
-  // date to retrieve as YYYY-MM-DD
-  date?: string;
   // the stock symbol e.g AAPL
   stock?: string;
+  // date to retrieve as YYYY-MM-DD
+  date?: string;
 }
 
 export interface HistoryResponse {
-  // the open price
-  open?: number;
-  // the stock symbol
-  symbol?: string;
-  // the volume
-  volume?: number;
   // the close price
   close?: number;
   // the date
@@ -62,9 +56,17 @@ export interface HistoryResponse {
   high?: number;
   // the low price
   low?: number;
+  // the open price
+  open?: number;
+  // the stock symbol
+  symbol?: string;
+  // the volume
+  volume?: number;
 }
 
 export interface Order {
+  // the asking price
+  ask_price?: number;
   // the ask size
   ask_size?: number;
   // the bidding price
@@ -73,30 +75,28 @@ export interface Order {
   bid_size?: number;
   // the UTC timestamp of the quote
   timestamp?: string;
-  // the asking price
-  ask_price?: number;
 }
 
 export interface OrderBookRequest {
-  // optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
-  start?: string;
-  // stock to retrieve e.g AAPL
-  stock?: string;
   // the date in format YYYY-MM-dd
   date?: string;
   // optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
   end?: string;
   // limit number of prices
   limit?: number;
+  // optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
+  start?: string;
+  // stock to retrieve e.g AAPL
+  stock?: string;
 }
 
 export interface OrderBookResponse {
+  // date of the request
+  date?: string;
   // list of orders
   orders?: Order[];
   // the stock symbol
   symbol?: string;
-  // date of the request
-  date?: string;
 }
 
 export interface PriceRequest {
@@ -105,10 +105,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the stock symbol e.g AAPL
-  symbol?: string;
   // the last price
   price?: number;
+  // the stock symbol e.g AAPL
+  symbol?: string;
 }
 
 export interface QuoteRequest {
@@ -117,6 +117,8 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the asking price
+  ask_price?: number;
   // the ask size
   ask_size?: number;
   // the bidding price
@@ -127,6 +129,4 @@ export interface QuoteResponse {
   symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
-  // the asking price
-  ask_price?: number;
 }

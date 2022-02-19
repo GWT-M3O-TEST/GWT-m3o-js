@@ -100,15 +100,6 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
-  // optional subfolder path
-  subfolder?: string;
-  // branch to deploy. defaults to master
-  branch?: string;
-  // entry point, ie. handler name in the source code
-  // if not provided, defaults to the name parameter
-  entrypoint?: string;
-  // environment variables to pass in at runtime
-  env_vars?: { [key: string]: string };
   // function name
   name?: string;
   // region to deploy in. defaults to europe-west1
@@ -120,6 +111,15 @@ export interface DeployRequest {
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
+  // optional subfolder path
+  subfolder?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
+  // entry point, ie. handler name in the source code
+  // if not provided, defaults to the name parameter
+  entrypoint?: string;
+  // environment variables to pass in at runtime
+  env_vars?: { [key: string]: string };
 }
 
 export interface DeployResponse {
@@ -137,11 +137,18 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // function name
-  // limitation: must be unique across projects
-  name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
+  // time it was updated
+  updated?: string;
+  // unique url of the function
+  url?: string;
+  // time of creation
+  created?: string;
+  // name of handler in source code
+  entrypoint?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
   // git repo address
   repo?: string;
   // runtime/language of the function e.g php74,
@@ -151,22 +158,15 @@ export interface Func {
   runtime?: string;
   // subfolder path to entrypoint
   subfolder?: string;
-  // time it was updated
-  updated?: string;
-  // time of creation
-  created?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // unique url of the function
-  url?: string;
-  // id of the function
-  id?: string;
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
   // branch to deploy. defaults to master
   branch?: string;
-  // name of handler in source code
-  entrypoint?: string;
+  // id of the function
+  id?: string;
+  // function name
+  // limitation: must be unique across projects
+  name?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
 }
 
 export interface ListRequest {}
@@ -193,6 +193,8 @@ export interface RegionsResponse {
 }
 
 export interface Reservation {
+  // time of reservation
+  created?: string;
   // time reservation expires
   expires?: string;
   // name of the app
@@ -201,8 +203,6 @@ export interface Reservation {
   owner?: string;
   // associated token
   token?: string;
-  // time of reservation
-  created?: string;
 }
 
 export interface ReserveRequest {
