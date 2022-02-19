@@ -97,10 +97,10 @@ export interface IndexResponse {
 }
 
 export interface SearchRequest {
-  // The index the document belongs to
-  index?: string;
   // The query. See docs for query language examples
   query?: string;
+  // The index the document belongs to
+  index?: string;
 }
 
 export interface SearchResponse {

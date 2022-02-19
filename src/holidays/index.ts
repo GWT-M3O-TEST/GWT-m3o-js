@@ -38,25 +38,25 @@ export interface Country {
 }
 
 export interface Holiday {
-  // the name of the holiday in English
-  name?: string;
-  // the regions within the country that observe this holiday (if not all of them)
-  regions?: string[];
-  // the type of holiday Public, Bank, School, Authorities, Optional, Observance
-  types?: string[];
   // the country this holiday occurs in
   country_code?: string;
   // date of the holiday in yyyy-mm-dd format
   date?: string;
   // the local name of the holiday
   local_name?: string;
+  // the name of the holiday in English
+  name?: string;
+  // the regions within the country that observe this holiday (if not all of them)
+  regions?: string[];
+  // the type of holiday Public, Bank, School, Authorities, Optional, Observance
+  types?: string[];
 }
 
 export interface ListRequest {
-  // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  country_code?: string;
   // The year to list holidays for
   year?: number;
+  // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  country_code?: string;
 }
 
 export interface ListResponse {

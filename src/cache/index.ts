@@ -78,19 +78,19 @@ export interface GetRequest {
 }
 
 export interface GetResponse {
+  // The key
+  key?: string;
   // Time to live in seconds
   ttl?: number;
   // The value
   value?: string;
-  // The key
-  key?: string;
 }
 
 export interface IncrementRequest {
-  // The key to increment
-  key?: string;
   // The amount to increment the value by
   value?: number;
+  // The key to increment
+  key?: string;
 }
 
 export interface IncrementResponse {
@@ -107,12 +107,12 @@ export interface ListKeysResponse {
 }
 
 export interface SetRequest {
-  // The key to update
-  key?: string;
   // Time to live in seconds
   ttl?: number;
   // The value to set
   value?: string;
+  // The key to update
+  key?: string;
 }
 
 export interface SetResponse {

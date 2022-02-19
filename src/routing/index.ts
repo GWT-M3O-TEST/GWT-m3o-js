@@ -53,14 +53,14 @@ export interface DirectionsRequest {
 }
 
 export interface DirectionsResponse {
+  // Estimated distance of the route in meters
+  distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
   // The waypoints on the route
   waypoints?: Waypoint[];
   // Turn by turn directions
   directions?: Direction[];
-  // Estimated distance of the route in meters
-  distance?: number;
 }
 
 export interface EtaRequest {
@@ -85,18 +85,18 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  direction?: string;
+  location?: Point;
   action?: string;
   bearing_after?: number;
   bearing_before?: number;
-  direction?: string;
-  location?: Point;
 }
 
 export interface Point {
-  // Lat e.g 52.523219
-  latitude?: number;
   // Long e.g 13.428555
   longitude?: number;
+  // Lat e.g 52.523219
+  latitude?: number;
 }
 
 export interface RouteRequest {
@@ -107,12 +107,12 @@ export interface RouteRequest {
 }
 
 export interface RouteResponse {
-  // waypoints on the route
-  waypoints?: Waypoint[];
   // estimated distance in meters
   distance?: number;
   // estimated duration in seconds
   duration?: number;
+  // waypoints on the route
+  waypoints?: Waypoint[];
 }
 
 export interface Waypoint {

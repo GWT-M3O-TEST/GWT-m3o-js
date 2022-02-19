@@ -107,6 +107,11 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
+  // Read by id. Equivalent to 'id == "your-id"'
+  id?: string;
+  // Maximum number of records to return. Default limit is 25.
+  // Maximum limit is 1000. Anything higher will return an error.
+  limit?: number;
   offset?: number;
   // 'asc' (default), 'desc'
   order?: string;
@@ -120,11 +125,6 @@ export interface ReadRequest {
   query?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
-  // Read by id. Equivalent to 'id == "your-id"'
-  id?: string;
-  // Maximum number of records to return. Default limit is 25.
-  // Maximum limit is 1000. Anything higher will return an error.
-  limit?: number;
 }
 
 export interface ReadResponse {
@@ -148,12 +148,12 @@ export interface TruncateRequest {
 export interface TruncateResponse {}
 
 export interface UpdateRequest {
+  // Optional table name. Defaults to 'default'
+  table?: string;
   // The id of the record. If not specified it is inferred from the 'id' field of the record
   id?: string;
   // record, JSON object
   record?: { [key: string]: any };
-  // Optional table name. Defaults to 'default'
-  table?: string;
 }
 
 export interface UpdateResponse {}

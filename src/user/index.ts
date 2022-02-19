@@ -134,6 +134,12 @@ export class UserService {
 }
 
 export interface Account {
+  // an email address
+  email?: string;
+  // unique account id
+  id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
   // alphanumeric username
@@ -144,25 +150,19 @@ export interface Account {
   verified?: boolean;
   // unix timestamp
   created?: number;
-  // an email address
-  email?: string;
-  // unique account id
-  id?: string;
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
 }
 
 export interface CreateRequest {
-  // the user password
-  password?: string;
-  // optional user profile as map<string,string>
-  profile?: { [key: string]: string };
   // the username
   username?: string;
   // the email address
   email?: string;
   // optional account id
   id?: string;
+  // the user password
+  password?: string;
+  // optional user profile as map<string,string>
+  profile?: { [key: string]: string };
 }
 
 export interface CreateResponse {
@@ -209,12 +209,12 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
+  // the account username
+  username?: string;
   // the account email
   email?: string;
   // the account id
   id?: string;
-  // the account username
-  username?: string;
 }
 
 export interface ReadResponse {
@@ -245,6 +245,7 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
@@ -258,12 +259,15 @@ export interface SendMagicLinkRequest {
   endpoint?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   from_name?: string;
-  subject?: string;
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
+  // subject of the email
+  subject?: string;
   // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
@@ -271,17 +275,11 @@ export interface SendPasswordResetEmailRequest {
   email?: string;
   // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
   expiration?: number;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
-  // subject of the email
-  subject?: string;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // subject of the email
-  subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
@@ -293,6 +291,8 @@ export interface SendVerificationEmailRequest {
   from_name?: string;
   // The url to redirect to after successful verification
   redirect_url?: string;
+  // subject of the email
+  subject?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -309,27 +309,27 @@ export interface Session {
 }
 
 export interface UpdatePasswordRequest {
-  // confirm new password
-  confirm_password?: string;
-  // the new password
-  new_password?: string;
   // the old password
   old_password?: string;
   // the account id
   userId?: string;
+  // confirm new password
+  confirm_password?: string;
+  // the new password
+  new_password?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the new email address
-  email?: string;
-  // the account id
-  id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
+  // the new email address
+  email?: string;
+  // the account id
+  id?: string;
 }
 
 export interface UpdateResponse {}
