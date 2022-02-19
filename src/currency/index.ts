@@ -74,19 +74,19 @@ export interface ConvertResponse {
 }
 
 export interface HistoryRequest {
-  // currency code e.g USD
-  code?: string;
   // date formatted as YYYY-MM-DD
   date?: string;
+  // currency code e.g USD
+  code?: string;
 }
 
 export interface HistoryResponse {
+  // The rate for the day as code:rate
+  rates?: { [key: string]: number };
   // The code of the request
   code?: string;
   // The date requested
   date?: string;
-  // The rate for the day as code:rate
-  rates?: { [key: string]: number };
 }
 
 export interface RatesRequest {
@@ -95,8 +95,8 @@ export interface RatesRequest {
 }
 
 export interface RatesResponse {
-  // The code requested e.g USD
-  code?: string;
   // The rates for the given code as key-value pairs code:rate
   rates?: { [key: string]: number };
+  // The code requested e.g USD
+  code?: string;
 }

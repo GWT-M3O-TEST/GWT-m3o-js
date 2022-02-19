@@ -134,8 +134,6 @@ export class UserService {
 }
 
 export interface Account {
-  // unix timestamp
-  created?: number;
   // an email address
   email?: string;
   // unique account id
@@ -150,9 +148,13 @@ export interface Account {
   verification_date?: number;
   // if the account is verified
   verified?: boolean;
+  // unix timestamp
+  created?: number;
 }
 
 export interface CreateRequest {
+  // the email address
+  email?: string;
   // optional account id
   id?: string;
   // the user password
@@ -161,8 +163,6 @@ export interface CreateRequest {
   profile?: { [key: string]: string };
   // the username
   username?: string;
-  // the email address
-  email?: string;
 }
 
 export interface CreateResponse {
@@ -232,19 +232,21 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
+  // The code from the verification email
+  code?: string;
   // confirm new password
   confirm_password?: string;
   // the email to reset the password for
   email?: string;
   // the new password
   new_password?: string;
-  // The code from the verification email
-  code?: string;
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  // the email address of the user
+  email?: string;
   // Endpoint name where your http request handler handles MagicLink by
   // calling M3O VerifyToken endpoint. You can return as a result a success,
   // failed or redirect to another page.
@@ -257,16 +259,11 @@ export interface SendMagicLinkRequest {
   text_content?: string;
   // Your web site address, example www.example.com or user.example.com
   address?: string;
-  // the email address of the user
-  email?: string;
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
-  // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  text_content?: string;
   // email address to send reset for
   email?: string;
   // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
@@ -275,11 +272,17 @@ export interface SendPasswordResetEmailRequest {
   from_name?: string;
   // subject of the email
   subject?: string;
+  // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  text_content?: string;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  text_content?: string;
   // email address to send the verification code
   email?: string;
   // The url to redirect to incase of failure
@@ -290,9 +293,6 @@ export interface SendVerificationEmailRequest {
   redirect_url?: string;
   // subject of the email
   subject?: string;
-  // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  text_content?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -322,14 +322,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
+  // the new email address
+  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
-  // the new email address
-  email?: string;
 }
 
 export interface UpdateResponse {}
@@ -346,7 +346,7 @@ export interface VerifyTokenRequest {
 }
 
 export interface VerifyTokenResponse {
+  session?: Session;
   is_valid?: boolean;
   message?: string;
-  session?: Session;
 }

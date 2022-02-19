@@ -26,10 +26,10 @@ export interface GenerateRequest {
 }
 
 export interface GenerateResponse {
-  // the unique id generated
-  id?: string;
   // the type of id generated
   type?: string;
+  // the unique id generated
+  id?: string;
 }
 
 export interface TypesRequest {}

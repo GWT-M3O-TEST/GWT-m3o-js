@@ -41,10 +41,10 @@ export class StockService {
 }
 
 export interface HistoryRequest {
-  // the stock symbol e.g AAPL
-  stock?: string;
   // date to retrieve as YYYY-MM-DD
   date?: string;
+  // the stock symbol e.g AAPL
+  stock?: string;
 }
 
 export interface HistoryResponse {
@@ -78,6 +78,8 @@ export interface Order {
 }
 
 export interface OrderBookRequest {
+  // stock to retrieve e.g AAPL
+  stock?: string;
   // the date in format YYYY-MM-dd
   date?: string;
   // optional RFC3339Nano end time e.g 2006-01-02T15:04:05.999999999Z07:00
@@ -86,8 +88,6 @@ export interface OrderBookRequest {
   limit?: number;
   // optional RFC3339Nano start time e.g 2006-01-02T15:04:05.999999999Z07:00
   start?: string;
-  // stock to retrieve e.g AAPL
-  stock?: string;
 }
 
 export interface OrderBookResponse {

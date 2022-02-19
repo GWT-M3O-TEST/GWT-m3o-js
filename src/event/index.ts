@@ -36,23 +36,23 @@ export interface ConsumeRequest {
 }
 
 export interface ConsumeResponse {
-  // The topic subscribed to
-  topic?: string;
   // Unique message id
   id?: string;
   // The next json message on the topic
   message?: { [key: string]: any };
   // Timestamp of publishing
   timestamp?: string;
+  // The topic subscribed to
+  topic?: string;
 }
 
 export interface Ev {
+  // event timestamp
+  timestamp?: string;
   // event id
   id?: string;
   // event message
   message?: { [key: string]: any };
-  // event timestamp
-  timestamp?: string;
 }
 
 export interface PublishRequest {
@@ -65,12 +65,12 @@ export interface PublishRequest {
 export interface PublishResponse {}
 
 export interface ReadRequest {
-  // topic to read from
-  topic?: string;
   // number of events to read; default 25
   limit?: number;
   // offset for the events; default 0
   offset?: number;
+  // topic to read from
+  topic?: string;
 }
 
 export interface ReadResponse {

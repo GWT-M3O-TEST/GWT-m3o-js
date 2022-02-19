@@ -78,19 +78,19 @@ export interface GetRequest {
 }
 
 export interface GetResponse {
+  // The value
+  value?: string;
   // The key
   key?: string;
   // Time to live in seconds
   ttl?: number;
-  // The value
-  value?: string;
 }
 
 export interface IncrementRequest {
-  // The amount to increment the value by
-  value?: number;
   // The key to increment
   key?: string;
+  // The amount to increment the value by
+  value?: number;
 }
 
 export interface IncrementResponse {

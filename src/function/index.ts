@@ -81,10 +81,10 @@ export class FunctionService {
 }
 
 export interface CallRequest {
-  // Name of the function
-  name?: string;
   // Request body that will be passed to the function
   request?: { [key: string]: any };
+  // Name of the function
+  name?: string;
 }
 
 export interface CallResponse {
@@ -137,20 +137,29 @@ export interface DescribeResponse {
 }
 
 export interface Func {
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // git repo address
+  repo?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
+  // time of creation
+  created?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // id of the function
+  id?: string;
+  // function name
+  // limitation: must be unique across projects
+  name?: string;
   // time it was updated
   updated?: string;
   // unique url of the function
   url?: string;
-  // time of creation
-  created?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
   // name of handler in source code
   entrypoint?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // git repo address
-  repo?: string;
   // runtime/language of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -158,15 +167,6 @@ export interface Func {
   runtime?: string;
   // subfolder path to entrypoint
   subfolder?: string;
-  // branch to deploy. defaults to master
-  branch?: string;
-  // id of the function
-  id?: string;
-  // function name
-  // limitation: must be unique across projects
-  name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
 }
 
 export interface ListRequest {}
