@@ -38,10 +38,10 @@ export interface TextResponse {
 }
 
 export interface Translation {
+  // The source of the query string
+  source?: string;
   // The translation result
   text?: string;
   // The model used in translation
   model?: string;
-  // The source of the query string
-  source?: string;
 }

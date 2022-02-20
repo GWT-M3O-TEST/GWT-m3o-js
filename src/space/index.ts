@@ -113,12 +113,12 @@ export interface HeadResponse {
 }
 
 export interface ListObject {
+  visibility?: string;
   created?: string;
   // when was this last modified
   modified?: string;
   name?: string;
   url?: string;
-  visibility?: string;
 }
 
 export interface ListRequest {
@@ -131,8 +131,6 @@ export interface ListResponse {
 }
 
 export interface Object {
-  // is this public or private
-  visibility?: string;
   // when was this created
   created?: string;
   // the data within the object
@@ -143,6 +141,8 @@ export interface Object {
   name?: string;
   // URL to access the object if it is public
   url?: string;
+  // is this public or private
+  visibility?: string;
 }
 
 export interface ReadRequest {

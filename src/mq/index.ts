@@ -23,10 +23,10 @@ export class MqService {
 }
 
 export interface PublishRequest {
-  // The topic to publish to
-  topic?: string;
   // The json message to publish
   message?: { [key: string]: any };
+  // The topic to publish to
+  topic?: string;
 }
 
 export interface PublishResponse {}
@@ -37,8 +37,8 @@ export interface SubscribeRequest {
 }
 
 export interface SubscribeResponse {
-  // The next json message on the topic
-  message?: { [key: string]: any };
   // The topic subscribed to
   topic?: string;
+  // The next json message on the topic
+  message?: { [key: string]: any };
 }

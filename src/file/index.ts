@@ -52,10 +52,10 @@ export interface ListResponse {
 }
 
 export interface ReadRequest {
-  // Project name
-  project?: string;
   // Path to the file
   path?: string;
+  // Project name
+  project?: string;
 }
 
 export interface ReadResponse {
@@ -64,6 +64,8 @@ export interface ReadResponse {
 }
 
 export interface Record {
+  // Any other associated metadata as a map of key-value pairs
+  metadata?: { [key: string]: string };
   // Path to file or folder eg. '/documents/text-files/file.txt'.
   path?: string;
   // A custom project to group files
@@ -75,8 +77,6 @@ export interface Record {
   content?: string;
   // Time the file was created e.g 2021-05-20T13:37:21Z
   created?: string;
-  // Any other associated metadata as a map of key-value pairs
-  metadata?: { [key: string]: string };
 }
 
 export interface SaveRequest {

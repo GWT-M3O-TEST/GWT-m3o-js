@@ -17,10 +17,10 @@ export class SentimentService {
 }
 
 export interface AnalyzeRequest {
-  // The text to analyze
-  text?: string;
   // The language. Defaults to english.
   lang?: string;
+  // The text to analyze
+  text?: string;
 }
 
 export interface AnalyzeResponse {
