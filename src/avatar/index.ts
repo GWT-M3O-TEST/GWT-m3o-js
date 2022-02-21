@@ -17,8 +17,6 @@ export class AvatarService {
 }
 
 export interface GenerateRequest {
-  // avatar's gender, `male` or `female`, default is `male`
-  gender?: string;
   // if upload to m3o CDN, default is `false`
   // if update = true, then it'll return the CDN url
   upload?: boolean;
@@ -28,6 +26,8 @@ export interface GenerateRequest {
   username?: string;
   // encode format of avatar image, `png` or `jpeg`, default is `jpeg`
   format?: string;
+  // avatar's gender, `male` or `female`, default is `male`
+  gender?: string;
 }
 
 export interface GenerateResponse {

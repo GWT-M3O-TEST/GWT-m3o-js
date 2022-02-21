@@ -42,19 +42,19 @@ export class StreamService {
 }
 
 export interface Channel {
+  // description for the channel
+  description?: string;
   // last activity time
   last_active?: string;
   // name of the channel
   name?: string;
-  // description for the channel
-  description?: string;
 }
 
 export interface CreateChannelRequest {
-  // name of the channel
-  name?: string;
   // description for the channel
   description?: string;
+  // name of the channel
+  name?: string;
 }
 
 export interface CreateChannelResponse {}
@@ -73,23 +73,23 @@ export interface ListMessagesRequest {
 }
 
 export interface ListMessagesResponse {
-  // The channel subscribed to
-  channel?: string;
   // Messages are chronological order
   messages?: Message[];
+  // The channel subscribed to
+  channel?: string;
 }
 
 export interface Message {
+  // id of the message
+  id?: string;
+  // the associated metadata
+  metadata?: { [key: string]: string };
   // text of the message
   text?: string;
   // time of message creation
   timestamp?: string;
   // the channel name
   channel?: string;
-  // id of the message
-  id?: string;
-  // the associated metadata
-  metadata?: { [key: string]: string };
 }
 
 export interface SendMessageRequest {

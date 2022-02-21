@@ -46,10 +46,10 @@ export interface Direction {
 }
 
 export interface DirectionsRequest {
-  // The staring point for the journey
-  origin?: Point;
   // The destination of the journey
   destination?: Point;
+  // The staring point for the journey
+  origin?: Point;
 }
 
 export interface DirectionsResponse {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
-  action?: string;
-  bearing_after?: number;
   bearing_before?: number;
   direction?: string;
   location?: Point;
+  action?: string;
+  bearing_after?: number;
 }
 
 export interface Point {

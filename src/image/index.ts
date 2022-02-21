@@ -98,8 +98,6 @@ export interface Rectangle {
 }
 
 export interface ResizeRequest {
-  // The image file to resize
-  file?: string;
   height?: number;
   // output name of the image including extension, ie. "cat.png"
   name?: string;
@@ -114,6 +112,8 @@ export interface ResizeRequest {
   // if provided, after resize, the image
   // will be cropped
   cropOptions?: CropOptions;
+  // The image file to resize
+  file?: string;
 }
 
 export interface ResizeResponse {

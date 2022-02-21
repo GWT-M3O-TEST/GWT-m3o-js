@@ -34,10 +34,6 @@ export interface PrayerTime {
 }
 
 export interface TimesRequest {
-  // optional longitude used in place of location
-  longitude?: number;
-  // optional date in YYYY-MM-DD format, otherwise uses today
-  date?: string;
   // number of days to request times for
   days?: number;
   // optional latitude used in place of location
@@ -45,6 +41,10 @@ export interface TimesRequest {
   // location to retrieve prayer times for.
   // this can be a specific address, city, etc
   location?: string;
+  // optional longitude used in place of location
+  longitude?: number;
+  // optional date in YYYY-MM-DD format, otherwise uses today
+  date?: string;
 }
 
 export interface TimesResponse {

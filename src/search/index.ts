@@ -86,10 +86,10 @@ export interface Field {
 }
 
 export interface IndexRequest {
-  // The document to index
-  document?: Document;
   // The index this document belongs to
   index?: string;
+  // The document to index
+  document?: Document;
 }
 
 export interface IndexResponse {
@@ -97,10 +97,10 @@ export interface IndexResponse {
 }
 
 export interface SearchRequest {
-  // The query. See docs for query language examples
-  query?: string;
   // The index the document belongs to
   index?: string;
+  // The query. See docs for query language examples
+  query?: string;
 }
 
 export interface SearchResponse {

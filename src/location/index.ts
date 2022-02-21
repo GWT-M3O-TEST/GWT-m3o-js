@@ -39,9 +39,9 @@ export interface Entity {
 }
 
 export interface Point {
-  latitude?: number;
   longitude?: number;
   timestamp?: number;
+  latitude?: number;
 }
 
 export interface ReadRequest {
@@ -60,14 +60,14 @@ export interface SaveRequest {
 export interface SaveResponse {}
 
 export interface SearchRequest {
+  // Central position to search from
+  center?: Point;
   // Maximum number of entities to return
   numEntities?: number;
   // radius in meters
   radius?: number;
   // type of entities to filter
   type?: string;
-  // Central position to search from
-  center?: Point;
 }
 
 export interface SearchResponse {

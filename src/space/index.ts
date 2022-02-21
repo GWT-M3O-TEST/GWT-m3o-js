@@ -61,12 +61,12 @@ export class SpaceService {
 }
 
 export interface CreateRequest {
-  // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-  name?: string;
   // The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   object?: string;
   // Who can see this object? "public" or "private", defaults to "private"
   visibility?: string;
+  // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+  name?: string;
 }
 
 export interface CreateResponse {

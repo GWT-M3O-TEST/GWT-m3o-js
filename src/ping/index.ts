@@ -26,10 +26,10 @@ export interface IpRequest {
 }
 
 export interface IpResponse {
-  // average latency e.g 10ms
-  latency?: string;
   // response status
   status?: string;
+  // average latency e.g 10ms
+  latency?: string;
 }
 
 export interface TcpRequest {
