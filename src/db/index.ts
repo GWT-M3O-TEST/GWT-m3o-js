@@ -85,10 +85,10 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
-  // Optional table name. Defaults to 'default'
-  table?: string;
   // id of the record
   id?: string;
+  // Optional table name. Defaults to 'default'
+  table?: string;
 }
 
 export interface DeleteResponse {}

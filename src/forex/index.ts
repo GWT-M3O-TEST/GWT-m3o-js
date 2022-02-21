@@ -38,12 +38,6 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
-  // the date
-  date?: string;
-  // the peak price
-  high?: number;
-  // the low price
-  low?: number;
   // the open price
   open?: number;
   // the forex symbol
@@ -52,6 +46,12 @@ export interface HistoryResponse {
   volume?: number;
   // the close price
   close?: number;
+  // the date
+  date?: string;
+  // the peak price
+  high?: number;
+  // the low price
+  low?: number;
 }
 
 export interface PriceRequest {
@@ -60,10 +60,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the forex symbol e.g GBPUSD
-  symbol?: string;
   // the last price
   price?: number;
+  // the forex symbol e.g GBPUSD
+  symbol?: string;
 }
 
 export interface QuoteRequest {

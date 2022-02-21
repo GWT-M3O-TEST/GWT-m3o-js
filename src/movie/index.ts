@@ -17,20 +17,20 @@ export class MovieService {
 }
 
 export interface MovieInfo {
+  video?: boolean;
   original_title?: string;
   popularity?: number;
   release_date?: string;
-  adult?: boolean;
-  vote_count?: number;
-  poster_path?: string;
-  original_language?: string;
-  overview?: string;
-  video?: boolean;
-  id?: number;
-  genre_ids?: number;
   title?: string;
+  adult?: boolean;
+  overview?: string;
+  poster_path?: string;
   vote_average?: number;
+  vote_count?: number;
   backdrop_path?: string;
+  genre_ids?: number;
+  id?: number;
+  original_language?: string;
 }
 
 export interface SearchRequest {
@@ -49,8 +49,8 @@ export interface SearchRequest {
 }
 
 export interface SearchResponse {
-  page?: number;
   results?: MovieInfo[];
   total_pages?: number;
   total_results?: number;
+  page?: number;
 }

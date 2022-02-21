@@ -30,14 +30,14 @@ export interface EmbedRequest {
 }
 
 export interface EmbedResponse {
-  // the short url
-  short_url?: string;
-  // the embeddable link e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
-  embed_url?: string;
   // the script code
   html_script?: string;
   // the full url
   long_url?: string;
+  // the short url
+  short_url?: string;
+  // the embeddable link e.g https://www.youtube.com/watch?v=GWRWZu7XsJ0
+  embed_url?: string;
 }
 
 export interface SearchRequest {
@@ -51,10 +51,8 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
-  // the result description
-  description?: string;
-  // title of the result
-  title?: string;
+  // kind of result; "video", "channel", "playlist"
+  kind?: string;
   // the associated url
   url?: string;
   // if live broadcast then indicates activity.
@@ -62,12 +60,14 @@ export interface SearchResult {
   broadcasting?: string;
   // the channel id
   channel_id?: string;
+  // the result description
+  description?: string;
+  // title of the result
+  title?: string;
   // the channel title
   channel_title?: string;
   // id of the result
   id?: string;
-  // kind of result; "video", "channel", "playlist"
-  kind?: string;
   // published at time
   published_at?: string;
 }

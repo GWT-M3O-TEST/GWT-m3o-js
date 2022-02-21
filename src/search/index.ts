@@ -63,10 +63,10 @@ export interface DeleteIndexRequest {
 export interface DeleteIndexResponse {}
 
 export interface DeleteRequest {
-  // The ID of the document to delete
-  id?: string;
   // The index the document belongs to
   index?: string;
+  // The ID of the document to delete
+  id?: string;
 }
 
 export interface DeleteResponse {}
@@ -86,10 +86,10 @@ export interface Field {
 }
 
 export interface IndexRequest {
-  // The index this document belongs to
-  index?: string;
   // The document to index
   document?: Document;
+  // The index this document belongs to
+  index?: string;
 }
 
 export interface IndexResponse {

@@ -31,9 +31,9 @@ export interface CallResponse {
 }
 
 export interface StreamRequest {
+  name?: string;
   // the number of messages to send back
   messages?: number;
-  name?: string;
 }
 
 export interface StreamResponse {

@@ -100,6 +100,12 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
+  // function name
+  name?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // github url to repo
+  repo?: string;
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -114,12 +120,6 @@ export interface DeployRequest {
   entrypoint?: string;
   // environment variables to pass in at runtime
   env_vars?: { [key: string]: string };
-  // function name
-  name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
-  // github url to repo
-  repo?: string;
 }
 
 export interface DeployResponse {
@@ -137,25 +137,17 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // associated env vars
-  env_vars?: { [key: string]: string };
+  // unique url of the function
+  url?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
+  // id of the function
+  id?: string;
   // function name
   // limitation: must be unique across projects
   name?: string;
   // region to deploy in. defaults to europe-west1
   region?: string;
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // subfolder path to entrypoint
-  subfolder?: string;
-  // time it was updated
-  updated?: string;
-  // time of creation
-  created?: string;
-  // name of handler in source code
-  entrypoint?: string;
-  // id of the function
-  id?: string;
   // git repo address
   repo?: string;
   // runtime/language of the function e.g php74,
@@ -163,10 +155,18 @@ export interface Func {
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
-  // unique url of the function
-  url?: string;
-  // branch to deploy. defaults to master
-  branch?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
+  // time of creation
+  created?: string;
+  // name of handler in source code
+  entrypoint?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // subfolder path to entrypoint
+  subfolder?: string;
+  // time it was updated
+  updated?: string;
 }
 
 export interface ListRequest {}

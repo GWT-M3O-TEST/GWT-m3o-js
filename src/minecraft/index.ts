@@ -22,8 +22,6 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
-  // Message of the day
-  motd?: string;
   // Number of players online
   players?: number;
   // Protocol number of the server
@@ -38,11 +36,13 @@ export interface PingResponse {
   latency?: number;
   // Max players ever
   max_players?: number;
+  // Message of the day
+  motd?: string;
 }
 
 export interface PlayerSample {
-  // name of the player
-  name?: string;
   // unique id of player
   uuid?: string;
+  // name of the player
+  name?: string;
 }

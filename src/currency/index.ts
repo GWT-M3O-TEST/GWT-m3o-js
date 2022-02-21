@@ -63,14 +63,14 @@ export interface ConvertRequest {
 }
 
 export interface ConvertResponse {
-  // the target code e.g GBP
-  to?: string;
   // converted amount e.g 7.10
   amount?: number;
   // the base code e.g USD
   from?: string;
   // conversion rate e.g 0.71
   rate?: number;
+  // the target code e.g GBP
+  to?: string;
 }
 
 export interface HistoryRequest {

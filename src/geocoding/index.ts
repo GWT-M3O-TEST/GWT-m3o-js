@@ -45,8 +45,8 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  location?: Location;
   address?: Address;
+  location?: Location;
 }
 
 export interface ReverseRequest {
@@ -55,6 +55,6 @@ export interface ReverseRequest {
 }
 
 export interface ReverseResponse {
-  location?: Location;
   address?: Address;
+  location?: Location;
 }

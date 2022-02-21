@@ -51,10 +51,10 @@ export interface Channel {
 }
 
 export interface CreateChannelRequest {
-  // description for the channel
-  description?: string;
   // name of the channel
   name?: string;
+  // description for the channel
+  description?: string;
 }
 
 export interface CreateChannelResponse {}
@@ -73,10 +73,10 @@ export interface ListMessagesRequest {
 }
 
 export interface ListMessagesResponse {
-  // Messages are chronological order
-  messages?: Message[];
   // The channel subscribed to
   channel?: string;
+  // Messages are chronological order
+  messages?: Message[];
 }
 
 export interface Message {
