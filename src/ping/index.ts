@@ -47,10 +47,10 @@ export interface TcpResponse {
 }
 
 export interface UrlRequest {
-  // method of the call
-  method?: string;
   // address to use
   address?: string;
+  // method of the call
+  method?: string;
 }
 
 export interface UrlResponse {

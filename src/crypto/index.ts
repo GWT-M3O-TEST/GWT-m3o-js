@@ -37,6 +37,8 @@ export class CryptoService {
 }
 
 export interface Article {
+  // the source
+  source?: string;
   // title of the article
   title?: string;
   // the source url
@@ -45,8 +47,6 @@ export interface Article {
   date?: string;
   // its description
   description?: string;
-  // the source
-  source?: string;
 }
 
 export interface HistoryRequest {
@@ -55,6 +55,8 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the volume
+  volume?: number;
   // the close price
   close?: number;
   // the date
@@ -67,8 +69,6 @@ export interface HistoryResponse {
   open?: number;
   // the crypto symbol
   symbol?: string;
-  // the volume
-  volume?: number;
 }
 
 export interface NewsRequest {
@@ -101,6 +101,10 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the crypto symbol
+  symbol?: string;
+  // the UTC timestamp of the quote
+  timestamp?: string;
   // the asking price
   ask_price?: number;
   // the ask size
@@ -109,8 +113,4 @@ export interface QuoteResponse {
   bid_price?: number;
   // the bid size
   bid_size?: number;
-  // the crypto symbol
-  symbol?: string;
-  // the UTC timestamp of the quote
-  timestamp?: string;
 }

@@ -47,10 +47,10 @@ export class NotesService {
 }
 
 export interface CreateRequest {
-  // note text
-  text?: string;
   // note title
   title?: string;
+  // note text
+  text?: string;
 }
 
 export interface CreateResponse {
@@ -87,8 +87,6 @@ export interface ListResponse {
 }
 
 export interface Note {
-  // text within the note
-  text?: string;
   // title of the note
   title?: string;
   // time at which the note was updated
@@ -97,6 +95,8 @@ export interface Note {
   created?: string;
   // unique id for the note, generated if not specified
   id?: string;
+  // text within the note
+  text?: string;
 }
 
 export interface ReadRequest {

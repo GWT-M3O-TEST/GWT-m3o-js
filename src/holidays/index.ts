@@ -53,10 +53,10 @@ export interface Holiday {
 }
 
 export interface ListRequest {
-  // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
-  country_code?: string;
   // The year to list holidays for
   year?: number;
+  // The 2 letter country code (as defined in ISO 3166-1 alpha-2)
+  country_code?: string;
 }
 
 export interface ListResponse {

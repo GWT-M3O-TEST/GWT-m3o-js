@@ -48,10 +48,6 @@ export interface TimesRequest {
 }
 
 export interface TimesResponse {
-  // longitude of location
-  longitude?: number;
-  // prayer times for the given location
-  times?: PrayerTime[];
   // date of request
   date?: string;
   // number of days
@@ -60,4 +56,8 @@ export interface TimesResponse {
   latitude?: number;
   // location for the request
   location?: string;
+  // longitude of location
+  longitude?: number;
+  // prayer times for the given location
+  times?: PrayerTime[];
 }

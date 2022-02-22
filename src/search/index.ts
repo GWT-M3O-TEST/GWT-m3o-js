@@ -72,10 +72,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Document {
-  // The ID for this document. If blank, one will be generated
-  id?: string;
   // The JSON contents of the document
   contents?: { [key: string]: any };
+  // The ID for this document. If blank, one will be generated
+  id?: string;
 }
 
 export interface Field {

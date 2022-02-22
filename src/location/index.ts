@@ -33,15 +33,15 @@ export class LocationService {
 }
 
 export interface Entity {
-  type?: string;
   id?: string;
   location?: Point;
+  type?: string;
 }
 
 export interface Point {
-  longitude?: number;
   timestamp?: number;
   latitude?: number;
+  longitude?: number;
 }
 
 export interface ReadRequest {

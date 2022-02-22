@@ -134,10 +134,6 @@ export class UserService {
 }
 
 export interface Account {
-  // date of verification
-  verification_date?: number;
-  // if the account is verified
-  verified?: boolean;
   // unix timestamp
   created?: number;
   // an email address
@@ -150,19 +146,23 @@ export interface Account {
   updated?: number;
   // alphanumeric username
   username?: string;
+  // date of verification
+  verification_date?: number;
+  // if the account is verified
+  verified?: boolean;
 }
 
 export interface CreateRequest {
+  // the email address
+  email?: string;
+  // optional account id
+  id?: string;
   // the user password
   password?: string;
   // optional user profile as map<string,string>
   profile?: { [key: string]: string };
   // the username
   username?: string;
-  // the email address
-  email?: string;
-  // optional account id
-  id?: string;
 }
 
 export interface CreateResponse {
@@ -188,12 +188,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
+  // The username of the user
+  username?: string;
   // The email address of the user
   email?: string;
   // The password of the user
   password?: string;
-  // The username of the user
-  username?: string;
 }
 
 export interface LoginResponse {
@@ -209,12 +209,12 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
-  // the account email
-  email?: string;
   // the account id
   id?: string;
   // the account username
   username?: string;
+  // the account email
+  email?: string;
 }
 
 export interface ReadResponse {
@@ -245,12 +245,6 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  // the email address of the user
-  email?: string;
-  // Endpoint name where your http request handler handles MagicLink by
-  // calling M3O VerifyToken endpoint. You can return as a result a success,
-  // failed or redirect to another page.
-  endpoint?: string;
   // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
   from_name?: string;
   subject?: string;
@@ -259,11 +253,19 @@ export interface SendMagicLinkRequest {
   text_content?: string;
   // Your web site address, example www.example.com or user.example.com
   address?: string;
+  // the email address of the user
+  email?: string;
+  // Endpoint name where your http request handler handles MagicLink by
+  // calling M3O VerifyToken endpoint. You can return as a result a success,
+  // failed or redirect to another page.
+  endpoint?: string;
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
+  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
+  expiration?: number;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   from_name?: string;
   // subject of the email
@@ -273,8 +275,6 @@ export interface SendPasswordResetEmailRequest {
   text_content?: string;
   // email address to send reset for
   email?: string;
-  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
-  expiration?: number;
 }
 
 export interface SendPasswordResetEmailResponse {}
@@ -346,7 +346,7 @@ export interface VerifyTokenRequest {
 }
 
 export interface VerifyTokenResponse {
-  is_valid?: boolean;
   message?: string;
   session?: Session;
+  is_valid?: boolean;
 }

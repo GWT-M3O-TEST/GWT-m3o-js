@@ -32,10 +32,10 @@ export interface ClassifyRequest {
 }
 
 export interface ClassifyResponse {
+  // The score evaluated for this email. A higher number means it is more likely to be spam
+  score?: number;
   // The rules that have contributed to this score
   details?: string[];
   // Is it spam? Returns true if its score is > 5
   is_spam?: boolean;
-  // The score evaluated for this email. A higher number means it is more likely to be spam
-  score?: number;
 }
