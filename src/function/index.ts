@@ -81,10 +81,10 @@ export class FunctionService {
 }
 
 export interface CallRequest {
-  // Request body that will be passed to the function
-  request?: { [key: string]: any };
   // Name of the function
   name?: string;
+  // Request body that will be passed to the function
+  request?: { [key: string]: any };
 }
 
 export interface CallResponse {
@@ -100,6 +100,15 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
+  // github url to repo
+  repo?: string;
+  // runtime/lanaguage of the function e.g php74,
+  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
+  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
+  // python37, python38, python39
+  runtime?: string;
+  // optional subfolder path
+  subfolder?: string;
   // branch to deploy. defaults to master
   branch?: string;
   // entry point, ie. handler name in the source code
@@ -111,15 +120,6 @@ export interface DeployRequest {
   name?: string;
   // region to deploy in. defaults to europe-west1
   region?: string;
-  // github url to repo
-  repo?: string;
-  // runtime/lanaguage of the function e.g php74,
-  // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-  // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-  // python37, python38, python39
-  runtime?: string;
-  // optional subfolder path
-  subfolder?: string;
 }
 
 export interface DeployResponse {
@@ -137,24 +137,28 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // branch to deploy. defaults to master
-  branch?: string;
-  // time of creation
-  created?: string;
+  // id of the function
+  id?: string;
   // region to deploy in. defaults to europe-west1
   region?: string;
   // git repo address
   repo?: string;
-  // unique url of the function
-  url?: string;
-  // time it was updated
-  updated?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
+  // time of creation
+  created?: string;
   // name of handler in source code
   entrypoint?: string;
   // associated env vars
   env_vars?: { [key: string]: string };
-  // id of the function
-  id?: string;
+  // subfolder path to entrypoint
+  subfolder?: string;
+  // time it was updated
+  updated?: string;
+  // unique url of the function
+  url?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
   // function name
   // limitation: must be unique across projects
   name?: string;
@@ -163,10 +167,6 @@ export interface Func {
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // subfolder path to entrypoint
-  subfolder?: string;
 }
 
 export interface ListRequest {}
@@ -193,16 +193,16 @@ export interface RegionsResponse {
 }
 
 export interface Reservation {
-  // time of reservation
-  created?: string;
-  // time reservation expires
-  expires?: string;
   // name of the app
   name?: string;
   // owner id
   owner?: string;
   // associated token
   token?: string;
+  // time of reservation
+  created?: string;
+  // time reservation expires
+  expires?: string;
 }
 
 export interface ReserveRequest {

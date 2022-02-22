@@ -134,6 +134,8 @@ export class UserService {
 }
 
 export interface Account {
+  // date of verification
+  verification_date?: number;
   // if the account is verified
   verified?: boolean;
   // unix timestamp
@@ -148,8 +150,6 @@ export interface Account {
   updated?: number;
   // alphanumeric username
   username?: string;
-  // date of verification
-  verification_date?: number;
 }
 
 export interface CreateRequest {
@@ -245,8 +245,6 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -259,15 +257,13 @@ export interface SendMagicLinkRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
-  // email address to send reset for
-  email?: string;
-  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
-  expiration?: number;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   from_name?: string;
   // subject of the email
@@ -275,11 +271,21 @@ export interface SendPasswordResetEmailRequest {
   // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
+  // email address to send reset for
+  email?: string;
+  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
+  expiration?: number;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  // email address to send the verification code
+  email?: string;
+  // The url to redirect to incase of failure
+  failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
   // The url to redirect to after successful verification
   redirect_url?: string;
   // subject of the email
@@ -287,49 +293,43 @@ export interface SendVerificationEmailRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
-  // email address to send the verification code
-  email?: string;
-  // The url to redirect to incase of failure
-  failure_redirect_url?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
-  // the associated user id
-  userId?: string;
   // unix timestamp
   created?: number;
   // unix timestamp
   expires?: number;
   // the session id
   id?: string;
+  // the associated user id
+  userId?: string;
 }
 
 export interface UpdatePasswordRequest {
+  // confirm new password
+  confirm_password?: string;
   // the new password
   new_password?: string;
   // the old password
   old_password?: string;
   // the account id
   userId?: string;
-  // confirm new password
-  confirm_password?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
+  // the new email address
+  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
-  // the new email address
-  email?: string;
 }
 
 export interface UpdateResponse {}

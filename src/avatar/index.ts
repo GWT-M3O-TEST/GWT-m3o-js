@@ -17,6 +17,10 @@ export class AvatarService {
 }
 
 export interface GenerateRequest {
+  // avatar's username, unique username will generates the unique avatar;
+  // if username == "", will generate a random avatar in every request
+  // if upload == true, username will be used as CDN filename rather than a random uuid string
+  username?: string;
   // encode format of avatar image, `png` or `jpeg`, default is `jpeg`
   format?: string;
   // avatar's gender, `male` or `female`, default is `male`
@@ -24,10 +28,6 @@ export interface GenerateRequest {
   // if upload to m3o CDN, default is `false`
   // if update = true, then it'll return the CDN url
   upload?: boolean;
-  // avatar's username, unique username will generates the unique avatar;
-  // if username == "", will generate a random avatar in every request
-  // if upload == true, username will be used as CDN filename rather than a random uuid string
-  username?: string;
 }
 
 export interface GenerateResponse {

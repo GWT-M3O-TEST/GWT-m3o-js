@@ -29,6 +29,10 @@ export interface AutocompleteRequest {}
 export interface AutocompleteResponse {}
 
 export interface NearbyRequest {
+  // Whether the place is open now
+  open_now?: boolean;
+  // radius in meters within which to search
+  radius?: number;
   // Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   type?: string;
   // Keyword to include in the search
@@ -37,10 +41,6 @@ export interface NearbyRequest {
   location?: string;
   // Name of the place to search for
   name?: string;
-  // Whether the place is open now
-  open_now?: boolean;
-  // radius in meters within which to search
-  radius?: number;
 }
 
 export interface NearbyResponse {
@@ -48,22 +48,22 @@ export interface NearbyResponse {
 }
 
 export interface Result {
+  // lat/lng of place
+  location?: string;
+  // name of the place
+  name?: string;
   // opening hours
   opening_hours?: string;
   // type of location
   type?: string;
   // simplified address
   vicinity?: string;
-  // url of an icon
-  icon_url?: string;
-  // lat/lng of place
-  location?: string;
-  // name of the place
-  name?: string;
-  // feature types
-  types?: string[];
   // address of place
   address?: string;
+  // url of an icon
+  icon_url?: string;
+  // feature types
+  types?: string[];
   // open now
   open_now?: boolean;
   // rating from 1.0 to 5.0

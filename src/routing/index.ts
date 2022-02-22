@@ -29,6 +29,12 @@ export class RoutingService {
 }
 
 export interface Direction {
+  // maneuver to take
+  maneuver?: Maneuver;
+  // street name or location
+  name?: string;
+  // alternative reference
+  reference?: string;
   // distance to travel in meters
   distance?: number;
   // duration to travel in seconds
@@ -37,12 +43,6 @@ export interface Direction {
   instruction?: string;
   // intersections on route
   intersections?: Intersection[];
-  // maneuver to take
-  maneuver?: Maneuver;
-  // street name or location
-  name?: string;
-  // alternative reference
-  reference?: string;
 }
 
 export interface DirectionsRequest {
@@ -107,17 +107,17 @@ export interface RouteRequest {
 }
 
 export interface RouteResponse {
+  // waypoints on the route
+  waypoints?: Waypoint[];
   // estimated distance in meters
   distance?: number;
   // estimated duration in seconds
   duration?: number;
-  // waypoints on the route
-  waypoints?: Waypoint[];
 }
 
 export interface Waypoint {
-  // gps point coordinates
-  location?: Point;
   // street name or related reference
   name?: string;
+  // gps point coordinates
+  location?: Point;
 }

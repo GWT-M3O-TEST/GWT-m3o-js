@@ -37,6 +37,8 @@ export class CryptoService {
 }
 
 export interface Article {
+  // title of the article
+  title?: string;
   // the source url
   url?: string;
   // the date published
@@ -45,8 +47,6 @@ export interface Article {
   description?: string;
   // the source
   source?: string;
-  // title of the article
-  title?: string;
 }
 
 export interface HistoryRequest {
@@ -55,6 +55,8 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the close price
+  close?: number;
   // the date
   date?: string;
   // the peak price
@@ -67,8 +69,6 @@ export interface HistoryResponse {
   symbol?: string;
   // the volume
   volume?: number;
-  // the close price
-  close?: number;
 }
 
 export interface NewsRequest {
