@@ -51,23 +51,23 @@ export interface SearchResponse {
 }
 
 export interface SearchResult {
-  // kind of result; "video", "channel", "playlist"
-  kind?: string;
-  // the associated url
-  url?: string;
   // if live broadcast then indicates activity.
   // none, upcoming, live, completed
   broadcasting?: string;
-  // the channel id
-  channel_id?: string;
   // the result description
   description?: string;
+  // published at time
+  published_at?: string;
   // title of the result
   title?: string;
+  // the associated url
+  url?: string;
+  // the channel id
+  channel_id?: string;
   // the channel title
   channel_title?: string;
   // id of the result
   id?: string;
-  // published at time
-  published_at?: string;
+  // kind of result; "video", "channel", "playlist"
+  kind?: string;
 }

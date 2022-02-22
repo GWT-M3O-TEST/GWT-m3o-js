@@ -87,10 +87,10 @@ export interface GetResponse {
 }
 
 export interface IncrementRequest {
-  // The key to increment
-  key?: string;
   // The amount to increment the value by
   value?: number;
+  // The key to increment
+  key?: string;
 }
 
 export interface IncrementResponse {

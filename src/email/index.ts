@@ -41,8 +41,6 @@ export interface ParseResponse {
 }
 
 export interface SendRequest {
-  // the display name of the sender
-  from?: string;
   // the html body
   html_body?: string;
   // an optional reply to email address
@@ -53,6 +51,8 @@ export interface SendRequest {
   text_body?: string;
   // the email address of the recipient
   to?: string;
+  // the display name of the sender
+  from?: string;
 }
 
 export interface SendResponse {}

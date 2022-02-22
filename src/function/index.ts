@@ -81,10 +81,10 @@ export class FunctionService {
 }
 
 export interface CallRequest {
-  // Name of the function
-  name?: string;
   // Request body that will be passed to the function
   request?: { [key: string]: any };
+  // Name of the function
+  name?: string;
 }
 
 export interface CallResponse {
@@ -100,6 +100,13 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
+  // branch to deploy. defaults to master
+  branch?: string;
+  // entry point, ie. handler name in the source code
+  // if not provided, defaults to the name parameter
+  entrypoint?: string;
+  // environment variables to pass in at runtime
+  env_vars?: { [key: string]: string };
   // function name
   name?: string;
   // region to deploy in. defaults to europe-west1
@@ -113,13 +120,6 @@ export interface DeployRequest {
   runtime?: string;
   // optional subfolder path
   subfolder?: string;
-  // branch to deploy. defaults to master
-  branch?: string;
-  // entry point, ie. handler name in the source code
-  // if not provided, defaults to the name parameter
-  entrypoint?: string;
-  // environment variables to pass in at runtime
-  env_vars?: { [key: string]: string };
 }
 
 export interface DeployResponse {
@@ -137,19 +137,27 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // unique url of the function
-  url?: string;
   // branch to deploy. defaults to master
   branch?: string;
+  // time of creation
+  created?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // git repo address
+  repo?: string;
+  // unique url of the function
+  url?: string;
+  // time it was updated
+  updated?: string;
+  // name of handler in source code
+  entrypoint?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
   // id of the function
   id?: string;
   // function name
   // limitation: must be unique across projects
   name?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
-  // git repo address
-  repo?: string;
   // runtime/language of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -157,16 +165,8 @@ export interface Func {
   runtime?: string;
   // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
   status?: string;
-  // time of creation
-  created?: string;
-  // name of handler in source code
-  entrypoint?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
   // subfolder path to entrypoint
   subfolder?: string;
-  // time it was updated
-  updated?: string;
 }
 
 export interface ListRequest {}

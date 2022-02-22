@@ -17,8 +17,14 @@ export class NewsService {
 }
 
 export interface Article {
-  // related keywords
-  keywords?: string;
+  // article description
+  description?: string;
+  // source of news
+  source?: string;
+  // article title
+  title?: string;
+  // url of the article
+  url?: string;
   // the article language
   language?: string;
   // the locale
@@ -31,16 +37,10 @@ export interface Article {
   categories?: string[];
   // article id
   id?: string;
-  // source of news
-  source?: string;
-  // article title
-  title?: string;
-  // url of the article
-  url?: string;
-  // article description
-  description?: string;
   // image url
   image_url?: string;
+  // related keywords
+  keywords?: string;
 }
 
 export interface HeadlinesRequest {

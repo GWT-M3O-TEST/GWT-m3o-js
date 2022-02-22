@@ -51,10 +51,10 @@ export interface Channel {
 }
 
 export interface CreateChannelRequest {
-  // name of the channel
-  name?: string;
   // description for the channel
   description?: string;
+  // name of the channel
+  name?: string;
 }
 
 export interface CreateChannelResponse {}

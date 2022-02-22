@@ -60,12 +60,12 @@ export interface PrintResponse {
 }
 
 export interface SendRequest {
-  // the name of the sender from e.g Alice
-  from?: string;
   // message to send including emoji aliases
   message?: string;
   // phone number to send to (including international dialing code)
   to?: string;
+  // the name of the sender from e.g Alice
+  from?: string;
 }
 
 export interface SendResponse {

@@ -134,6 +134,10 @@ export class UserService {
 }
 
 export interface Account {
+  // if the account is verified
+  verified?: boolean;
+  // unix timestamp
+  created?: number;
   // an email address
   email?: string;
   // unique account id
@@ -146,23 +150,19 @@ export interface Account {
   username?: string;
   // date of verification
   verification_date?: number;
-  // if the account is verified
-  verified?: boolean;
-  // unix timestamp
-  created?: number;
 }
 
 export interface CreateRequest {
+  // the user password
+  password?: string;
+  // optional user profile as map<string,string>
+  profile?: { [key: string]: string };
   // the username
   username?: string;
   // the email address
   email?: string;
   // optional account id
   id?: string;
-  // the user password
-  password?: string;
-  // optional user profile as map<string,string>
-  profile?: { [key: string]: string };
 }
 
 export interface CreateResponse {
@@ -232,14 +232,14 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
-  // the email to reset the password for
-  email?: string;
-  // the new password
-  new_password?: string;
   // The code from the verification email
   code?: string;
   // confirm new password
   confirm_password?: string;
+  // the email to reset the password for
+  email?: string;
+  // the new password
+  new_password?: string;
 }
 
 export interface ResetPasswordResponse {}
@@ -280,6 +280,8 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
+  // The url to redirect to after successful verification
+  redirect_url?: string;
   // subject of the email
   subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
@@ -291,45 +293,43 @@ export interface SendVerificationEmailRequest {
   failure_redirect_url?: string;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   from_name?: string;
-  // The url to redirect to after successful verification
-  redirect_url?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
+  // the associated user id
+  userId?: string;
   // unix timestamp
   created?: number;
   // unix timestamp
   expires?: number;
   // the session id
   id?: string;
-  // the associated user id
-  userId?: string;
 }
 
 export interface UpdatePasswordRequest {
-  // confirm new password
-  confirm_password?: string;
   // the new password
   new_password?: string;
   // the old password
   old_password?: string;
   // the account id
   userId?: string;
+  // confirm new password
+  confirm_password?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the new email address
-  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
+  // the new email address
+  email?: string;
 }
 
 export interface UpdateResponse {}
@@ -346,7 +346,7 @@ export interface VerifyTokenRequest {
 }
 
 export interface VerifyTokenResponse {
-  session?: Session;
   is_valid?: boolean;
   message?: string;
+  session?: Session;
 }

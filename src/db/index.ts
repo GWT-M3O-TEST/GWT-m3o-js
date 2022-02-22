@@ -107,6 +107,14 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
+  // field name to order by
+  orderBy?: string;
+  // Examples: 'age >= 18', 'age >= 18 and verified == true'
+  // Comparison operators: '==', '!=', '<', '>', '<=', '>='
+  // Logical operator: 'and'
+  // Dot access is supported, eg: 'user.age == 11'
+  // Accessing list elements is not supported yet.
+  query?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
   // Read by id. Equivalent to 'id == "your-id"'
@@ -117,14 +125,6 @@ export interface ReadRequest {
   offset?: number;
   // 'asc' (default), 'desc'
   order?: string;
-  // field name to order by
-  orderBy?: string;
-  // Examples: 'age >= 18', 'age >= 18 and verified == true'
-  // Comparison operators: '==', '!=', '<', '>', '<=', '>='
-  // Logical operator: 'and'
-  // Dot access is supported, eg: 'user.age == 11'
-  // Accessing list elements is not supported yet.
-  query?: string;
 }
 
 export interface ReadResponse {

@@ -64,11 +64,6 @@ export interface ReadResponse {
 }
 
 export interface Record {
-  // Path to file or folder eg. '/documents/text-files/file.txt'.
-  path?: string;
-  // A custom project to group files
-  // eg. file-of-mywebsite.com
-  project?: string;
   // Time the file was updated e.g 2021-05-20T13:37:21Z
   updated?: string;
   // File contents
@@ -77,6 +72,11 @@ export interface Record {
   created?: string;
   // Any other associated metadata as a map of key-value pairs
   metadata?: { [key: string]: string };
+  // Path to file or folder eg. '/documents/text-files/file.txt'.
+  path?: string;
+  // A custom project to group files
+  // eg. file-of-mywebsite.com
+  project?: string;
 }
 
 export interface SaveRequest {
