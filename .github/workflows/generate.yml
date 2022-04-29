@@ -38,7 +38,7 @@ jobs:
           # sync the clients to m3o-js/
           rsync -avz clients/ts/ ../m3o-js/
           # sync the examples to m3o-js/examples
-          rsync -avz examples/ts/ ../m3o-js/examples/
+          rsync -avz examples/js/ ../m3o-js/examples/
 
       - name: install prettier
         working-directory: m3o-js
