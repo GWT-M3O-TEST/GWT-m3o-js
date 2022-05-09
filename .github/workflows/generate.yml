@@ -49,16 +49,16 @@ jobs:
         working-directory: m3o-js
         run:  prettier -w .
 
-      - name: update version number
-        working-directory: m3o-js
-        run: |
-          oldver=$(cat package.json | grep version | head -1) 
-          patch=$(echo $oldver | awk -F. '{ print $3}' | sed 's/"//g')
-          newpatch=$(($patch+1))\" 
-          seg1=$(echo $oldver | awk -F. '{ print $1}') 
-          seg2=$(echo $oldver | awk -F. '{ print $2}') 
-          newver="$seg1.$seg2.$newpatch" 
-          sed -i "s/$oldver/$newver/" package.json
+      # - name: update version number
+      #   working-directory: m3o-js
+      #   run: |
+      #     oldver=$(cat package.json | grep version | head -1) 
+      #     patch=$(echo $oldver | awk -F. '{ print $3}' | sed 's/"//g')
+      #     newpatch=$(($patch+1))\" 
+      #     seg1=$(echo $oldver | awk -F. '{ print $1}') 
+      #     seg2=$(echo $oldver | awk -F. '{ print $2}') 
+      #     newver="$seg1.$seg2.$newpatch" 
+      #     sed -i "s/$oldver/$newver/" package.json
       
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0
