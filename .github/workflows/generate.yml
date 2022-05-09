@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check m3o-js repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: m3o-js
 
       - name: Check micro/services repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: 'micro/services'
           path: services
