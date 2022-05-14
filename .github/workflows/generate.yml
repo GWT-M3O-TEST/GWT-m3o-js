@@ -19,14 +19,8 @@ jobs:
           repository: 'micro/services'
           path: services
 
-      - name: Check m3o/m3o repo
-        uses: actions/checkout@v3
-        with:
-          repository: 'm3o/m3o'
-          path: m3o
-
       - name: Generate m3o-js clients
-        uses: GWT-M3O-TEST/m3o-generator-action@main
+        uses: m3o/m3o-generator-action@main
         with:
           target: 'ts'
           services_path: services
@@ -39,15 +33,6 @@ jobs:
           rsync -avz clients/ts/ ../m3o-js/
           # sync the examples to m3o-js/examples
           rsync -avz examples/js/ ../m3o-js/examples/
-
-      - name: install prettier
-        working-directory: m3o-js
-        run: |
-          sudo npm install -g prettier
-
-      - name: format m3o-js
-        working-directory: m3o-js
-        run:  prettier -w .
 
       - name: update version number
         working-directory: m3o-js
@@ -62,7 +47,13 @@ jobs:
           echo "old $oldver"
           echo "new $newver"
           cat package.json
-      
+
+      - name: Publish m3o-js clients
+        uses: m3o/m3o-publish-ts-action@main
+        with:
+          npm_token: 'some random token'
+          m3o_js_local_path: m3o-js
+
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0
         with:
