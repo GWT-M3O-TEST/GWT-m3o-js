@@ -18,8 +18,8 @@ jobs:
         with:
           repository: 'micro/services'
           path: services
+
       - name: install prettier
-        working-directory: m3o-js
         run: |
           sudo npm install -g prettier
 
