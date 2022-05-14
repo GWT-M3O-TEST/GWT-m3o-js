@@ -19,10 +19,6 @@ jobs:
           repository: 'micro/services'
           path: services
 
-      - name: install prettier
-        run: |
-          sudo npm install -g prettier
-
       - name: Generate m3o-js clients
         uses: m3o/m3o-generator-action@main
         with:
