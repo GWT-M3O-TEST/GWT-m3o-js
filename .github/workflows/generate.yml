@@ -48,11 +48,6 @@ jobs:
           echo "new $newver"
           cat package.json
 
-      - name: Publish m3o-js clients
-        uses: m3o/m3o-publish-ts-action@main
-        env:
-          NPM_TOKEN: 'some random token'
-
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0
         with:
@@ -60,10 +55,9 @@ jobs:
           message: Push to M3O-JS repo
           pathspec_error_handling: exitImmediately
 
-      # - name: Set up Go 1.17
-      #   uses: actions/setup-go@v2
-      #   with:
-      #     go-version: 1.17
-      #   id: go
+      - name: Publish m3o-js clients
+        uses: m3o/m3o-publish-ts-action@main
+        env:
+          NPM_TOKEN: 'some random token'
 
       
