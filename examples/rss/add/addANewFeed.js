@@ -1,16 +1,13 @@
-// npm install m3o
-const { RssService } = require("m3o/rss");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const rssService = new RssService(process.env.M3O_API_TOKEN);
-
-// Add a new RSS feed with a name, url, and category
-async function addAnewFeed() {
-  const rsp = await rssService.add({
-    category: "news",
-    name: "bbc",
-    url: "http://feeds.bbci.co.uk/news/rss.xml",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.rss.add({
+  "category": "news",
+  "name": "bbc",
+  "url": "http://feeds.bbci.co.uk/news/rss.xml"
+})
+        console.log(rsp)
+        
 }
 
-addAnewFeed();
+main()

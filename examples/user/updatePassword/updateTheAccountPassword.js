@@ -1,17 +1,14 @@
-// npm install m3o
-const { UserService } = require("m3o/user");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const userService = new UserService(process.env.M3O_API_TOKEN);
-
-// Update the account password
-async function updateTheAccountPassword() {
-  const rsp = await userService.updatePassword({
-    confirmPassword: "Password2",
-    newPassword: "Password2",
-    oldPassword: "Password1",
-    userId: "user-1",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.user.updatePassword({
+  "confirmPassword": "Password2",
+  "newPassword": "Password2",
+  "oldPassword": "Password1",
+  "userId": "user-1"
+})
+        console.log(rsp)
+        
 }
 
-updateTheAccountPassword();
+main()

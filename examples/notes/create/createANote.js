@@ -1,15 +1,12 @@
-// npm install m3o
-const { NotesService } = require("m3o/notes");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const notesService = new NotesService(process.env.M3O_API_TOKEN);
-
-// Create a new note
-async function createAnote() {
-  const rsp = await notesService.create({
-    text: "This is my note",
-    title: "New Note",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.notes.create({
+  "text": "This is my note",
+  "title": "New Note"
+})
+        console.log(rsp)
+        
 }
 
-createAnote();
+main()

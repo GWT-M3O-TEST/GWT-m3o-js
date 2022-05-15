@@ -1,14 +1,11 @@
-// npm install m3o
-const { EmojiService } = require("m3o/emoji");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
-
-// Get the flag for a country. Requires country code e.g GB for great britain
-async function getFlagByCountryCode() {
-  const rsp = await emojiService.flag({
-    alias: "GB",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.emoji.flag({
+  "code": "GB"
+})
+        console.log(rsp)
+        
 }
 
-getFlagByCountryCode();
+main()

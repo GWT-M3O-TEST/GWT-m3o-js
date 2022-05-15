@@ -1,14 +1,11 @@
-// npm install m3o
-const { FileService } = require("m3o/file");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const fileService = new FileService(process.env.M3O_API_TOKEN);
-
-// List files by their project and optionally a path.
-async function listFiles() {
-  const rsp = await fileService.list({
-    project: "examples",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.file.list({
+  "project": "examples"
+})
+        console.log(rsp)
+        
 }
 
-listFiles();
+main()

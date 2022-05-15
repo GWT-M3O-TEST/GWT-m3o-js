@@ -1,14 +1,11 @@
-// npm install m3o
-const { IdService } = require("m3o/id");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const idService = new IdService(process.env.M3O_API_TOKEN);
-
-// Generate a unique ID. Defaults to uuid.
-async function generateAbigflakeId() {
-  const rsp = await idService.generate({
-    type: "bigflake",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.id.generate({
+  "type": "bigflake"
+})
+        console.log(rsp)
+        
 }
 
-generateAbigflakeId();
+main()

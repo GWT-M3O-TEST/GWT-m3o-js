@@ -1,17 +1,14 @@
-// npm install m3o
-const { FunctionService } = require("m3o/function");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const functionService = new FunctionService(process.env.M3O_API_TOKEN);
-
-// Call a function by name
-async function callAfunction() {
-  const rsp = await functionService.call({
-    name: "helloworld",
-    request: {
-      name: "Alice",
-    },
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.function.call({
+  "name": "helloworld",
+  "request": {
+    "name": "Alice"
+  }
+})
+        console.log(rsp)
+        
 }
 
-callAfunction();
+main()

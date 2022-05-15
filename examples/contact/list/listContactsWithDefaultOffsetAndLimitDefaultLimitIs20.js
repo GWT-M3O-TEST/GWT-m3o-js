@@ -1,12 +1,9 @@
-// npm install m3o
-const { ContactService } = require("m3o/contact");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const contactService = new ContactService(process.env.M3O_API_TOKEN);
-
-//
-async function listContactsWithDefaultOffsetAndLimitDefaultLimitIs20() {
-  const rsp = await contactService.list({});
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.contact.list({})
+        console.log(rsp)
+        
 }
 
-listContactsWithDefaultOffsetAndLimitDefaultLimitIs20();
+main()

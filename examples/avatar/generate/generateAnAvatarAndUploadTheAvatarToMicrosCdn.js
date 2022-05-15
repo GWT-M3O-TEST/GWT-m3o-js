@@ -1,17 +1,14 @@
-// npm install m3o
-const { AvatarService } = require("m3o/avatar");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const avatarService = new AvatarService(process.env.M3O_API_TOKEN);
-
-//
-async function generateAnAvatarAndUploadTheAvatarToMicrosCdn() {
-  const rsp = await avatarService.generate({
-    format: "png",
-    gender: "female",
-    upload: true,
-    username: "",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.avatar.generate({
+  "format": "png",
+  "gender": "female",
+  "upload": true,
+  "username": ""
+})
+        console.log(rsp)
+        
 }
 
-generateAnAvatarAndUploadTheAvatarToMicrosCdn();
+main()

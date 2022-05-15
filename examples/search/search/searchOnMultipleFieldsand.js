@@ -1,15 +1,12 @@
-// npm install m3o
-const { SearchService } = require("m3o/search");
+const m3o = require('m3o')(process.env.M3O_API_TOKEN)
 
-const searchService = new SearchService(process.env.M3O_API_TOKEN);
-
-// Search for documents in a given in index
-async function searchOnMultipleFieldsand() {
-  const rsp = await searchService.search({
-    index: "customers",
-    query: "name == 'John' AND starsign == 'Leo'",
-  });
-  console.log(rsp);
+async function main() {
+        let rsp = await m3o.search.search({
+  "index": "customers",
+  "query": "name == 'John' AND starsign == 'Leo'"
+})
+        console.log(rsp)
+        
 }
 
-searchOnMultipleFieldsand();
+main()
