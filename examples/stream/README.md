@@ -4,26 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Stream/api](ht
 
 Endpoints:
 
-## ListChannels
-
-List all the active channels
-
-[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
-
-```js
-const { StreamService } = require("m3o/stream");
-
-const streamService = new StreamService(process.env.M3O_API_TOKEN);
-
-// List all the active channels
-async function listChannels() {
-  const rsp = await streamService.listChannels({});
-  console.log(rsp);
-}
-
-listChannels();
-```
-
 ## CreateChannel
 
 Create a channel with a given name and description. Channels are created automatically but
@@ -92,4 +72,24 @@ async function listMessages() {
 }
 
 listMessages();
+```
+
+## ListChannels
+
+List all the active channels
+
+[https://m3o.com/stream/api#ListChannels](https://m3o.com/stream/api#ListChannels)
+
+```js
+const { StreamService } = require("m3o/stream");
+
+const streamService = new StreamService(process.env.M3O_API_TOKEN);
+
+// List all the active channels
+async function listChannels() {
+  const rsp = await streamService.listChannels({});
+  console.log(rsp);
+}
+
+listChannels();
 ```

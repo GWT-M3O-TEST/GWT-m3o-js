@@ -29,10 +29,10 @@ export class FileService {
 }
 
 export interface DeleteRequest {
-  // Path to the file
-  path?: string;
   // The project name
   project?: string;
+  // Path to the file
+  path?: string;
 }
 
 export interface DeleteResponse {}

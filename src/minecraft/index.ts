@@ -22,6 +22,10 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
+  // Version of the server
+  version?: string;
+  // Favicon in base64
+  favicon?: string;
   // Latency (ms) between us and the server (EU)
   latency?: number;
   // Max players ever
@@ -34,10 +38,6 @@ export interface PingResponse {
   protocol?: number;
   // List of connected players
   sample?: PlayerSample[];
-  // Version of the server
-  version?: string;
-  // Favicon in base64
-  favicon?: string;
 }
 
 export interface PlayerSample {

@@ -17,11 +17,11 @@ export class ThumbnailService {
 }
 
 export interface ScreenshotRequest {
+  url?: string;
   // width of the browser window. optional
   width?: number;
   // height of the browser window, optional
   height?: number;
-  url?: string;
 }
 
 export interface ScreenshotResponse {

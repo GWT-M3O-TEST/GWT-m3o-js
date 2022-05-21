@@ -56,31 +56,37 @@ export interface Address {
 }
 
 export interface ContactInfo {
-  // the address
-  addresses?: Address[];
-  // contact id
-  id?: string;
-  // the social media username
-  social_medias?: SocialMedia[];
   // update date string in RFC3339
   updated_at?: string;
-  // the birthday
-  birthday?: string;
+  // the address
+  addresses?: Address[];
   // create date string in RFC3339
   created_at?: string;
   // the emails
   emails?: Email[];
+  // contact id
+  id?: string;
   // the contact links
   links?: Link[];
+  // the birthday
+  birthday?: string;
   // the contact name
   name?: string;
   // note of the contact
   note?: string;
   // the phone numbers
   phones?: Phone[];
+  // the social media username
+  social_medias?: SocialMedia[];
 }
 
 export interface CreateRequest {
+  // optional, note of the contact
+  note?: string;
+  // optional, phone numbers
+  phones?: Phone[];
+  // optional, social media
+  social_medias?: SocialMedia[];
   // optional, location
   addresses?: Address[];
   // optional, birthday
@@ -91,12 +97,6 @@ export interface CreateRequest {
   links?: Link[];
   // required, the name of the contact
   name?: string;
-  // optional, note of the contact
-  note?: string;
-  // optional, phone numbers
-  phones?: Phone[];
-  // optional, social media
-  social_medias?: SocialMedia[];
 }
 
 export interface CreateResponse {
@@ -118,10 +118,10 @@ export interface Email {
 }
 
 export interface Link {
-  // the url of the contact
-  url?: string;
   // the label of the link
   label?: string;
+  // the url of the contact
+  url?: string;
 }
 
 export interface ListRequest {
@@ -136,10 +136,10 @@ export interface ListResponse {
 }
 
 export interface Phone {
-  // the label of the phone number
-  label?: string;
   // phone number
   number?: string;
+  // the label of the phone number
+  label?: string;
 }
 
 export interface ReadRequest {
@@ -158,16 +158,12 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
+  // optional, social media
+  social_medias?: SocialMedia[];
   // required, the contact id
   id?: string;
   // optional, links
   links?: Link[];
-  // optional, social media
-  social_medias?: SocialMedia[];
-  // optional, addresses
-  addresses?: Address[];
-  // optional, birthday
-  birthday?: string;
   // optional, emails
   emails?: Email[];
   // required, the name
@@ -176,6 +172,10 @@ export interface UpdateRequest {
   note?: string;
   // optional, phone number
   phones?: Phone[];
+  // optional, addresses
+  addresses?: Address[];
+  // optional, birthday
+  birthday?: string;
 }
 
 export interface UpdateResponse {

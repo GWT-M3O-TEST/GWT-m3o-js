@@ -41,10 +41,10 @@ export class CurrencyService {
 }
 
 export interface Code {
-  // e.g United States Dollar
-  currency?: string;
   // e.g USD
   name?: string;
+  // e.g United States Dollar
+  currency?: string;
 }
 
 export interface CodesRequest {}
@@ -54,12 +54,12 @@ export interface CodesResponse {
 }
 
 export interface ConvertRequest {
-  // target code to convert to e.g GBP
-  to?: string;
   // optional amount to convert e.g 10.0
   amount?: number;
   // base code to convert from e.g USD
   from?: string;
+  // target code to convert to e.g GBP
+  to?: string;
 }
 
 export interface ConvertResponse {
@@ -95,8 +95,8 @@ export interface RatesRequest {
 }
 
 export interface RatesResponse {
-  // The code requested e.g USD
-  code?: string;
   // The rates for the given code as key-value pairs code:rate
   rates?: { [key: string]: number };
+  // The code requested e.g USD
+  code?: string;
 }

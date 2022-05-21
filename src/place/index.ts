@@ -48,12 +48,12 @@ export interface NearbyResponse {
 }
 
 export interface Result {
-  // name of the place
-  name?: string;
+  // open now
+  open_now?: boolean;
+  // opening hours
+  opening_hours?: string[];
   // rating from 1.0 to 5.0
   rating?: number;
-  // type of location
-  type?: string;
   // feature types
   types?: string[];
   // simplified address
@@ -62,25 +62,25 @@ export interface Result {
   location?: string;
   // url of an icon
   icon_url?: string;
-  // open now
-  open_now?: boolean;
-  // opening hours
-  opening_hours?: string[];
+  // name of the place
+  name?: string;
+  // type of location
+  type?: string;
   // address of place
   address?: string;
 }
 
 export interface SearchRequest {
+  // the location by lat,lng e.g -33.8670522,-151.1957362
+  location?: string;
+  // Whether the place is open now
+  open_now?: boolean;
   // the text string on which to search, for example: "restaurant"
   query?: string;
   // radius in meters within which to search
   radius?: number;
   // Type of place. https://developers.google.com/maps/documentation/places/web-service/supported_types
   type?: string;
-  // the location by lat,lng e.g -33.8670522,-151.1957362
-  location?: string;
-  // Whether the place is open now
-  open_now?: boolean;
 }
 
 export interface SearchResponse {

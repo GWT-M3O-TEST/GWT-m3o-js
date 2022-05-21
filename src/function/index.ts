@@ -116,28 +116,28 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface DeployRequest {
-  // branch to deploy. defaults to master
-  branch?: string;
-  // function name
-  name?: string;
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
+  // inline source code
+  source?: string;
   // optional subfolder path
   subfolder?: string;
-  // entry point, ie. handler name in the source code
-  // if not provided, defaults to the name parameter
-  entrypoint?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
   // environment variables to pass in at runtime
   env_vars?: { [key: string]: string };
+  // function name
+  name?: string;
   // region to deploy in. defaults to europe-west1
   region?: string;
   // github url for a repo
   repo?: string;
-  // inline source code
-  source?: string;
+  // entry point, ie. handler name in the source code
+  // if not provided, defaults to the name parameter
+  entrypoint?: string;
 }
 
 export interface DeployResponse {
@@ -155,38 +155,38 @@ export interface DescribeResponse {
 }
 
 export interface Func {
+  // name of handler in source code
+  entrypoint?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // git repo address
+  repo?: string;
+  // unique url of the function
+  url?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
+  // time of creation
+  created?: string;
   // id of the function
   id?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
+  // the source code
+  source?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
+  // time it was updated
+  updated?: string;
+  // function name
+  // limitation: must be unique across projects
+  name?: string;
   // runtime/language of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
-  // the source code
-  source?: string;
-  // branch to deploy. defaults to master
-  branch?: string;
-  // time of creation
-  created?: string;
-  // function name
-  // limitation: must be unique across projects
-  name?: string;
-  // git repo address
-  repo?: string;
   // subfolder path to entrypoint
   subfolder?: string;
-  // time it was updated
-  updated?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // name of handler in source code
-  entrypoint?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
-  // unique url of the function
-  url?: string;
 }
 
 export interface ListRequest {}
@@ -224,6 +224,8 @@ export interface RegionsResponse {
 }
 
 export interface Reservation {
+  // associated token
+  token?: string;
   // time of reservation
   created?: string;
   // time reservation expires
@@ -232,8 +234,6 @@ export interface Reservation {
   name?: string;
   // owner id
   owner?: string;
-  // associated token
-  token?: string;
 }
 
 export interface ReserveRequest {
@@ -253,10 +253,10 @@ export interface RuntimesResponse {
 }
 
 export interface UpdateRequest {
-  // function name
-  name?: string;
   // inline source code
   source?: string;
+  // function name
+  name?: string;
 }
 
 export interface UpdateResponse {}

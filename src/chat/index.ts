@@ -108,10 +108,10 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // user id joining
-  user_id?: string;
   // chat room to join
   room_id?: string;
+  // user id joining
+  user_id?: string;
 }
 
 export interface JoinResponse {
@@ -119,10 +119,10 @@ export interface JoinResponse {
 }
 
 export interface KickRequest {
-  // the user id
-  user_id?: string;
   // the chat room id
   room_id?: string;
+  // the user id
+  user_id?: string;
 }
 
 export interface KickResponse {
@@ -130,10 +130,10 @@ export interface KickResponse {
 }
 
 export interface LeaveRequest {
-  // the user id
-  user_id?: string;
   // the chat room id
   room_id?: string;
+  // the user id
+  user_id?: string;
 }
 
 export interface LeaveResponse {
@@ -150,8 +150,6 @@ export interface ListResponse {
 }
 
 export interface Message {
-  // subject of the message
-  subject?: string;
   // text of the message
   text?: string;
   // id of the user who sent the message
@@ -164,21 +162,23 @@ export interface Message {
   room_id?: string;
   // time the message was sent in RFC3339 format
   sent_at?: string;
+  // subject of the message
+  subject?: string;
 }
 
 export interface Room {
-  // time of creation
-  created_at?: string;
-  // description of the that
-  description?: string;
-  // unique room id
-  id?: string;
   // name of the chat
   name?: string;
   // whether its a private room
   private?: boolean;
   // list of users
   user_ids?: string[];
+  // time of creation
+  created_at?: string;
+  // description of the that
+  description?: string;
+  // unique room id
+  id?: string;
 }
 
 export interface SendRequest {
