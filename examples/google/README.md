@@ -8,22 +8,20 @@ Endpoints:
 
 Search for videos on Google
 
-
 [https://m3o.com/google/api#Search](https://m3o.com/google/api#Search)
 
 ```js
-const { GoogleService } = require('m3o/google');
+const { GoogleService } = require("m3o/google");
 
-const googleService = new GoogleService(process.env.M3O_API_TOKEN)
+const googleService = new GoogleService(process.env.M3O_API_TOKEN);
 
 // Search for videos on Google
 async function searchForVideos() {
-	const rsp = await googleService.search({
-  "query": "how to make donuts"
-})
-	console.log(rsp)
-	
+  const rsp = await googleService.search({
+    query: "how to make donuts",
+  });
+  console.log(rsp);
 }
 
-searchForVideos()
+searchForVideos();
 ```

@@ -8,45 +8,42 @@ Endpoints:
 
 Embed a YouTube video
 
-
 [https://m3o.com/youtube/api#Embed](https://m3o.com/youtube/api#Embed)
 
 ```js
-const { YoutubeService } = require('m3o/youtube');
+const { YoutubeService } = require("m3o/youtube");
 
-const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN)
+const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN);
 
 // Embed a YouTube video
 async function embedAyoutubeVideo() {
-	const rsp = await youtubeService.embed({
-  "url": "https://www.youtube.com/watch?v=GWRWZu7XsJ0"
-})
-	console.log(rsp)
-	
+  const rsp = await youtubeService.embed({
+    url: "https://www.youtube.com/watch?v=GWRWZu7XsJ0",
+  });
+  console.log(rsp);
 }
 
-embedAyoutubeVideo()
+embedAyoutubeVideo();
 ```
+
 ## Search
 
 Search for videos on YouTube
 
-
 [https://m3o.com/youtube/api#Search](https://m3o.com/youtube/api#Search)
 
 ```js
-const { YoutubeService } = require('m3o/youtube');
+const { YoutubeService } = require("m3o/youtube");
 
-const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN)
+const youtubeService = new YoutubeService(process.env.M3O_API_TOKEN);
 
 // Search for videos on YouTube
 async function searchForVideos() {
-	const rsp = await youtubeService.search({
-  "query": "donuts"
-})
-	console.log(rsp)
-	
+  const rsp = await youtubeService.search({
+    query: "donuts",
+  });
+  console.log(rsp);
 }
 
-searchForVideos()
+searchForVideos();
 ```

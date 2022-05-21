@@ -8,22 +8,20 @@ Endpoints:
 
 Query an addresss
 
-
 [https://m3o.com/dns/api#Query](https://m3o.com/dns/api#Query)
 
 ```js
-const { DnsService } = require('m3o/dns');
+const { DnsService } = require("m3o/dns");
 
-const dnsService = new DnsService(process.env.M3O_API_TOKEN)
+const dnsService = new DnsService(process.env.M3O_API_TOKEN);
 
 // Query an addresss
 async function makeAdnsQuery() {
-	const rsp = await dnsService.query({
-  "name": "google.com"
-})
-	console.log(rsp)
-	
+  const rsp = await dnsService.query({
+    name: "google.com",
+  });
+  console.log(rsp);
 }
 
-makeAdnsQuery()
+makeAdnsQuery();
 ```

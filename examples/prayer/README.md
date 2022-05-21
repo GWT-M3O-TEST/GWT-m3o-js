@@ -8,22 +8,20 @@ Endpoints:
 
 Get the prayer (salah) times for a location on a given date
 
-
 [https://m3o.com/prayer/api#Times](https://m3o.com/prayer/api#Times)
 
 ```js
-const { PrayerService } = require('m3o/prayer');
+const { PrayerService } = require("m3o/prayer");
 
-const prayerService = new PrayerService(process.env.M3O_API_TOKEN)
+const prayerService = new PrayerService(process.env.M3O_API_TOKEN);
 
 // Get the prayer (salah) times for a location on a given date
 async function prayerTimes() {
-	const rsp = await prayerService.times({
-  "location": "london"
-})
-	console.log(rsp)
-	
+  const rsp = await prayerService.times({
+    location: "london",
+  });
+  console.log(rsp);
 }
 
-prayerTimes()
+prayerTimes();
 ```

@@ -1,50 +1,56 @@
-import * as m3o from '@m3o/m3o-node';
+import * as m3o from "@m3o/m3o-node";
 
+export class EmojiService {
+  private client: m3o.Client;
 
-export class EmojiService{
-	private client: m3o.Client;
-
-	constructor(token: string) {
-		this.client = new m3o.Client({token: token})
-	}
-	// Find an emoji by its alias e.g :beer:
-find(request: FindRequest): Promise<FindResponse> {
-		return this.client.call("emoji", "Find", request) as Promise<FindResponse>;
-	};
-	// Get the flag for a country. Requires country code e.g GB for great britain
-flag(request: FlagRequest): Promise<FlagResponse> {
-		return this.client.call("emoji", "Flag", request) as Promise<FlagResponse>;
-	};
-	// Print text and renders the emojis with aliases e.g
-// let's grab a :beer: becomes let's grab a 🍺
-print(request: PrintRequest): Promise<PrintResponse> {
-		return this.client.call("emoji", "Print", request) as Promise<PrintResponse>;
-	};
-	
+  constructor(token: string) {
+    this.client = new m3o.Client({ token: token });
+  }
+  // Find an emoji by its alias e.g :beer:
+  find(request: FindRequest): Promise<FindResponse> {
+    return this.client.call("emoji", "Find", request) as Promise<FindResponse>;
+  }
+  // Get the flag for a country. Requires country code e.g GB for great britain
+  flag(request: FlagRequest): Promise<FlagResponse> {
+    return this.client.call("emoji", "Flag", request) as Promise<FlagResponse>;
+  }
+  // Print text and renders the emojis with aliases e.g
+  // let's grab a :beer: becomes let's grab a 🍺
+  print(request: PrintRequest): Promise<PrintResponse> {
+    return this.client.call(
+      "emoji",
+      "Print",
+      request
+    ) as Promise<PrintResponse>;
+  }
 }
 
+export interface FindRequest {
+  // the alias code e.g :beer:
+  alias?: string;
+}
 
-export interface FindRequest{
-// the alias code e.g :beer:
-alias?: string;}
+export interface FindResponse {
+  // the unicode emoji 🍺
+  emoji?: string;
+}
 
-export interface FindResponse{
-// the unicode emoji 🍺
-emoji?: string;}
+export interface FlagRequest {
+  // country code e.g GB
+  code?: string;
+}
 
-export interface FlagRequest{
-// country code e.g GB
-code?: string;}
+export interface FlagResponse {
+  // the emoji flag
+  flag?: string;
+}
 
-export interface FlagResponse{
-// the emoji flag
-flag?: string;}
+export interface PrintRequest {
+  // text including any alias e.g let's grab a :beer:
+  text?: string;
+}
 
-export interface PrintRequest{
-// text including any alias e.g let's grab a :beer:
-text?: string;}
-
-export interface PrintResponse{
-// text with rendered emojis
-text?: string;}
-
+export interface PrintResponse {
+  // text with rendered emojis
+  text?: string;
+}

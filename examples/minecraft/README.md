@@ -8,22 +8,20 @@ Endpoints:
 
 Ping a minecraft server
 
-
 [https://m3o.com/minecraft/api#Ping](https://m3o.com/minecraft/api#Ping)
 
 ```js
-const { MinecraftService } = require('m3o/minecraft');
+const { MinecraftService } = require("m3o/minecraft");
 
-const minecraftService = new MinecraftService(process.env.M3O_API_TOKEN)
+const minecraftService = new MinecraftService(process.env.M3O_API_TOKEN);
 
 // Ping a minecraft server
 async function pingAminecraftServer() {
-	const rsp = await minecraftService.ping({
-  "address": "funcraft.net"
-})
-	console.log(rsp)
-	
+  const rsp = await minecraftService.ping({
+    address: "funcraft.net",
+  });
+  console.log(rsp);
 }
 
-pingAminecraftServer()
+pingAminecraftServer();
 ```

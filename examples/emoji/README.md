@@ -8,70 +8,66 @@ Endpoints:
 
 Find an emoji by its alias e.g :beer:
 
-
 [https://m3o.com/emoji/api#Find](https://m3o.com/emoji/api#Find)
 
 ```js
-const { EmojiService } = require('m3o/emoji');
+const { EmojiService } = require("m3o/emoji");
 
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
 
 // Find an emoji by its alias e.g :beer:
 async function findEmoji() {
-	const rsp = await emojiService.find({
-  "alias": ":beer:"
-})
-	console.log(rsp)
-	
+  const rsp = await emojiService.find({
+    alias: ":beer:",
+  });
+  console.log(rsp);
 }
 
-findEmoji()
+findEmoji();
 ```
+
 ## Flag
 
 Get the flag for a country. Requires country code e.g GB for great britain
 
-
 [https://m3o.com/emoji/api#Flag](https://m3o.com/emoji/api#Flag)
 
 ```js
-const { EmojiService } = require('m3o/emoji');
+const { EmojiService } = require("m3o/emoji");
 
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
 
 // Get the flag for a country. Requires country code e.g GB for great britain
 async function getFlagByCountryCode() {
-	const rsp = await emojiService.flag({
-  "code": "GB"
-})
-	console.log(rsp)
-	
+  const rsp = await emojiService.flag({
+    code: "GB",
+  });
+  console.log(rsp);
 }
 
-getFlagByCountryCode()
+getFlagByCountryCode();
 ```
+
 ## Print
 
 Print text and renders the emojis with aliases e.g
 let's grab a :beer: becomes let's grab a 🍺
 
-
 [https://m3o.com/emoji/api#Print](https://m3o.com/emoji/api#Print)
 
 ```js
-const { EmojiService } = require('m3o/emoji');
+const { EmojiService } = require("m3o/emoji");
 
-const emojiService = new EmojiService(process.env.M3O_API_TOKEN)
+const emojiService = new EmojiService(process.env.M3O_API_TOKEN);
 
 // Print text and renders the emojis with aliases e.g
 // let's grab a :beer: becomes let's grab a 🍺
 async function printTextIncludingEmoji() {
-	const rsp = await emojiService.print({
-  "text": "let's grab a :beer:"
-})
-	console.log(rsp)
-	
+  const rsp = await emojiService.print({
+    text: "let's grab a :beer:",
+  });
+  console.log(rsp);
 }
 
-printTextIncludingEmoji()
+printTextIncludingEmoji();
 ```

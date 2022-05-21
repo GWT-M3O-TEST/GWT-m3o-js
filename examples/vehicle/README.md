@@ -8,22 +8,20 @@ Endpoints:
 
 Lookup a UK vehicle by it's registration number
 
-
 [https://m3o.com/vehicle/api#Lookup](https://m3o.com/vehicle/api#Lookup)
 
 ```js
-const { VehicleService } = require('m3o/vehicle');
+const { VehicleService } = require("m3o/vehicle");
 
-const vehicleService = new VehicleService(process.env.M3O_API_TOKEN)
+const vehicleService = new VehicleService(process.env.M3O_API_TOKEN);
 
 // Lookup a UK vehicle by it's registration number
 async function lookupVehicle() {
-	const rsp = await vehicleService.lookup({
-  "registration": "LC60OTA"
-})
-	console.log(rsp)
-	
+  const rsp = await vehicleService.lookup({
+    registration: "LC60OTA",
+  });
+  console.log(rsp);
 }
 
-lookupVehicle()
+lookupVehicle();
 ```
