@@ -25,12 +25,6 @@ export class MemegenService {
 }
 
 export interface Box {
-  // y axis position
-  y?: number;
-  // colour hex code
-  color?: string;
-  // height in pixels
-  height?: number;
   // outline color hex code
   outline?: string;
   // text to display
@@ -39,9 +33,17 @@ export interface Box {
   width?: number;
   // x axis position
   x?: number;
+  // y axis position
+  y?: number;
+  // colour hex code
+  color?: string;
+  // height in pixels
+  height?: number;
 }
 
 export interface GenerateRequest {
+  // bottom text
+  bottom_text?: string;
   // font: arial or impact
   font?: string;
   // the template id to use
@@ -50,8 +52,6 @@ export interface GenerateRequest {
   max_font_size?: string;
   // top text
   top_text?: string;
-  // bottom text
-  bottom_text?: string;
 }
 
 export interface GenerateResponse {
@@ -60,18 +60,18 @@ export interface GenerateResponse {
 }
 
 export interface Template {
-  // name of the memegen
-  name?: string;
-  // url of the memegen
-  url?: string;
-  // width in pixels
-  width?: number;
   // number of boxes used
   box_count?: number;
   // height in pixels
   height?: number;
   // id of the memegen
   id?: string;
+  // name of the memegen
+  name?: string;
+  // url of the memegen
+  url?: string;
+  // width in pixels
+  width?: number;
 }
 
 export interface TemplatesRequest {}

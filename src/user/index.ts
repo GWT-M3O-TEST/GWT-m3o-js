@@ -136,6 +136,8 @@ export class UserService {
 }
 
 export interface Account {
+  // alphanumeric username
+  username?: string;
   // date of verification
   verification_date?: number;
   // if the account is verified
@@ -150,8 +152,6 @@ export interface Account {
   profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
-  // alphanumeric username
-  username?: string;
 }
 
 export interface CreateRequest {
@@ -190,12 +190,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
+  // The username of the user
+  username?: string;
   // The email address of the user
   email?: string;
   // The password of the user
   password?: string;
-  // The username of the user
-  username?: string;
 }
 
 export interface LoginResponse {
@@ -273,6 +273,9 @@ export interface SendMagicLinkRequest {
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
+  // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
+  // HTML emails are not available currently.
+  text_content?: string;
   // email address to send reset for
   email?: string;
   // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
@@ -281,26 +284,23 @@ export interface SendPasswordResetEmailRequest {
   from_name?: string;
   // subject of the email
   subject?: string;
-  // Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-  // HTML emails are not available currently.
-  text_content?: string;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // The url to redirect to incase of failure
-  failure_redirect_url?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
-  // The url to redirect to after successful verification
-  redirect_url?: string;
   // subject of the email
   subject?: string;
   // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
   text_content?: string;
   // email address to send the verification code
   email?: string;
+  // The url to redirect to incase of failure
+  failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
+  // The url to redirect to after successful verification
+  redirect_url?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -330,14 +330,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the user profile as map<string,string>
-  profile?: { [key: string]: string };
-  // the new username
-  username?: string;
   // the new email address
   email?: string;
   // the account id
   id?: string;
+  // the user profile as map<string,string>
+  profile?: { [key: string]: string };
+  // the new username
+  username?: string;
 }
 
 export interface UpdateResponse {}

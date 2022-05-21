@@ -36,14 +36,14 @@ export interface ConsumeRequest {
 }
 
 export interface ConsumeResponse {
+  // Unique message id
+  id?: string;
   // The next json message on the topic
   message?: { [key: string]: any };
   // Timestamp of publishing
   timestamp?: string;
   // The topic subscribed to
   topic?: string;
-  // Unique message id
-  id?: string;
 }
 
 export interface Ev {

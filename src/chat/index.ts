@@ -108,10 +108,10 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // chat room to join
-  room_id?: string;
   // user id joining
   user_id?: string;
+  // chat room to join
+  room_id?: string;
 }
 
 export interface JoinResponse {
@@ -119,10 +119,10 @@ export interface JoinResponse {
 }
 
 export interface KickRequest {
-  // the chat room id
-  room_id?: string;
   // the user id
   user_id?: string;
+  // the chat room id
+  room_id?: string;
 }
 
 export interface KickResponse {
@@ -150,6 +150,10 @@ export interface ListResponse {
 }
 
 export interface Message {
+  // subject of the message
+  subject?: string;
+  // text of the message
+  text?: string;
   // id of the user who sent the message
   user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
@@ -160,10 +164,6 @@ export interface Message {
   room_id?: string;
   // time the message was sent in RFC3339 format
   sent_at?: string;
-  // subject of the message
-  subject?: string;
-  // text of the message
-  text?: string;
 }
 
 export interface Room {
@@ -182,6 +182,8 @@ export interface Room {
 }
 
 export interface SendRequest {
+  // id of the chat room the message is being sent to / from
+  room_id?: string;
   // subject of the message
   subject?: string;
   // text of the message
@@ -190,8 +192,6 @@ export interface SendRequest {
   user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
-  // id of the chat room the message is being sent to / from
-  room_id?: string;
 }
 
 export interface SendResponse {

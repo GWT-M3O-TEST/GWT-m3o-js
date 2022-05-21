@@ -79,12 +79,12 @@ export interface Field {
 }
 
 export interface IndexRequest {
+  // The index this record belongs to
+  index?: string;
   // The data to index
   data?: { [key: string]: any };
   // Optional ID for the record
   id?: string;
-  // The index this record belongs to
-  index?: string;
 }
 
 export interface IndexResponse {
@@ -93,10 +93,10 @@ export interface IndexResponse {
 }
 
 export interface Record {
-  // The ID for this record. If blank, one will be generated
-  id?: string;
   // The JSON contents of the record
   data?: { [key: string]: any };
+  // The ID for this record. If blank, one will be generated
+  id?: string;
 }
 
 export interface SearchRequest {

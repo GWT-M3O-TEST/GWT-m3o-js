@@ -153,30 +153,30 @@ export interface RunResponse {
 }
 
 export interface Service {
-  // name of the app
-  name?: string;
-  // status of the app
-  status?: string;
-  // last updated
-  updated?: string;
-  // time of creation
-  created?: string;
-  // custom domains
-  custom_domains?: string[];
-  // unique id
-  id?: string;
   // region running in
   region?: string;
   // source repository
   repo?: string;
-  // app url
-  url?: string;
   // branch of code
   branch?: string;
   // associated env vars
   env_vars?: { [key: string]: string };
+  // unique id
+  id?: string;
+  // name of the app
+  name?: string;
   // port running on
   port?: number;
+  // status of the app
+  status?: string;
+  // last updated
+  updated?: string;
+  // app url
+  url?: string;
+  // time of creation
+  created?: string;
+  // custom domains
+  custom_domains?: string[];
 }
 
 export interface StatusRequest {

@@ -133,10 +133,10 @@ export interface ReadResponse {
 }
 
 export interface RenameTableRequest {
-  // new table name
-  to?: string;
   // current table name
   from?: string;
+  // new table name
+  to?: string;
 }
 
 export interface RenameTableResponse {}

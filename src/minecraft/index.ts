@@ -22,6 +22,8 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
+  // Latency (ms) between us and the server (EU)
+  latency?: number;
   // Max players ever
   max_players?: number;
   // Message of the day
@@ -36,13 +38,11 @@ export interface PingResponse {
   version?: string;
   // Favicon in base64
   favicon?: string;
-  // Latency (ms) between us and the server (EU)
-  latency?: number;
 }
 
 export interface PlayerSample {
-  // name of the player
-  name?: string;
   // unique id of player
   uuid?: string;
+  // name of the player
+  name?: string;
 }

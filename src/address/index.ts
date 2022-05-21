@@ -28,16 +28,18 @@ export interface LookupPostcodeResponse {
 }
 
 export interface Record {
+  // the complete address
+  summary?: string;
   // line one of address
   line_one?: string;
   // organisation if present
   organisation?: string;
-  // the postcode
-  postcode?: string;
   // the premise
   premise?: string;
   // street name
   street?: string;
+  // the postcode
+  postcode?: string;
   // post town
   town?: string;
   // building name
@@ -48,6 +50,4 @@ export interface Record {
   line_two?: string;
   // dependent locality
   locality?: string;
-  // the complete address
-  summary?: string;
 }
