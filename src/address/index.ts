@@ -28,26 +28,26 @@ export interface LookupPostcodeResponse {
 }
 
 export interface Record {
-  // building name
-  building_name?: string;
-  // line two of address
-  line_two?: string;
-  // organisation if present
-  organisation?: string;
-  // the premise
-  premise?: string;
-  // post town
-  town?: string;
   // the complete address
   summary?: string;
-  // the county
-  county?: string;
+  // building name
+  building_name?: string;
   // line one of address
   line_one?: string;
-  // dependent locality
-  locality?: string;
+  // organisation if present
+  organisation?: string;
   // the postcode
   postcode?: string;
+  // the premise
+  premise?: string;
   // street name
   street?: string;
+  // the county
+  county?: string;
+  // line two of address
+  line_two?: string;
+  // dependent locality
+  locality?: string;
+  // post town
+  town?: string;
 }

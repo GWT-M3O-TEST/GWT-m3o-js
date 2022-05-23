@@ -22,10 +22,10 @@ export interface QuestionRequest {
 }
 
 export interface QuestionResponse {
+  // the answer to your question
+  answer?: string;
   // any related image
   image?: string;
   // a related url
   url?: string;
-  // the answer to your question
-  answer?: string;
 }

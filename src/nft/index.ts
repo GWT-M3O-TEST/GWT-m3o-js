@@ -45,36 +45,36 @@ export class NftService {
 }
 
 export interface Asset {
-  // the token id
-  token_id?: string;
-  // related description
-  description?: string;
-  // id of the asset
-  id?: number;
-  // last time sold
-  last_sale?: Sale;
-  // Owner of the NFT
-  owner?: User;
-  // traits associated with the item
-  traits?: { [key: string]: any }[];
-  // Creator of the NFT
-  creator?: User;
-  // the image url
-  image_url?: string;
-  // number of sales
-  sales?: number;
+  // the permalink
+  permalink?: string;
+  // associated collection
+  collection?: Collection;
   // asset contract
   contract?: Contract;
+  // number of sales
+  sales?: number;
+  // the token id
+  token_id?: string;
+  // traits associated with the item
+  traits?: { [key: string]: any }[];
+  // id of the asset
+  id?: number;
+  // is it a presale
+  presale?: boolean;
+  // last time sold
+  last_sale?: Sale;
   // listing date
   listing_date?: string;
   // name of the asset
   name?: string;
-  // the permalink
-  permalink?: string;
-  // is it a presale
-  presale?: boolean;
-  // associated collection
-  collection?: Collection;
+  // Creator of the NFT
+  creator?: User;
+  // the image url
+  image_url?: string;
+  // related description
+  description?: string;
+  // Owner of the NFT
+  owner?: User;
 }
 
 export interface AssetRequest {
@@ -87,18 +87,18 @@ export interface AssetResponse {
 }
 
 export interface AssetsRequest {
-  // DEPRECATED offset for pagination, please use cursor instead
-  offset?: number;
-  // order "asc" or "desc"
-  order?: string;
-  // order by "sale_date", "sale_count", "sale_price", "total_price"
-  order_by?: string;
   // limit to members of a collection by slug name (case sensitive)
   collection?: string;
   // A cursor pointing to the page to retrieve
   cursor?: string;
   // limit returned assets
   limit?: number;
+  // DEPRECATED offset for pagination, please use cursor instead
+  offset?: number;
+  // order "asc" or "desc"
+  order?: string;
+  // order by "sale_date", "sale_count", "sale_price", "total_price"
+  order_by?: string;
 }
 
 export interface AssetsResponse {
@@ -111,34 +111,34 @@ export interface AssetsResponse {
 }
 
 export interface Collection {
-  // name of the collection
-  name?: string;
-  // the collection's approval status on OpenSea
-  safelist_request_status?: string;
-  // collection slug
-  slug?: string;
-  // sales statistics associated with the collection
-  stats?: { [key: string]: any };
-  // creation time
-  created_at?: string;
   // description of the collection
   description?: string;
+  // the payment tokens accepted for this collection
+  payment_tokens?: Token[];
+  // the collection's approval status on OpenSea
+  safelist_request_status?: string;
+  // the fees that get paid out when a sale is made
+  seller_fees?: string;
+  // sales statistics associated with the collection
+  stats?: { [key: string]: any };
+  // listing of all the trait types available within this collection
+  traits?: { [key: string]: any };
+  // creation time
+  created_at?: string;
+  // payout address for the collection's royalties
+  payout_address?: string;
   // external link to the original website for the collection
   external_link?: string;
   // an image for the collection
   image_url?: string;
-  // the payment tokens accepted for this collection
-  payment_tokens?: Token[];
-  // payout address for the collection's royalties
-  payout_address?: string;
-  // the fees that get paid out when a sale is made
-  seller_fees?: string;
-  // approved editors for this collection
-  editors?: string[];
+  // name of the collection
+  name?: string;
   // a list of the contracts associated with this collection
   primary_asset_contracts?: Contract[];
-  // listing of all the trait types available within this collection
-  traits?: { [key: string]: any };
+  // collection slug
+  slug?: string;
+  // approved editors for this collection
+  editors?: string[];
   // image used in the banner for the collection
   banner_image_url?: string;
 }
@@ -152,8 +152,8 @@ export interface CollectionResponse {
 }
 
 export interface CollectionsRequest {
-  offset?: number;
   limit?: number;
+  offset?: number;
 }
 
 export interface CollectionsResponse {
@@ -161,37 +161,37 @@ export interface CollectionsResponse {
 }
 
 export interface Contract {
-  // ethereum address
-  address?: string;
+  // type of contract e.g "semi-fungible"
+  type?: string;
   // timestamp of creation
   created_at?: string;
-  // name of contract
-  name?: string;
-  // owner id
-  owner?: number;
-  // aka "ERC1155"
-  schema?: string;
   // seller fees
   seller_fees?: string;
   // related symbol
   symbol?: string;
-  // type of contract e.g "semi-fungible"
-  type?: string;
-  // description of contract
-  description?: string;
+  // owner id
+  owner?: number;
   // payout address
   payout_address?: string;
+  // aka "ERC1155"
+  schema?: string;
+  // ethereum address
+  address?: string;
+  // description of contract
+  description?: string;
+  // name of contract
+  name?: string;
 }
 
 export interface CreateRequest {
-  // data if not image
-  data?: string;
-  // description
-  description?: string;
   // image data
   image?: string;
   // name of the NFT
   name?: string;
+  // data if not image
+  data?: string;
+  // description
+  description?: string;
 }
 
 export interface CreateResponse {
@@ -200,36 +200,36 @@ export interface CreateResponse {
 
 export interface Sale {
   event_type?: string;
-  quantity?: string;
-  transaction?: Transaction;
-  asset_token_id?: string;
-  created_at?: string;
-  event_timestamp?: string;
   payment_token?: Token;
   total_price?: string;
+  created_at?: string;
+  asset_token_id?: string;
+  event_timestamp?: string;
+  quantity?: string;
+  transaction?: Transaction;
   asset_decimals?: number;
 }
 
 export interface Token {
+  address?: string;
+  decimals?: number;
   eth_price?: string;
   id?: number;
   image_url?: string;
   name?: string;
   symbol?: string;
   usd_price?: string;
-  address?: string;
-  decimals?: number;
 }
 
 export interface Transaction {
-  id?: number;
-  timestamp?: string;
   to_account?: User;
   transaction_hash?: string;
   transaction_index?: string;
   block_hash?: string;
   block_number?: string;
   from_account?: User;
+  id?: number;
+  timestamp?: string;
 }
 
 export interface User {

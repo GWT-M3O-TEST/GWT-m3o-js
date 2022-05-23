@@ -40,8 +40,6 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
-  // the close price
-  close?: number;
   // the date
   date?: string;
   // the peak price
@@ -54,6 +52,8 @@ export interface HistoryResponse {
   symbol?: string;
   // the volume
   volume?: number;
+  // the close price
+  close?: number;
 }
 
 export interface PriceRequest {
@@ -74,6 +74,10 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the bid size
+  bid_size?: number;
+  // the stock symbol
+  symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
   // the asking price
@@ -82,8 +86,4 @@ export interface QuoteResponse {
   ask_size?: number;
   // the bidding price
   bid_price?: number;
-  // the bid size
-  bid_size?: number;
-  // the stock symbol
-  symbol?: string;
 }

@@ -150,12 +150,6 @@ export interface ListResponse {
 }
 
 export interface Message {
-  // id of the user who sent the message
-  user_id?: string;
-  // a client side id, should be validated by the server to make the request retry safe
-  client?: string;
-  // id of the message, allocated by the server
-  id?: string;
   // id of the chat the message is being sent to / from
   room_id?: string;
   // time the message was sent in RFC3339 format
@@ -164,11 +158,15 @@ export interface Message {
   subject?: string;
   // text of the message
   text?: string;
+  // id of the user who sent the message
+  user_id?: string;
+  // a client side id, should be validated by the server to make the request retry safe
+  client?: string;
+  // id of the message, allocated by the server
+  id?: string;
 }
 
 export interface Room {
-  // list of users
-  user_ids?: string[];
   // time of creation
   created_at?: string;
   // description of the that
@@ -179,19 +177,21 @@ export interface Room {
   name?: string;
   // whether its a private room
   private?: boolean;
+  // list of users
+  user_ids?: string[];
 }
 
 export interface SendRequest {
+  // text of the message
+  text?: string;
+  // id of the user who sent the message
+  user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the chat room the message is being sent to / from
   room_id?: string;
   // subject of the message
   subject?: string;
-  // text of the message
-  text?: string;
-  // id of the user who sent the message
-  user_id?: string;
 }
 
 export interface SendResponse {

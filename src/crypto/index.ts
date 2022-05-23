@@ -97,10 +97,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the last price
-  price?: number;
   // the crypto symbol e.g BTCUSD
   symbol?: string;
+  // the last price
+  price?: number;
 }
 
 export interface QuoteRequest {
@@ -109,6 +109,10 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the bidding price
+  bid_price?: number;
+  // the bid size
+  bid_size?: number;
   // the crypto symbol
   symbol?: string;
   // the UTC timestamp of the quote
@@ -117,15 +121,11 @@ export interface QuoteResponse {
   ask_price?: number;
   // the ask size
   ask_size?: number;
-  // the bidding price
-  bid_price?: number;
-  // the bid size
-  bid_size?: number;
 }
 
 export interface Symbol {
-  symbol?: string;
   name?: string;
+  symbol?: string;
 }
 
 export interface SymbolsRequest {}

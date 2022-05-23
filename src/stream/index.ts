@@ -66,10 +66,10 @@ export interface ListChannelsResponse {
 }
 
 export interface ListMessagesRequest {
-  // The channel to subscribe to
-  channel?: string;
   // number of message to return
   limit?: number;
+  // The channel to subscribe to
+  channel?: string;
 }
 
 export interface ListMessagesResponse {
@@ -80,6 +80,8 @@ export interface ListMessagesResponse {
 }
 
 export interface Message {
+  // text of the message
+  text?: string;
   // time of message creation
   timestamp?: string;
   // the channel name
@@ -88,15 +90,13 @@ export interface Message {
   id?: string;
   // the associated metadata
   metadata?: { [key: string]: string };
-  // text of the message
-  text?: string;
 }
 
 export interface SendMessageRequest {
-  // The message text to send
-  text?: string;
   // The channel to send to
   channel?: string;
+  // The message text to send
+  text?: string;
 }
 
 export interface SendMessageResponse {}

@@ -42,8 +42,6 @@ export interface AddRequest {
 export interface AddResponse {}
 
 export interface Entry {
-  // article summary
-  summary?: string;
   // title of the entry
   title?: string;
   // article content
@@ -56,6 +54,8 @@ export interface Entry {
   id?: string;
   // rss feed url of the entry
   link?: string;
+  // article summary
+  summary?: string;
 }
 
 export interface Feed {
