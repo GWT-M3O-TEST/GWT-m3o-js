@@ -80,16 +80,16 @@ export interface ListMessagesResponse {
 }
 
 export interface Message {
-  // the channel name
-  channel?: string;
-  // id of the message
-  id?: string;
   // the associated metadata
   metadata?: { [key: string]: string };
   // text of the message
   text?: string;
   // time of message creation
   timestamp?: string;
+  // the channel name
+  channel?: string;
+  // id of the message
+  id?: string;
 }
 
 export interface SendMessageRequest {

@@ -94,10 +94,10 @@ export interface IncrementRequest {
 }
 
 export interface IncrementResponse {
-  // The key incremented
-  key?: string;
   // The new value
   value?: number;
+  // The key incremented
+  key?: string;
 }
 
 export interface ListKeysRequest {}
@@ -107,12 +107,12 @@ export interface ListKeysResponse {
 }
 
 export interface SetRequest {
+  // The key to update
+  key?: string;
   // Time to live in seconds
   ttl?: number;
   // The value to set
   value?: string;
-  // The key to update
-  key?: string;
 }
 
 export interface SetResponse {

@@ -40,6 +40,8 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the volume
+  volume?: number;
   // the close price
   close?: number;
   // the date
@@ -52,8 +54,6 @@ export interface HistoryResponse {
   open?: number;
   // the stock symbol
   symbol?: string;
-  // the volume
-  volume?: number;
 }
 
 export interface PriceRequest {
@@ -74,8 +74,6 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
-  // the stock symbol
-  symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
   // the asking price
@@ -86,4 +84,6 @@ export interface QuoteResponse {
   bid_price?: number;
   // the bid size
   bid_size?: number;
+  // the stock symbol
+  symbol?: string;
 }

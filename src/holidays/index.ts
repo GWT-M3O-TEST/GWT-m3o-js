@@ -38,10 +38,6 @@ export interface Country {
 }
 
 export interface Holiday {
-  // the regions within the country that observe this holiday (if not all of them)
-  regions?: string[];
-  // the type of holiday Public, Bank, School, Authorities, Optional, Observance
-  types?: string[];
   // the country this holiday occurs in
   country_code?: string;
   // date of the holiday in yyyy-mm-dd format
@@ -50,6 +46,10 @@ export interface Holiday {
   local_name?: string;
   // the name of the holiday in English
   name?: string;
+  // the regions within the country that observe this holiday (if not all of them)
+  regions?: string[];
+  // the type of holiday Public, Bank, School, Authorities, Optional, Observance
+  types?: string[];
 }
 
 export interface ListRequest {

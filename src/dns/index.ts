@@ -32,14 +32,14 @@ export interface QueryRequest {
 
 export interface QueryResponse {
   CD?: boolean;
-  RA?: boolean;
-  TC?: boolean;
+  answer?: Answer[];
   question?: Question[];
   status?: number;
   AD?: boolean;
-  answer?: Answer[];
-  provider?: string;
+  RA?: boolean;
   RD?: boolean;
+  TC?: boolean;
+  provider?: string;
 }
 
 export interface Question {

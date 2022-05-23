@@ -21,14 +21,14 @@ export class WordleService {
 }
 
 export interface Char {
-  // position in the string
-  position?: number;
   // whether it was correct
   correct?: boolean;
   // whether it's in the word
   in_word?: boolean;
   // the character itself
   letter?: string;
+  // position in the string
+  position?: number;
 }
 
 export interface Guess {
@@ -49,6 +49,8 @@ export interface GuessRequest {
 }
 
 export interface GuessResponse {
+  // whether it was correct
+  correct?: boolean;
   // the guess words tried
   guesses?: Guess[];
   // informational message
@@ -57,8 +59,6 @@ export interface GuessResponse {
   tries_left?: number;
   // the actual word if failed
   answer?: string;
-  // whether it was correct
-  correct?: boolean;
 }
 
 export interface NextRequest {}

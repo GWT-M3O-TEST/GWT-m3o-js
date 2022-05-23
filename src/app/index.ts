@@ -83,10 +83,10 @@ export interface ListResponse {
 }
 
 export interface LogsRequest {
-  // type of logs to retrieve, currently supported options - "build"
-  logs_type?: string;
   // name of the app
   name?: string;
+  // type of logs to retrieve, currently supported options - "build"
+  logs_type?: string;
 }
 
 export interface LogsResponse {
@@ -153,6 +153,8 @@ export interface RunResponse {
 }
 
 export interface Service {
+  // app url
+  url?: string;
   // branch of code
   branch?: string;
   // custom domains
@@ -167,16 +169,14 @@ export interface Service {
   region?: string;
   // source repository
   repo?: string;
-  // status of the app
-  status?: string;
   // time of creation
   created?: string;
   // unique id
   id?: string;
+  // status of the app
+  status?: string;
   // last updated
   updated?: string;
-  // app url
-  url?: string;
 }
 
 export interface StatusRequest {

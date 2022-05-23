@@ -55,8 +55,6 @@ export class CommentsService {
 }
 
 export interface Comment {
-  // unique id for the comment, generated if not specified
-  id?: string;
   // subject of the comment
   subject?: string;
   // text of the comment
@@ -65,6 +63,8 @@ export interface Comment {
   updated?: string;
   // time at which the comment was created
   created?: string;
+  // unique id for the comment, generated if not specified
+  id?: string;
 }
 
 export interface CreateRequest {

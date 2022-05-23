@@ -38,8 +38,6 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // e.g 51.50354
-  latitude?: number;
   // e.g -0.127695
   longitude?: number;
   // UK postcode e.g SW1A 2AA
@@ -52,6 +50,8 @@ export interface LookupResponse {
   country?: string;
   // e.g Westminster
   district?: string;
+  // e.g 51.50354
+  latitude?: number;
 }
 
 export interface RandomRequest {}

@@ -17,18 +17,20 @@ export class NewsService {
 }
 
 export interface Article {
+  // categories
+  categories?: string[];
   // image url
   image_url?: string;
+  // first 60 characters of article body
+  snippet?: string;
   // the locale
   locale?: string;
   // time it was published
   published_at?: string;
-  // first 60 characters of article body
-  snippet?: string;
+  // source of news
+  source?: string;
   // article title
   title?: string;
-  // categories
-  categories?: string[];
   // article description
   description?: string;
   // article id
@@ -37,8 +39,6 @@ export interface Article {
   keywords?: string;
   // the article language
   language?: string;
-  // source of news
-  source?: string;
   // url of the article
   url?: string;
 }
