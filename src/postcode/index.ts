@@ -57,8 +57,6 @@ export interface LookupResponse {
 export interface RandomRequest {}
 
 export interface RandomResponse {
-  // country e.g United Kingdom
-  country?: string;
   // e.g Westminster
   district?: string;
   // e.g 51.50354
@@ -71,6 +69,8 @@ export interface RandomResponse {
   region?: string;
   // e.g St James's
   ward?: string;
+  // country e.g United Kingdom
+  country?: string;
 }
 
 export interface ValidateRequest {

@@ -136,10 +136,6 @@ export class UserService {
 }
 
 export interface Account {
-  // unix timestamp
-  updated?: number;
-  // alphanumeric username
-  username?: string;
   // date of verification
   verification_date?: number;
   // if the account is verified
@@ -152,11 +148,13 @@ export interface Account {
   id?: string;
   // Store any custom data you want about your users in this fields.
   profile?: { [key: string]: string };
+  // unix timestamp
+  updated?: number;
+  // alphanumeric username
+  username?: string;
 }
 
 export interface CreateRequest {
-  // the email address
-  email?: string;
   // optional account id
   id?: string;
   // the user password
@@ -165,6 +163,8 @@ export interface CreateRequest {
   profile?: { [key: string]: string };
   // the username
   username?: string;
+  // the email address
+  email?: string;
 }
 
 export interface CreateResponse {
@@ -190,12 +190,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
+  // The email address of the user
+  email?: string;
   // The password of the user
   password?: string;
   // The username of the user
   username?: string;
-  // The email address of the user
-  email?: string;
 }
 
 export interface LoginResponse {
@@ -218,12 +218,12 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
+  // the account username
+  username?: string;
   // the account email
   email?: string;
   // the account id
   id?: string;
-  // the account username
-  username?: string;
 }
 
 export interface ReadResponse {
@@ -254,9 +254,6 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-  from_name?: string;
-  subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
@@ -268,6 +265,9 @@ export interface SendMagicLinkRequest {
   // calling M3O VerifyToken endpoint. You can return as a result a success,
   // failed or redirect to another page.
   endpoint?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  from_name?: string;
+  subject?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -289,8 +289,6 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-  text_content?: string;
   // email address to send the verification code
   email?: string;
   // The url to redirect to incase of failure
@@ -301,19 +299,21 @@ export interface SendVerificationEmailRequest {
   redirect_url?: string;
   // subject of the email
   subject?: string;
+  // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
+  text_content?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
-  // the session id
-  id?: string;
-  // the associated user id
-  userId?: string;
   // unix timestamp
   created?: number;
   // unix timestamp
   expires?: number;
+  // the session id
+  id?: string;
+  // the associated user id
+  userId?: string;
 }
 
 export interface UpdatePasswordRequest {
@@ -330,14 +330,14 @@ export interface UpdatePasswordRequest {
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
+  // the user profile as map<string,string>
+  profile?: { [key: string]: string };
   // the new username
   username?: string;
   // the new email address
   email?: string;
   // the account id
   id?: string;
-  // the user profile as map<string,string>
-  profile?: { [key: string]: string };
 }
 
 export interface UpdateResponse {}
@@ -354,7 +354,7 @@ export interface VerifyTokenRequest {
 }
 
 export interface VerifyTokenResponse {
+  is_valid?: boolean;
   message?: string;
   session?: Session;
-  is_valid?: boolean;
 }

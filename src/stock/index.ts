@@ -62,10 +62,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the stock symbol e.g AAPL
-  symbol?: string;
   // the last price
   price?: number;
+  // the stock symbol e.g AAPL
+  symbol?: string;
 }
 
 export interface QuoteRequest {

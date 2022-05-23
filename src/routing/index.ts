@@ -29,6 +29,8 @@ export class RoutingService {
 }
 
 export interface Direction {
+  // alternative reference
+  reference?: string;
   // distance to travel in meters
   distance?: number;
   // duration to travel in seconds
@@ -41,15 +43,13 @@ export interface Direction {
   maneuver?: Maneuver;
   // street name or location
   name?: string;
-  // alternative reference
-  reference?: string;
 }
 
 export interface DirectionsRequest {
-  // The destination of the journey
-  destination?: Point;
   // The staring point for the journey
   origin?: Point;
+  // The destination of the journey
+  destination?: Point;
 }
 
 export interface DirectionsResponse {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  bearing_after?: number;
+  bearing_before?: number;
   direction?: string;
   location?: Point;
   action?: string;
-  bearing_after?: number;
-  bearing_before?: number;
 }
 
 export interface Point {

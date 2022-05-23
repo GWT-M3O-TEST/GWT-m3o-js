@@ -13,6 +13,8 @@ export class TunnelService {
 }
 
 export interface SendRequest {
+  // request params to include
+  params?: { [key: string]: string };
   // path to request e.g /news
   path?: string;
   // alternatively specify a full url e.g https://www.google.com/news
@@ -25,17 +27,15 @@ export interface SendRequest {
   host?: string;
   // method of the request e.g GET, POST, DELETE
   method?: string;
-  // request params to include
-  params?: { [key: string]: string };
 }
 
 export interface SendResponse {
+  // body of the response
+  body?: string;
   // headers included
   headers?: { [key: string]: string };
   // the status
   status?: string;
   // the status code
   status_code?: number;
-  // body of the response
-  body?: string;
 }

@@ -49,8 +49,6 @@ export interface GuessRequest {
 }
 
 export interface GuessResponse {
-  // the guess words tried
-  guesses?: Guess[];
   // informational message
   status?: string;
   // number of tries left
@@ -59,6 +57,8 @@ export interface GuessResponse {
   answer?: string;
   // whether it was correct
   correct?: boolean;
+  // the guess words tried
+  guesses?: Guess[];
 }
 
 export interface NextRequest {}

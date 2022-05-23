@@ -56,10 +56,10 @@ export interface DecrementRequest {
 }
 
 export interface DecrementResponse {
-  // The key decremented
-  key?: string;
   // The new value
   value?: number;
+  // The key decremented
+  key?: string;
 }
 
 export interface DeleteRequest {
@@ -78,12 +78,12 @@ export interface GetRequest {
 }
 
 export interface GetResponse {
+  // The value
+  value?: string;
   // The key
   key?: string;
   // Time to live in seconds
   ttl?: number;
-  // The value
-  value?: string;
 }
 
 export interface IncrementRequest {
@@ -94,10 +94,10 @@ export interface IncrementRequest {
 }
 
 export interface IncrementResponse {
-  // The key incremented
-  key?: string;
   // The new value
   value?: number;
+  // The key incremented
+  key?: string;
 }
 
 export interface ListKeysRequest {}
@@ -107,12 +107,12 @@ export interface ListKeysResponse {
 }
 
 export interface SetRequest {
+  // The key to update
+  key?: string;
   // Time to live in seconds
   ttl?: number;
   // The value to set
   value?: string;
-  // The key to update
-  key?: string;
 }
 
 export interface SetResponse {

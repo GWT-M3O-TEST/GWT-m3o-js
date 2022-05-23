@@ -34,25 +34,25 @@ export interface ParseRequest {
 }
 
 export interface ParseResponse {
-  // associated name e.g Joe Blogs
-  name?: string;
   // the email address
   address?: string;
+  // associated name e.g Joe Blogs
+  name?: string;
 }
 
 export interface SendRequest {
-  // the email subject
-  subject?: string;
-  // the text body
-  text_body?: string;
-  // the email address of the recipient
-  to?: string;
   // the display name of the sender
   from?: string;
   // the html body
   html_body?: string;
   // an optional reply to email address
   reply_to?: string;
+  // the email subject
+  subject?: string;
+  // the text body
+  text_body?: string;
+  // the email address of the recipient
+  to?: string;
 }
 
 export interface SendResponse {}

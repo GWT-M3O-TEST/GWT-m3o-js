@@ -92,15 +92,15 @@ export interface DownloadResponse {
 }
 
 export interface HeadObject {
+  // when was this last modified
+  modified?: string;
+  name?: string;
   // URL to access the object if it is public
   url?: string;
   // is this public or private
   visibility?: string;
   // when was this created
   created?: string;
-  // when was this last modified
-  modified?: string;
-  name?: string;
 }
 
 export interface HeadRequest {
@@ -141,6 +141,8 @@ export interface ReadResponse {
 }
 
 export interface SpaceObject {
+  // when was this created
+  created?: string;
   // the data within the object
   data?: string;
   // when was this last modified
@@ -151,17 +153,15 @@ export interface SpaceObject {
   url?: string;
   // is this public or private
   visibility?: string;
-  // when was this created
-  created?: string;
 }
 
 export interface UpdateRequest {
+  // Who can see this object? "public" or "private", defaults to "private"
+  visibility?: string;
   // The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
   name?: string;
   // The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
   object?: string;
-  // Who can see this object? "public" or "private", defaults to "private"
-  visibility?: string;
 }
 
 export interface UpdateResponse {

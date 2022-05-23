@@ -38,6 +38,8 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the open price
+  open?: number;
   // the forex symbol
   symbol?: string;
   // the volume
@@ -50,8 +52,6 @@ export interface HistoryResponse {
   high?: number;
   // the low price
   low?: number;
-  // the open price
-  open?: number;
 }
 
 export interface PriceRequest {

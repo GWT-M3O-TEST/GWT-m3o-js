@@ -13,14 +13,14 @@ export class DnsService {
 }
 
 export interface Answer {
-  // name resolved
-  name?: string;
-  // type of record
-  type?: number;
   // time to live
   TTL?: number;
   // the answer
   data?: string;
+  // name resolved
+  name?: string;
+  // type of record
+  type?: number;
 }
 
 export interface QueryRequest {
@@ -31,20 +31,20 @@ export interface QueryRequest {
 }
 
 export interface QueryResponse {
-  answer?: Answer[];
-  question?: Question[];
+  RA?: boolean;
   RD?: boolean;
   TC?: boolean;
-  RA?: boolean;
-  provider?: string;
-  status?: number;
   AD?: boolean;
+  answer?: Answer[];
+  provider?: string;
+  question?: Question[];
+  status?: number;
   CD?: boolean;
 }
 
 export interface Question {
-  // type of record
-  type?: number;
   // name to query
   name?: string;
+  // type of record
+  type?: number;
 }

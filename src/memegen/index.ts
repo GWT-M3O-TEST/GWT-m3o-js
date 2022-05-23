@@ -25,6 +25,10 @@ export class MemegenService {
 }
 
 export interface Box {
+  // text to display
+  text?: string;
+  // width in pixels
+  width?: number;
   // x axis position
   x?: number;
   // y axis position
@@ -35,10 +39,6 @@ export interface Box {
   height?: number;
   // outline color hex code
   outline?: string;
-  // text to display
-  text?: string;
-  // width in pixels
-  width?: number;
 }
 
 export interface GenerateRequest {
@@ -60,8 +60,6 @@ export interface GenerateResponse {
 }
 
 export interface Template {
-  // number of boxes used
-  box_count?: number;
   // height in pixels
   height?: number;
   // id of the memegen
@@ -72,6 +70,8 @@ export interface Template {
   url?: string;
   // width in pixels
   width?: number;
+  // number of boxes used
+  box_count?: number;
 }
 
 export interface TemplatesRequest {}
