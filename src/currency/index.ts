@@ -54,12 +54,12 @@ export interface CodesResponse {
 }
 
 export interface ConvertRequest {
+  // target code to convert to e.g GBP
+  to?: string;
   // optional amount to convert e.g 10.0
   amount?: number;
   // base code to convert from e.g USD
   from?: string;
-  // target code to convert to e.g GBP
-  to?: string;
 }
 
 export interface ConvertResponse {
@@ -74,10 +74,10 @@ export interface ConvertResponse {
 }
 
 export interface HistoryRequest {
-  // date formatted as YYYY-MM-DD
-  date?: string;
   // currency code e.g USD
   code?: string;
+  // date formatted as YYYY-MM-DD
+  date?: string;
 }
 
 export interface HistoryResponse {

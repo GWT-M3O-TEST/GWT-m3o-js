@@ -107,8 +107,6 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
-  // Optional table name. Defaults to 'default'
-  table?: string;
   // Read by id. Equivalent to 'id == "your-id"'
   id?: string;
   // Maximum number of records to return. Default limit is 25.
@@ -125,6 +123,8 @@ export interface ReadRequest {
   // Dot access is supported, eg: 'user.age == 11'
   // Accessing list elements is not supported yet.
   query?: string;
+  // Optional table name. Defaults to 'default'
+  table?: string;
 }
 
 export interface ReadResponse {

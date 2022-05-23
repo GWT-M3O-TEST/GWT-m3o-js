@@ -33,15 +33,15 @@ export interface Address {
 }
 
 export interface Location {
-  latitude?: number;
   longitude?: number;
+  latitude?: number;
 }
 
 export interface LookupRequest {
-  address?: string;
-  city?: string;
   country?: string;
   postcode?: string;
+  address?: string;
+  city?: string;
 }
 
 export interface LookupResponse {

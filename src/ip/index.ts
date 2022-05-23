@@ -18,10 +18,6 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // Autonomous system number
-  asn?: number;
-  // Name of the city
-  city?: string;
   // Name of the continent
   continent?: string;
   // Name of the country
@@ -34,4 +30,8 @@ export interface LookupResponse {
   longitude?: number;
   // Timezone e.g Europe/Rome
   timezone?: string;
+  // Autonomous system number
+  asn?: number;
+  // Name of the city
+  city?: string;
 }

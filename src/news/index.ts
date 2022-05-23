@@ -17,39 +17,39 @@ export class NewsService {
 }
 
 export interface Article {
-  // article description
-  description?: string;
-  // article id
-  id?: string;
-  // image url
-  image_url?: string;
-  // related keywords
-  keywords?: string;
-  // time it was published
-  published_at?: string;
-  // first 60 characters of article body
-  snippet?: string;
-  // url of the article
-  url?: string;
-  // categories
-  categories?: string[];
-  // the article language
-  language?: string;
   // the locale
   locale?: string;
+  // first 60 characters of article body
+  snippet?: string;
+  // article description
+  description?: string;
+  // image url
+  image_url?: string;
+  // the article language
+  language?: string;
+  // time it was published
+  published_at?: string;
   // source of news
   source?: string;
   // article title
   title?: string;
+  // url of the article
+  url?: string;
+  // categories
+  categories?: string[];
+  // article id
+  id?: string;
+  // related keywords
+  keywords?: string;
 }
 
 export interface HeadlinesRequest {
+  // date published on in YYYY-MM-DD format
+  date?: string;
   // comma separated list of languages to retrieve in e.g en,es
   language?: string;
   // comma separated list of countries to include e.g us,ca
   locale?: string;
-  // date published on in YYYY-MM-DD format
-  date?: string;
 }
 
 export interface HeadlinesResponse {

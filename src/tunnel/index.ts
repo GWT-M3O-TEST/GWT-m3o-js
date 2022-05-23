@@ -13,12 +13,6 @@ export class TunnelService {
 }
 
 export interface SendRequest {
-  // path to request e.g /news
-  path?: string;
-  // alternatively specify a full url e.g https://www.google.com/news
-  url?: string;
-  // body of the request
-  body?: string;
   // headers to include e.g Content-Type: application/json
   headers?: { [key: string]: string };
   // host to send to e.g www.google.com
@@ -27,15 +21,21 @@ export interface SendRequest {
   method?: string;
   // request params to include
   params?: { [key: string]: string };
+  // path to request e.g /news
+  path?: string;
+  // alternatively specify a full url e.g https://www.google.com/news
+  url?: string;
+  // body of the request
+  body?: string;
 }
 
 export interface SendResponse {
-  // body of the response
-  body?: string;
-  // headers included
-  headers?: { [key: string]: string };
   // the status
   status?: string;
   // the status code
   status_code?: number;
+  // body of the response
+  body?: string;
+  // headers included
+  headers?: { [key: string]: string };
 }

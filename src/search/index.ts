@@ -100,10 +100,10 @@ export interface Record {
 }
 
 export interface SearchRequest {
-  // The index the record belongs to
-  index?: string;
   // The query. See docs for query language examples
   query?: string;
+  // The index the record belongs to
+  index?: string;
 }
 
 export interface SearchResponse {

@@ -56,12 +56,12 @@ export interface AddResponse {
 }
 
 export interface GetRequest {
+  // name of the value
+  name?: string;
   // symbol of value
   symbol?: string;
   // currency to get
   currency?: string;
-  // name of the value
-  name?: string;
 }
 
 export interface GetResponse {
@@ -69,12 +69,12 @@ export interface GetResponse {
 }
 
 export interface Index {
+  // currency of value
+  currency?: string;
   // name of item
   name?: string;
   // symbol of item
   symbol?: string;
-  // currency of value
-  currency?: string;
 }
 
 export interface IndexRequest {}
@@ -97,10 +97,10 @@ export interface ListResponse {
 }
 
 export interface Report {
-  symbol?: string;
   author?: string;
   comment?: string;
   name?: string;
+  symbol?: string;
 }
 
 export interface ReportRequest {
@@ -115,8 +115,6 @@ export interface ReportRequest {
 export interface ReportResponse {}
 
 export interface Value {
-  // name of thing
-  name?: string;
   // price of thing
   price?: number;
   // where it came from
@@ -129,4 +127,6 @@ export interface Value {
   author?: string;
   // currency of thing
   currency?: string;
+  // name of thing
+  name?: string;
 }

@@ -17,8 +17,6 @@ export class TranslateService {
 }
 
 export interface TextRequest {
-  // The string format, `text` or `html`
-  format?: string;
   // The model to use for translation, `nmt` or `base`,
   // See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
   model?: string;
@@ -30,6 +28,8 @@ export interface TextRequest {
   target?: string;
   // The contents to be translated
   content?: string;
+  // The string format, `text` or `html`
+  format?: string;
 }
 
 export interface TextResponse {
@@ -38,10 +38,10 @@ export interface TextResponse {
 }
 
 export interface Translation {
-  // The model used in translation
-  model?: string;
   // The source of the query string
   source?: string;
   // The translation result
   text?: string;
+  // The model used in translation
+  model?: string;
 }

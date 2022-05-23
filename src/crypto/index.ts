@@ -45,16 +45,16 @@ export class CryptoService {
 }
 
 export interface Article {
-  // the date published
-  date?: string;
-  // its description
-  description?: string;
   // the source
   source?: string;
   // title of the article
   title?: string;
   // the source url
   url?: string;
+  // the date published
+  date?: string;
+  // its description
+  description?: string;
 }
 
 export interface HistoryRequest {
@@ -63,8 +63,6 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
-  // the crypto symbol
-  symbol?: string;
   // the volume
   volume?: number;
   // the close price
@@ -77,6 +75,8 @@ export interface HistoryResponse {
   low?: number;
   // the open price
   open?: number;
+  // the crypto symbol
+  symbol?: string;
 }
 
 export interface NewsRequest {
@@ -97,10 +97,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the crypto symbol e.g BTCUSD
-  symbol?: string;
   // the last price
   price?: number;
+  // the crypto symbol e.g BTCUSD
+  symbol?: string;
 }
 
 export interface QuoteRequest {
@@ -109,6 +109,10 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
+  // the asking price
+  ask_price?: number;
+  // the ask size
+  ask_size?: number;
   // the bidding price
   bid_price?: number;
   // the bid size
@@ -117,10 +121,6 @@ export interface QuoteResponse {
   symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
-  // the asking price
-  ask_price?: number;
-  // the ask size
-  ask_size?: number;
 }
 
 export interface Symbol {

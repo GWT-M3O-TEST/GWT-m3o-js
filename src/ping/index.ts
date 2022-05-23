@@ -33,10 +33,10 @@ export interface IpResponse {
 }
 
 export interface TcpRequest {
-  // optional data to send
-  data?: string;
   // address to dial
   address?: string;
+  // optional data to send
+  data?: string;
 }
 
 export interface TcpResponse {
@@ -54,8 +54,8 @@ export interface UrlRequest {
 }
 
 export interface UrlResponse {
-  // the response status
-  status?: string;
   // the response code
   code?: number;
+  // the response status
+  status?: string;
 }
