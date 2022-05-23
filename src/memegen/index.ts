@@ -42,8 +42,6 @@ export interface Box {
 }
 
 export interface GenerateRequest {
-  // top text
-  top_text?: string;
   // bottom text
   bottom_text?: string;
   // font: arial or impact
@@ -52,6 +50,8 @@ export interface GenerateRequest {
   id?: string;
   // font size; defaults to 50px
   max_font_size?: string;
+  // top text
+  top_text?: string;
 }
 
 export interface GenerateResponse {

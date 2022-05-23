@@ -17,6 +17,9 @@ export class TranslateService {
 }
 
 export interface TextRequest {
+  // Source language, format in ISO-639-1 codes
+  // See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
+  source?: string;
   // Target language, format in ISO-639-1 codes
   // See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
   target?: string;
@@ -27,9 +30,6 @@ export interface TextRequest {
   // The model to use for translation, `nmt` or `base`,
   // See https://cloud.google.com/translate/docs/advanced/translating-text-v3#comparing-models for more information
   model?: string;
-  // Source language, format in ISO-639-1 codes
-  // See https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes for more information
-  source?: string;
 }
 
 export interface TextResponse {

@@ -17,30 +17,30 @@ export class NewsService {
 }
 
 export interface Article {
-  // image url
-  image_url?: string;
+  // url of the article
+  url?: string;
+  // categories
+  categories?: string[];
+  // the locale
+  locale?: string;
+  // article title
+  title?: string;
+  // related keywords
+  keywords?: string;
   // the article language
   language?: string;
+  // time it was published
+  published_at?: string;
   // first 60 characters of article body
   snippet?: string;
   // source of news
   source?: string;
-  // categories
-  categories?: string[];
   // article description
   description?: string;
   // article id
   id?: string;
-  // related keywords
-  keywords?: string;
-  // the locale
-  locale?: string;
-  // time it was published
-  published_at?: string;
-  // article title
-  title?: string;
-  // url of the article
-  url?: string;
+  // image url
+  image_url?: string;
 }
 
 export interface HeadlinesRequest {

@@ -47,12 +47,12 @@ export interface ConsumeResponse {
 }
 
 export interface Ev {
+  // event id
+  id?: string;
   // event message
   message?: { [key: string]: any };
   // event timestamp
   timestamp?: string;
-  // event id
-  id?: string;
 }
 
 export interface PublishRequest {
@@ -65,12 +65,12 @@ export interface PublishRequest {
 export interface PublishResponse {}
 
 export interface ReadRequest {
+  // number of events to read; default 25
+  limit?: number;
   // offset for the events; default 0
   offset?: number;
   // topic to read from
   topic?: string;
-  // number of events to read; default 25
-  limit?: number;
 }
 
 export interface ReadResponse {

@@ -30,12 +30,12 @@ export interface SendRequest {
 }
 
 export interface SendResponse {
-  // body of the response
-  body?: string;
   // headers included
   headers?: { [key: string]: string };
   // the status
   status?: string;
   // the status code
   status_code?: number;
+  // body of the response
+  body?: string;
 }

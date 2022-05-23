@@ -49,35 +49,35 @@ export class ContactService {
 }
 
 export interface Address {
-  // the label of the address
-  label?: string;
   // the address location
   location?: string;
+  // the label of the address
+  label?: string;
 }
 
 export interface ContactInfo {
+  // the phone numbers
+  phones?: Phone[];
+  // the social media username
+  social_medias?: SocialMedia[];
   // the address
   addresses?: Address[];
   // the birthday
   birthday?: string;
+  // the emails
+  emails?: Email[];
   // contact id
   id?: string;
   // the contact links
   links?: Link[];
-  // the phone numbers
-  phones?: Phone[];
-  // update date string in RFC3339
-  updated_at?: string;
-  // create date string in RFC3339
-  created_at?: string;
-  // the emails
-  emails?: Email[];
   // the contact name
   name?: string;
+  // create date string in RFC3339
+  created_at?: string;
   // note of the contact
   note?: string;
-  // the social media username
-  social_medias?: SocialMedia[];
+  // update date string in RFC3339
+  updated_at?: string;
 }
 
 export interface CreateRequest {
@@ -158,10 +158,8 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
-  // required, the contact id
-  id?: string;
-  // optional, links
-  links?: Link[];
+  // optional, birthday
+  birthday?: string;
   // required, the name
   name?: string;
   // optional, phone number
@@ -170,10 +168,12 @@ export interface UpdateRequest {
   social_medias?: SocialMedia[];
   // optional, addresses
   addresses?: Address[];
-  // optional, birthday
-  birthday?: string;
   // optional, emails
   emails?: Email[];
+  // required, the contact id
+  id?: string;
+  // optional, links
+  links?: Link[];
   // optional, note
   note?: string;
 }

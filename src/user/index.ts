@@ -136,8 +136,6 @@ export class UserService {
 }
 
 export interface Account {
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
   // alphanumeric username
@@ -152,19 +150,21 @@ export interface Account {
   email?: string;
   // unique account id
   id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
 }
 
 export interface CreateRequest {
-  // optional user profile as map<string,string>
-  profile?: { [key: string]: string };
-  // the username
-  username?: string;
   // the email address
   email?: string;
   // optional account id
   id?: string;
   // the user password
   password?: string;
+  // optional user profile as map<string,string>
+  profile?: { [key: string]: string };
+  // the username
+  username?: string;
 }
 
 export interface CreateResponse {
@@ -190,12 +190,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
-  // The email address of the user
-  email?: string;
   // The password of the user
   password?: string;
   // The username of the user
   username?: string;
+  // The email address of the user
+  email?: string;
 }
 
 export interface LoginResponse {
@@ -254,6 +254,9 @@ export interface ResetPasswordRequest {
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
+  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
+  from_name?: string;
+  subject?: string;
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
@@ -265,9 +268,6 @@ export interface SendMagicLinkRequest {
   // calling M3O VerifyToken endpoint. You can return as a result a success,
   // failed or redirect to another page.
   endpoint?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-  from_name?: string;
-  subject?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -289,55 +289,55 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
-  // The url to redirect to after successful verification
-  redirect_url?: string;
-  // subject of the email
-  subject?: string;
   // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
   text_content?: string;
   // email address to send the verification code
   email?: string;
   // The url to redirect to incase of failure
   failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
+  // The url to redirect to after successful verification
+  redirect_url?: string;
+  // subject of the email
+  subject?: string;
 }
 
 export interface SendVerificationEmailResponse {}
 
 export interface Session {
-  // unix timestamp
-  created?: number;
-  // unix timestamp
-  expires?: number;
   // the session id
   id?: string;
   // the associated user id
   userId?: string;
+  // unix timestamp
+  created?: number;
+  // unix timestamp
+  expires?: number;
 }
 
 export interface UpdatePasswordRequest {
-  // the old password
-  old_password?: string;
-  // the account id
-  userId?: string;
   // confirm new password
   confirm_password?: string;
   // the new password
   new_password?: string;
+  // the old password
+  old_password?: string;
+  // the account id
+  userId?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
-  // the user profile as map<string,string>
-  profile?: { [key: string]: string };
   // the new username
   username?: string;
   // the new email address
   email?: string;
   // the account id
   id?: string;
+  // the user profile as map<string,string>
+  profile?: { [key: string]: string };
 }
 
 export interface UpdateResponse {}

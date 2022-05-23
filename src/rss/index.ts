@@ -42,10 +42,6 @@ export interface AddRequest {
 export interface AddResponse {}
 
 export interface Entry {
-  // rss feed url of the entry
-  link?: string;
-  // article summary
-  summary?: string;
   // title of the entry
   title?: string;
   // article content
@@ -56,6 +52,10 @@ export interface Entry {
   feed?: string;
   // unique id of the entry
   id?: string;
+  // rss feed url of the entry
+  link?: string;
+  // article summary
+  summary?: string;
 }
 
 export interface Feed {
@@ -72,12 +72,12 @@ export interface Feed {
 }
 
 export interface FeedRequest {
-  // limit entries returned
-  limit?: number;
   // rss feed name
   name?: string;
   // offset entries
   offset?: number;
+  // limit entries returned
+  limit?: number;
 }
 
 export interface FeedResponse {

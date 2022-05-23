@@ -43,26 +43,26 @@ export class QuranService {
 }
 
 export interface Chapter {
+  // The pages from and to e.g 1, 1
+  pages?: number[];
+  // Should the chapter start with bismillah
+  prefix_bismillah?: boolean;
+  // The order in which it was revealed
+  revelation_order?: number;
+  // The translated name
+  translated_name?: string;
+  // The id of the chapter as a number e.g 1
+  id?: number;
   // The complex name of the chapter
   complex_name?: string;
   // The simple name of the chapter
   name?: string;
-  // The pages from and to e.g 1, 1
-  pages?: number[];
-  // The order in which it was revealed
-  revelation_order?: number;
   // The place of revelation
   revelation_place?: string;
-  // The arabic name of the chapter
-  arabic_name?: string;
-  // Should the chapter start with bismillah
-  prefix_bismillah?: boolean;
-  // The translated name
-  translated_name?: string;
   // The number of verses in the chapter
   verses?: number;
-  // The id of the chapter as a number e.g 1
-  id?: number;
+  // The arabic name of the chapter
+  arabic_name?: string;
 }
 
 export interface ChaptersRequest {
@@ -106,8 +106,6 @@ export interface SearchRequest {
 }
 
 export interface SearchResponse {
-  // The question asked
-  query?: string;
   // The results for the query
   results?: Result[];
   // The total pages
@@ -116,6 +114,8 @@ export interface SearchResponse {
   total_results?: number;
   // The current page
   page?: number;
+  // The question asked
+  query?: string;
 }
 
 export interface SummaryRequest {
@@ -126,14 +126,14 @@ export interface SummaryRequest {
 }
 
 export interface SummaryResponse {
+  // The full description for the chapter
+  text?: string;
   // The chapter id
   chapter?: number;
   // The source of the summary
   source?: string;
   // The short summary for the chapter
   summary?: string;
-  // The full description for the chapter
-  text?: string;
 }
 
 export interface Translation {
@@ -146,10 +146,14 @@ export interface Translation {
 }
 
 export interface Verse {
+  // The interpretations of the verse
+  interpretations?: Interpretation[];
+  // The key of this verse (chapter:verse) e.g 1:1
+  key?: string;
+  // The arabic text for this verse
+  text?: string;
   // The basic translation of the verse
   translated_text?: string;
-  // The alternative translations for the verse
-  translations?: Translation[];
   // The phonetic transliteration from arabic
   transliteration?: string;
   // The unique id of the verse in the whole book
@@ -158,17 +162,19 @@ export interface Verse {
   number?: number;
   // The page of the Quran this verse is on
   page?: number;
-  // The arabic text for this verse
-  text?: string;
-  // The interpretations of the verse
-  interpretations?: Interpretation[];
-  // The key of this verse (chapter:verse) e.g 1:1
-  key?: string;
+  // The alternative translations for the verse
+  translations?: Translation[];
   // The individual words within the verse (Ayah)
   words?: Word[];
 }
 
 export interface VersesRequest {
+  // Return alternate translations
+  translate?: boolean;
+  // Return the individual words with the verses
+  words?: boolean;
+  // The chapter id to retrieve
+  chapter?: number;
   // Return the interpretation (tafsir)
   interpret?: boolean;
   // The language of translation
@@ -177,12 +183,6 @@ export interface VersesRequest {
   limit?: number;
   // The page number to request
   page?: number;
-  // Return alternate translations
-  translate?: boolean;
-  // Return the individual words with the verses
-  words?: boolean;
-  // The chapter id to retrieve
-  chapter?: number;
 }
 
 export interface VersesResponse {
@@ -197,6 +197,12 @@ export interface VersesResponse {
 }
 
 export interface Word {
+  // The arabic text for this word
+  text?: string;
+  // The translated text
+  translation?: string;
+  // The transliteration text
+  transliteration?: string;
   // The QCF v2 font code
   code?: string;
   // The id of the word within the verse
@@ -205,14 +211,8 @@ export interface Word {
   page?: number;
   // The position of the word
   position?: number;
-  // The translated text
-  translation?: string;
   // The character type e.g word, end
   char_type?: string;
   // The line number
   line?: number;
-  // The arabic text for this word
-  text?: string;
-  // The transliteration text
-  transliteration?: string;
 }

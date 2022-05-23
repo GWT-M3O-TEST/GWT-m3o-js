@@ -22,12 +22,6 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
-  // Favicon in base64
-  favicon?: string;
-  // Latency (ms) between us and the server (EU)
-  latency?: number;
-  // Max players ever
-  max_players?: number;
   // Message of the day
   motd?: string;
   // Number of players online
@@ -38,6 +32,12 @@ export interface PingResponse {
   sample?: PlayerSample[];
   // Version of the server
   version?: string;
+  // Favicon in base64
+  favicon?: string;
+  // Latency (ms) between us and the server (EU)
+  latency?: number;
+  // Max players ever
+  max_players?: number;
 }
 
 export interface PlayerSample {

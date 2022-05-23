@@ -40,12 +40,6 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
-  // the open price
-  open?: number;
-  // the stock symbol
-  symbol?: string;
-  // the volume
-  volume?: number;
   // the close price
   close?: number;
   // the date
@@ -54,6 +48,12 @@ export interface HistoryResponse {
   high?: number;
   // the low price
   low?: number;
+  // the open price
+  open?: number;
+  // the stock symbol
+  symbol?: string;
+  // the volume
+  volume?: number;
 }
 
 export interface PriceRequest {
@@ -62,10 +62,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the last price
-  price?: number;
   // the stock symbol e.g AAPL
   symbol?: string;
+  // the last price
+  price?: number;
 }
 
 export interface QuoteRequest {
@@ -74,8 +74,6 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
-  // the stock symbol
-  symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
   // the asking price
@@ -86,4 +84,6 @@ export interface QuoteResponse {
   bid_price?: number;
   // the bid size
   bid_size?: number;
+  // the stock symbol
+  symbol?: string;
 }

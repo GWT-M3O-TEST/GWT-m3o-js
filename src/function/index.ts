@@ -119,10 +119,10 @@ export interface DeployRequest {
   // entry point, ie. handler name in the source code
   // if not provided, defaults to the name parameter
   entrypoint?: string;
-  // environment variables to pass in at runtime
-  env_vars?: { [key: string]: string };
   // region to deploy in. defaults to europe-west1
   region?: string;
+  // optional subfolder path
+  subfolder?: string;
   // runtime/lanaguage of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
@@ -130,10 +130,10 @@ export interface DeployRequest {
   runtime?: string;
   // inline source code
   source?: string;
-  // optional subfolder path
-  subfolder?: string;
   // branch to deploy. defaults to master
   branch?: string;
+  // environment variables to pass in at runtime
+  env_vars?: { [key: string]: string };
   // function name
   name?: string;
   // github url for a repo
@@ -155,36 +155,36 @@ export interface DescribeResponse {
 }
 
 export interface Func {
-  // branch to deploy. defaults to master
-  branch?: string;
-  // name of handler in source code
-  entrypoint?: string;
-  // subfolder path to entrypoint
-  subfolder?: string;
-  // time of creation
-  created?: string;
   // function name
   // limitation: must be unique across projects
   name?: string;
   // git repo address
   repo?: string;
-  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-  status?: string;
-  // unique url of the function
-  url?: string;
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // id of the function
-  id?: string;
-  // region to deploy in. defaults to europe-west1
-  region?: string;
   // runtime/language of the function e.g php74,
   // nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
   // dotnet3, java11, ruby26, ruby27, go111, go113, go116,
   // python37, python38, python39
   runtime?: string;
+  // region to deploy in. defaults to europe-west1
+  region?: string;
   // the source code
   source?: string;
+  // subfolder path to entrypoint
+  subfolder?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // id of the function
+  id?: string;
+  // unique url of the function
+  url?: string;
+  // branch to deploy. defaults to master
+  branch?: string;
+  // time of creation
+  created?: string;
+  // name of handler in source code
+  entrypoint?: string;
+  // eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+  status?: string;
   // time it was updated
   updated?: string;
 }
