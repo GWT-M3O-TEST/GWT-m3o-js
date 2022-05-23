@@ -31,20 +31,20 @@ export interface QueryRequest {
 }
 
 export interface QueryResponse {
+  CD?: boolean;
   RA?: boolean;
   TC?: boolean;
-  answer?: Answer[];
-  provider?: string;
   question?: Question[];
   status?: number;
   AD?: boolean;
-  CD?: boolean;
+  answer?: Answer[];
+  provider?: string;
   RD?: boolean;
 }
 
 export interface Question {
-  // type of record
-  type?: number;
   // name to query
   name?: string;
+  // type of record
+  type?: number;
 }

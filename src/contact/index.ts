@@ -49,42 +49,38 @@ export class ContactService {
 }
 
 export interface Address {
-  // the address location
-  location?: string;
   // the label of the address
   label?: string;
+  // the address location
+  location?: string;
 }
 
 export interface ContactInfo {
-  // contact id
-  id?: string;
-  // the contact name
-  name?: string;
-  // the birthday
-  birthday?: string;
-  // create date string in RFC3339
-  created_at?: string;
-  // the emails
-  emails?: Email[];
   // the phone numbers
   phones?: Phone[];
   // the social media username
   social_medias?: SocialMedia[];
   // update date string in RFC3339
   updated_at?: string;
-  // the address
-  addresses?: Address[];
-  // the contact links
-  links?: Link[];
+  // create date string in RFC3339
+  created_at?: string;
+  // the emails
+  emails?: Email[];
   // note of the contact
   note?: string;
+  // the contact links
+  links?: Link[];
+  // the contact name
+  name?: string;
+  // the address
+  addresses?: Address[];
+  // the birthday
+  birthday?: string;
+  // contact id
+  id?: string;
 }
 
 export interface CreateRequest {
-  // required, the name of the contact
-  name?: string;
-  // optional, note of the contact
-  note?: string;
   // optional, phone numbers
   phones?: Phone[];
   // optional, social media
@@ -97,6 +93,10 @@ export interface CreateRequest {
   emails?: Email[];
   // optional, links
   links?: Link[];
+  // required, the name of the contact
+  name?: string;
+  // optional, note of the contact
+  note?: string;
 }
 
 export interface CreateResponse {
@@ -111,17 +111,17 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Email {
-  // the label of the email
-  label?: string;
   // the email address
   address?: string;
+  // the label of the email
+  label?: string;
 }
 
 export interface Link {
-  // the url of the contact
-  url?: string;
   // the label of the link
   label?: string;
+  // the url of the contact
+  url?: string;
 }
 
 export interface ListRequest {
@@ -158,22 +158,22 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
+  // optional, addresses
+  addresses?: Address[];
+  // optional, phone number
+  phones?: Phone[];
+  // optional, social media
+  social_medias?: SocialMedia[];
+  // required, the name
+  name?: string;
+  // optional, note
+  note?: string;
   // optional, birthday
   birthday?: string;
   // optional, emails
   emails?: Email[];
   // required, the contact id
   id?: string;
-  // optional, note
-  note?: string;
-  // optional, phone number
-  phones?: Phone[];
-  // optional, addresses
-  addresses?: Address[];
-  // required, the name
-  name?: string;
-  // optional, social media
-  social_medias?: SocialMedia[];
   // optional, links
   links?: Link[];
 }

@@ -130,10 +130,10 @@ export interface KickResponse {
 }
 
 export interface LeaveRequest {
-  // the user id
-  user_id?: string;
   // the chat room id
   room_id?: string;
+  // the user id
+  user_id?: string;
 }
 
 export interface LeaveResponse {
@@ -150,6 +150,10 @@ export interface ListResponse {
 }
 
 export interface Message {
+  // text of the message
+  text?: string;
+  // id of the user who sent the message
+  user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the message, allocated by the server
@@ -160,38 +164,34 @@ export interface Message {
   sent_at?: string;
   // subject of the message
   subject?: string;
-  // text of the message
-  text?: string;
-  // id of the user who sent the message
-  user_id?: string;
 }
 
 export interface Room {
-  // time of creation
-  created_at?: string;
-  // description of the that
-  description?: string;
-  // unique room id
-  id?: string;
   // name of the chat
   name?: string;
   // whether its a private room
   private?: boolean;
   // list of users
   user_ids?: string[];
+  // time of creation
+  created_at?: string;
+  // description of the that
+  description?: string;
+  // unique room id
+  id?: string;
 }
 
 export interface SendRequest {
-  // subject of the message
-  subject?: string;
-  // text of the message
-  text?: string;
   // id of the user who sent the message
   user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the chat room the message is being sent to / from
   room_id?: string;
+  // subject of the message
+  subject?: string;
+  // text of the message
+  text?: string;
 }
 
 export interface SendResponse {
