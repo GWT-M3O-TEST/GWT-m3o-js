@@ -92,6 +92,8 @@ export interface DownloadResponse {
 }
 
 export interface HeadObject {
+  // when was this created
+  created?: string;
   // when was this last modified
   modified?: string;
   name?: string;
@@ -99,8 +101,6 @@ export interface HeadObject {
   url?: string;
   // is this public or private
   visibility?: string;
-  // when was this created
-  created?: string;
 }
 
 export interface HeadRequest {
@@ -113,12 +113,12 @@ export interface HeadResponse {
 }
 
 export interface ListObject {
+  visibility?: string;
   created?: string;
   // when was this last modified
   modified?: string;
   name?: string;
   url?: string;
-  visibility?: string;
 }
 
 export interface ListRequest {
@@ -141,10 +141,6 @@ export interface ReadResponse {
 }
 
 export interface SpaceObject {
-  // URL to access the object if it is public
-  url?: string;
-  // is this public or private
-  visibility?: string;
   // when was this created
   created?: string;
   // the data within the object
@@ -153,6 +149,10 @@ export interface SpaceObject {
   modified?: string;
   // name of object
   name?: string;
+  // URL to access the object if it is public
+  url?: string;
+  // is this public or private
+  visibility?: string;
 }
 
 export interface UpdateRequest {
@@ -170,9 +170,9 @@ export interface UpdateResponse {
 }
 
 export interface UploadRequest {
+  name?: string;
   // is this object public or private
   visibility?: string;
-  name?: string;
 }
 
 export interface UploadResponse {

@@ -22,8 +22,6 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
-  // Version of the server
-  version?: string;
   // Favicon in base64
   favicon?: string;
   // Latency (ms) between us and the server (EU)
@@ -38,11 +36,13 @@ export interface PingResponse {
   protocol?: number;
   // List of connected players
   sample?: PlayerSample[];
+  // Version of the server
+  version?: string;
 }
 
 export interface PlayerSample {
-  // unique id of player
-  uuid?: string;
   // name of the player
   name?: string;
+  // unique id of player
+  uuid?: string;
 }

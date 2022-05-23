@@ -25,6 +25,10 @@ export class MemegenService {
 }
 
 export interface Box {
+  // x axis position
+  x?: number;
+  // y axis position
+  y?: number;
   // colour hex code
   color?: string;
   // height in pixels
@@ -35,13 +39,11 @@ export interface Box {
   text?: string;
   // width in pixels
   width?: number;
-  // x axis position
-  x?: number;
-  // y axis position
-  y?: number;
 }
 
 export interface GenerateRequest {
+  // top text
+  top_text?: string;
   // bottom text
   bottom_text?: string;
   // font: arial or impact
@@ -50,8 +52,6 @@ export interface GenerateRequest {
   id?: string;
   // font size; defaults to 50px
   max_font_size?: string;
-  // top text
-  top_text?: string;
 }
 
 export interface GenerateResponse {

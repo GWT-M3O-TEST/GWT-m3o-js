@@ -95,8 +95,8 @@ export interface RatesRequest {
 }
 
 export interface RatesResponse {
-  // The rates for the given code as key-value pairs code:rate
-  rates?: { [key: string]: number };
   // The code requested e.g USD
   code?: string;
+  // The rates for the given code as key-value pairs code:rate
+  rates?: { [key: string]: number };
 }

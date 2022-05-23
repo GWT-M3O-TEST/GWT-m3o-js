@@ -45,36 +45,36 @@ export class NftService {
 }
 
 export interface Asset {
-  // the token id
-  token_id?: string;
-  // Creator of the NFT
-  creator?: User;
-  // listing date
-  listing_date?: string;
-  // the permalink
-  permalink?: string;
-  // number of sales
-  sales?: number;
-  // associated collection
-  collection?: Collection;
-  // asset contract
-  contract?: Contract;
-  // name of the asset
-  name?: string;
-  // Owner of the NFT
-  owner?: User;
-  // is it a presale
-  presale?: boolean;
+  // traits associated with the item
+  traits?: { [key: string]: any }[];
   // id of the asset
   id?: number;
   // the image url
   image_url?: string;
-  // last time sold
-  last_sale?: Sale;
+  // name of the asset
+  name?: string;
+  // number of sales
+  sales?: number;
+  // associated collection
+  collection?: Collection;
   // related description
   description?: string;
-  // traits associated with the item
-  traits?: { [key: string]: any }[];
+  // the permalink
+  permalink?: string;
+  // Owner of the NFT
+  owner?: User;
+  // is it a presale
+  presale?: boolean;
+  // asset contract
+  contract?: Contract;
+  // Creator of the NFT
+  creator?: User;
+  // listing date
+  listing_date?: string;
+  // last time sold
+  last_sale?: Sale;
+  // the token id
+  token_id?: string;
 }
 
 export interface AssetRequest {
@@ -87,8 +87,6 @@ export interface AssetResponse {
 }
 
 export interface AssetsRequest {
-  // DEPRECATED offset for pagination, please use cursor instead
-  offset?: number;
   // order "asc" or "desc"
   order?: string;
   // order by "sale_date", "sale_count", "sale_price", "total_price"
@@ -99,6 +97,8 @@ export interface AssetsRequest {
   cursor?: string;
   // limit returned assets
   limit?: number;
+  // DEPRECATED offset for pagination, please use cursor instead
+  offset?: number;
 }
 
 export interface AssetsResponse {
@@ -111,36 +111,36 @@ export interface AssetsResponse {
 }
 
 export interface Collection {
-  // payout address for the collection's royalties
-  payout_address?: string;
+  // image used in the banner for the collection
+  banner_image_url?: string;
   // collection slug
   slug?: string;
-  // creation time
-  created_at?: string;
-  // the fees that get paid out when a sale is made
-  seller_fees?: string;
-  // sales statistics associated with the collection
-  stats?: { [key: string]: any };
-  // the payment tokens accepted for this collection
-  payment_tokens?: Token[];
   // approved editors for this collection
   editors?: string[];
-  // external link to the original website for the collection
-  external_link?: string;
+  // name of the collection
+  name?: string;
+  // listing of all the trait types available within this collection
+  traits?: { [key: string]: any };
   // an image for the collection
   image_url?: string;
   // a list of the contracts associated with this collection
   primary_asset_contracts?: Contract[];
   // the collection's approval status on OpenSea
   safelist_request_status?: string;
-  // listing of all the trait types available within this collection
-  traits?: { [key: string]: any };
-  // image used in the banner for the collection
-  banner_image_url?: string;
+  // creation time
+  created_at?: string;
   // description of the collection
   description?: string;
-  // name of the collection
-  name?: string;
+  // external link to the original website for the collection
+  external_link?: string;
+  // the payment tokens accepted for this collection
+  payment_tokens?: Token[];
+  // payout address for the collection's royalties
+  payout_address?: string;
+  // the fees that get paid out when a sale is made
+  seller_fees?: string;
+  // sales statistics associated with the collection
+  stats?: { [key: string]: any };
 }
 
 export interface CollectionRequest {
@@ -161,37 +161,37 @@ export interface CollectionsResponse {
 }
 
 export interface Contract {
-  // owner id
-  owner?: number;
-  // seller fees
-  seller_fees?: string;
-  // type of contract e.g "semi-fungible"
-  type?: string;
-  // name of contract
-  name?: string;
+  // description of contract
+  description?: string;
   // payout address
   payout_address?: string;
-  // aka "ERC1155"
-  schema?: string;
   // related symbol
   symbol?: string;
+  // type of contract e.g "semi-fungible"
+  type?: string;
+  // aka "ERC1155"
+  schema?: string;
+  // seller fees
+  seller_fees?: string;
   // ethereum address
   address?: string;
   // timestamp of creation
   created_at?: string;
-  // description of contract
-  description?: string;
+  // name of contract
+  name?: string;
+  // owner id
+  owner?: number;
 }
 
 export interface CreateRequest {
+  // data if not image
+  data?: string;
   // description
   description?: string;
   // image data
   image?: string;
   // name of the NFT
   name?: string;
-  // data if not image
-  data?: string;
 }
 
 export interface CreateResponse {
@@ -199,14 +199,14 @@ export interface CreateResponse {
 }
 
 export interface Sale {
+  asset_decimals?: number;
+  event_type?: string;
+  total_price?: string;
   asset_token_id?: string;
   created_at?: string;
-  quantity?: string;
-  asset_decimals?: number;
   event_timestamp?: string;
-  event_type?: string;
   payment_token?: Token;
-  total_price?: string;
+  quantity?: string;
   transaction?: Transaction;
 }
 
@@ -222,14 +222,14 @@ export interface Token {
 }
 
 export interface Transaction {
-  block_number?: string;
-  from_account?: User;
-  id?: number;
   timestamp?: string;
   to_account?: User;
   transaction_hash?: string;
   transaction_index?: string;
   block_hash?: string;
+  block_number?: string;
+  from_account?: User;
+  id?: number;
 }
 
 export interface User {

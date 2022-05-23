@@ -68,10 +68,10 @@ export interface Comment {
 }
 
 export interface CreateRequest {
-  // comment subject
-  subject?: string;
   // comment items
   text?: string;
+  // comment subject
+  subject?: string;
 }
 
 export interface CreateResponse {

@@ -41,33 +41,33 @@ export class TwitterService {
 }
 
 export interface Profile {
-  // if the account is private
-  private?: boolean;
   // the username
   username?: string;
+  // the user id
+  id?: number;
+  // The user's profile picture
+  image_url?: string;
+  // if the account is private
+  private?: boolean;
+  // the user's location
+  location?: string;
+  // display name of the user
+  name?: string;
+  // if the account is verified
+  verified?: boolean;
   // the account creation date
   created_at?: string;
   // the user description
   description?: string;
-  // The user's profile picture
-  image_url?: string;
-  // display name of the user
-  name?: string;
   // the follower count
   followers?: number;
-  // the user id
-  id?: number;
-  // the user's location
-  location?: string;
-  // if the account is verified
-  verified?: boolean;
 }
 
 export interface SearchRequest {
-  // the query to search for
-  query?: string;
   // number of tweets to return. default: 20
   limit?: number;
+  // the query to search for
+  query?: string;
 }
 
 export interface SearchResponse {
@@ -88,12 +88,12 @@ export interface TimelineResponse {
 }
 
 export interface Trend {
-  // the twitter url
-  url?: string;
   // name of the trend
   name?: string;
   // the volume of tweets in last 24 hours
   tweet_volume?: number;
+  // the twitter url
+  url?: string;
 }
 
 export interface TrendsRequest {}
@@ -104,6 +104,10 @@ export interface TrendsResponse {
 }
 
 export interface Tweet {
+  // text of the tweet
+  text?: string;
+  // username of the person who tweeted
+  username?: string;
   // time of tweet
   created_at?: string;
   // number of times favourited
@@ -112,10 +116,6 @@ export interface Tweet {
   id?: number;
   // number of times retweeted
   retweeted_count?: number;
-  // text of the tweet
-  text?: string;
-  // username of the person who tweeted
-  username?: string;
 }
 
 export interface UserRequest {

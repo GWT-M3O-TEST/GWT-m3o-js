@@ -60,10 +60,10 @@ export interface PriceRequest {
 }
 
 export interface PriceResponse {
-  // the forex symbol e.g GBPUSD
-  symbol?: string;
   // the last price
   price?: number;
+  // the forex symbol e.g GBPUSD
+  symbol?: string;
 }
 
 export interface QuoteRequest {
