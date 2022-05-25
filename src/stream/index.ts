@@ -42,12 +42,12 @@ export class StreamService {
 }
 
 export interface Channel {
-  // description for the channel
-  description?: string;
   // last activity time
   last_active?: string;
   // name of the channel
   name?: string;
+  // description for the channel
+  description?: string;
 }
 
 export interface CreateChannelRequest {
@@ -80,16 +80,16 @@ export interface ListMessagesResponse {
 }
 
 export interface Message {
-  // text of the message
-  text?: string;
-  // time of message creation
-  timestamp?: string;
   // the channel name
   channel?: string;
   // id of the message
   id?: string;
   // the associated metadata
   metadata?: { [key: string]: string };
+  // text of the message
+  text?: string;
+  // time of message creation
+  timestamp?: string;
 }
 
 export interface SendMessageRequest {

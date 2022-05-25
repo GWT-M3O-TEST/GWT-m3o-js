@@ -53,25 +53,25 @@ export interface DirectionsRequest {
 }
 
 export interface DirectionsResponse {
-  // The waypoints on the route
-  waypoints?: Waypoint[];
   // Turn by turn directions
   directions?: Direction[];
   // Estimated distance of the route in meters
   distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
+  // The waypoints on the route
+  waypoints?: Waypoint[];
 }
 
 export interface EtaRequest {
-  // The end point for the eta calculation
-  destination?: Point;
   // The starting point for the eta calculation
   origin?: Point;
   // speed in kilometers
   speed?: number;
   // type of transport. Only "car" is supported currently.
   type?: string;
+  // The end point for the eta calculation
+  destination?: Point;
 }
 
 export interface EtaResponse {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  direction?: string;
   location?: Point;
   action?: string;
   bearing_after?: number;
   bearing_before?: number;
-  direction?: string;
 }
 
 export interface Point {

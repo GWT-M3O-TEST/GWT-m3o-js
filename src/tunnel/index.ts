@@ -13,8 +13,6 @@ export class TunnelService {
 }
 
 export interface SendRequest {
-  // path to request e.g /news
-  path?: string;
   // alternatively specify a full url e.g https://www.google.com/news
   url?: string;
   // body of the request
@@ -27,6 +25,8 @@ export interface SendRequest {
   method?: string;
   // request params to include
   params?: { [key: string]: string };
+  // path to request e.g /news
+  path?: string;
 }
 
 export interface SendResponse {

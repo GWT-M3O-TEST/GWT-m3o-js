@@ -25,17 +25,17 @@ export class EvchargersService {
 }
 
 export interface Address {
+  location?: Coordinates;
+  address_line_2?: string;
+  lat_lng?: string;
   country?: Country;
   country_id?: string;
-  lat_lng?: string;
-  location?: Coordinates;
   postcode?: string;
+  state_or_province?: string;
   title?: string;
+  town?: string;
   // Any comments about how to access the charger
   access_comments?: string;
-  address_line_2?: string;
-  state_or_province?: string;
-  town?: string;
   address_line_1?: string;
 }
 
@@ -53,48 +53,48 @@ export interface ChargerType {
 }
 
 export interface CheckinStatusType {
+  is_positive?: boolean;
   title?: string;
   id?: string;
   is_automated?: boolean;
-  is_positive?: boolean;
 }
 
 export interface Connection {
-  connection_type?: ConnectionType;
-  // The current
-  current?: string;
   level?: ChargerType;
-  // The voltage offered
-  voltage?: number;
-  // The amps offered
-  amps?: number;
-  // The ID of the connection type
-  connection_type_id?: string;
   // The level of charging power available
   level_id?: string;
   // The power in KW
   power?: number;
+  connection_type?: ConnectionType;
+  // The ID of the connection type
+  connection_type_id?: string;
+  // The current
+  current?: string;
   reference?: string;
+  // The voltage offered
+  voltage?: number;
+  // The amps offered
+  amps?: number;
 }
 
 export interface ConnectionType {
-  formal_name?: string;
-  id?: string;
   is_discontinued?: boolean;
   is_obsolete?: boolean;
   title?: string;
+  formal_name?: string;
+  id?: string;
 }
 
 export interface Coordinates {
-  latitude?: number;
   longitude?: number;
+  latitude?: number;
 }
 
 export interface Country {
-  continent_code?: string;
-  id?: string;
   iso_code?: string;
   title?: string;
+  continent_code?: string;
+  id?: string;
 }
 
 export interface CurrentType {
@@ -104,13 +104,13 @@ export interface CurrentType {
 }
 
 export interface DataProvider {
+  website?: string;
+  comments?: string;
+  data_provider_status_type?: DataProviderStatusType;
   id?: string;
   // How is this data licensed
   license?: string;
   title?: string;
-  website?: string;
-  comments?: string;
-  data_provider_status_type?: DataProviderStatusType;
 }
 
 export interface DataProviderStatusType {
@@ -120,33 +120,33 @@ export interface DataProviderStatusType {
 }
 
 export interface Operator {
-  phone_secondary?: string;
-  website?: string;
-  phone_primary?: string;
-  title?: string;
-  comments?: string;
   contact_email?: string;
   fault_report_email?: string;
+  phone_primary?: string;
+  phone_secondary?: string;
+  website?: string;
+  comments?: string;
   id?: string;
   // Is this operator a private individual vs a company
   is_private_individual?: boolean;
+  title?: string;
 }
 
 export interface Poi {
   // The address
   address?: Address;
-  // The cost of charging
-  cost?: string;
+  // The connections available at this charge point
+  connections?: Connection[];
+  // The ID of the data provider
+  data_provider_id?: string;
   // The ID of the charger
   id?: string;
   // The ID of the operator of the charger
   operator_id?: string;
   // The type of usage
   usage_type?: UsageType;
-  // The connections available at this charge point
-  connections?: Connection[];
-  // The ID of the data provider
-  data_provider_id?: string;
+  // The cost of charging
+  cost?: string;
   // The number of charging points
   num_points?: number;
   // The operator
@@ -158,49 +158,49 @@ export interface Poi {
 export interface ReferenceDataRequest {}
 
 export interface ReferenceDataResponse {
-  // The types of charger
-  charger_types?: ChargerType[];
-  // The types of connection
-  connection_types?: ConnectionType[];
-  // The status of a submission
-  submission_status_types?: SubmissionStatusType[];
+  // The types of current
+  current_types?: CurrentType[];
   // The companies operating the chargers
   operators?: Operator[];
-  // The status of the charger
-  status_types?: StatusType[];
   // The different types of usage
   usage_types?: UsageType[];
+  // The types of charger
+  charger_types?: ChargerType[];
+  // The countries
+  countries?: Country[];
+  // The providers of the charger data
+  data_providers?: DataProvider[];
+  // The status of the charger
+  status_types?: StatusType[];
+  // The status of a submission
+  submission_status_types?: SubmissionStatusType[];
   // The types of user comment
   user_comment_types?: UserCommentType[];
   // The types of checkin status
   checkin_status_types?: CheckinStatusType[];
-  // The countries
-  countries?: Country[];
-  // The types of current
-  current_types?: CurrentType[];
-  // The providers of the charger data
-  data_providers?: DataProvider[];
+  // The types of connection
+  connection_types?: ConnectionType[];
 }
 
 export interface SearchRequest {
+  // IDs of the the EV charger operator
+  operators?: string[];
+  // Usage of the charge point (is it public, membership required, etc)
+  usage_types?: string[];
   // Country ID
   country_id?: string;
   // Search distance from point in metres, defaults to 5000m
   distance?: number;
   // Supported charging levels
   levels?: string[];
-  // IDs of the the EV charger operator
-  operators?: string[];
+  // Coordinates from which to begin search
+  location?: Coordinates;
   // Minimum power in KW. Note: data not available for many chargers
   min_power?: number;
-  // Usage of the charge point (is it public, membership required, etc)
-  usage_types?: string[];
   // Bounding box to search within (top left and bottom right coordinates)
   box?: BoundingBox;
   // IDs of the connection type
   connection_types?: string[];
-  // Coordinates from which to begin search
-  location?: Coordinates;
   // Maximum number of results to return, defaults to 100
   max_results?: number;
 }
@@ -210,9 +210,9 @@ export interface SearchResponse {
 }
 
 export interface StatusType {
-  is_operational?: boolean;
   title?: string;
   id?: string;
+  is_operational?: boolean;
 }
 
 export interface SubmissionStatusType {

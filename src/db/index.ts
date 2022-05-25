@@ -85,10 +85,10 @@ export interface CreateResponse {
 }
 
 export interface DeleteRequest {
-  // id of the record
-  id?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
+  // id of the record
+  id?: string;
 }
 
 export interface DeleteResponse {}
@@ -107,8 +107,6 @@ export interface ListTablesResponse {
 }
 
 export interface ReadRequest {
-  // Read by id. Equivalent to 'id == "your-id"'
-  id?: string;
   // Maximum number of records to return. Default limit is 25.
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
@@ -125,6 +123,8 @@ export interface ReadRequest {
   query?: string;
   // Optional table name. Defaults to 'default'
   table?: string;
+  // Read by id. Equivalent to 'id == "your-id"'
+  id?: string;
 }
 
 export interface ReadResponse {

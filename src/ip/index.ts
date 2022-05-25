@@ -18,6 +18,8 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
+  // Name of the country
+  country?: string;
   // IP of the query
   ip?: string;
   // Latitude e.g 52.523219
@@ -32,6 +34,4 @@ export interface LookupResponse {
   city?: string;
   // Name of the continent
   continent?: string;
-  // Name of the country
-  country?: string;
 }

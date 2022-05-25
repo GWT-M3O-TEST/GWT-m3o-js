@@ -55,16 +55,16 @@ export class CommentsService {
 }
 
 export interface Comment {
-  // time at which the comment was created
-  created?: string;
-  // unique id for the comment, generated if not specified
-  id?: string;
   // subject of the comment
   subject?: string;
   // text of the comment
   text?: string;
   // time at which the comment was updated
   updated?: string;
+  // time at which the comment was created
+  created?: string;
+  // unique id for the comment, generated if not specified
+  id?: string;
 }
 
 export interface CreateRequest {
@@ -94,10 +94,10 @@ export interface EventsRequest {
 }
 
 export interface EventsResponse {
-  // the event which occured; create, delete, update
-  event?: string;
   // the comment which the operation occured on
   comment?: Comment;
+  // the event which occured; create, delete, update
+  event?: string;
 }
 
 export interface ListRequest {}

@@ -37,6 +37,8 @@ export class PriceService {
 }
 
 export interface AddRequest {
+  // symbol of value
+  symbol?: string;
   // author of the price
   author?: string;
   // currency e.g USD
@@ -47,8 +49,6 @@ export interface AddRequest {
   price?: number;
   // source of the price
   source?: string;
-  // symbol of value
-  symbol?: string;
 }
 
 export interface AddResponse {
@@ -115,6 +115,8 @@ export interface ReportRequest {
 export interface ReportResponse {}
 
 export interface Value {
+  // symbol of value
+  symbol?: string;
   // time it was added
   timestamp?: string;
   // who added it
@@ -127,6 +129,4 @@ export interface Value {
   price?: number;
   // where it came from
   source?: string;
-  // symbol of value
-  symbol?: string;
 }

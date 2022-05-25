@@ -72,19 +72,19 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Field {
-  // The type of the field - string, number
-  type?: string;
   // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
   name?: string;
+  // The type of the field - string, number
+  type?: string;
 }
 
 export interface IndexRequest {
+  // The index this record belongs to
+  index?: string;
   // The data to index
   data?: { [key: string]: any };
   // Optional ID for the record
   id?: string;
-  // The index this record belongs to
-  index?: string;
 }
 
 export interface IndexResponse {

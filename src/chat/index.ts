@@ -108,10 +108,10 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // chat room to join
-  room_id?: string;
   // user id joining
   user_id?: string;
+  // chat room to join
+  room_id?: string;
 }
 
 export interface JoinResponse {
@@ -167,10 +167,6 @@ export interface Message {
 }
 
 export interface Room {
-  // time of creation
-  created_at?: string;
-  // description of the that
-  description?: string;
   // unique room id
   id?: string;
   // name of the chat
@@ -179,6 +175,10 @@ export interface Room {
   private?: boolean;
   // list of users
   user_ids?: string[];
+  // time of creation
+  created_at?: string;
+  // description of the that
+  description?: string;
 }
 
 export interface SendRequest {
