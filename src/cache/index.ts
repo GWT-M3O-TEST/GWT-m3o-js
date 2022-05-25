@@ -94,10 +94,10 @@ export interface IncrementRequest {
 }
 
 export interface IncrementResponse {
-  // The new value
-  value?: number;
   // The key incremented
   key?: string;
+  // The new value
+  value?: number;
 }
 
 export interface ListKeysRequest {}

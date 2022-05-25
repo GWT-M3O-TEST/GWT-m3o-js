@@ -83,10 +83,10 @@ export interface ListResponse {
 }
 
 export interface LogsRequest {
-  // name of the app
-  name?: string;
   // type of logs to retrieve, currently supported options - "build"
   logs_type?: string;
+  // name of the app
+  name?: string;
 }
 
 export interface LogsResponse {
@@ -133,10 +133,6 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
-  // branch. defaults to master
-  branch?: string;
-  // associated env vars to pass in
-  env_vars?: { [key: string]: string };
   // name of the app
   name?: string;
   // port to run on
@@ -145,6 +141,10 @@ export interface RunRequest {
   region?: string;
   // source repository
   repo?: string;
+  // branch. defaults to master
+  branch?: string;
+  // associated env vars to pass in
+  env_vars?: { [key: string]: string };
 }
 
 export interface RunResponse {
@@ -153,30 +153,30 @@ export interface RunResponse {
 }
 
 export interface Service {
-  // app url
-  url?: string;
-  // branch of code
-  branch?: string;
-  // custom domains
-  custom_domains?: string[];
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // name of the app
-  name?: string;
-  // port running on
-  port?: number;
-  // region running in
-  region?: string;
-  // source repository
-  repo?: string;
   // time of creation
   created?: string;
-  // unique id
-  id?: string;
+  // custom domains
+  custom_domains?: string[];
+  // port running on
+  port?: number;
   // status of the app
   status?: string;
   // last updated
   updated?: string;
+  // app url
+  url?: string;
+  // branch of code
+  branch?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
+  // unique id
+  id?: string;
+  // name of the app
+  name?: string;
+  // region running in
+  region?: string;
+  // source repository
+  repo?: string;
 }
 
 export interface StatusRequest {
@@ -190,10 +190,10 @@ export interface StatusResponse {
 }
 
 export interface UpdateRequest {
-  // name of the app
-  name?: string;
   // Additional env vars to update
   env_vars?: { [key: string]: string };
+  // name of the app
+  name?: string;
 }
 
 export interface UpdateResponse {}

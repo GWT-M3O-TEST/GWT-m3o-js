@@ -25,11 +25,11 @@ export class GeocodingService {
 }
 
 export interface Address {
-  line_two?: string;
-  postcode?: string;
   city?: string;
   country?: string;
   line_one?: string;
+  line_two?: string;
+  postcode?: string;
 }
 
 export interface Location {

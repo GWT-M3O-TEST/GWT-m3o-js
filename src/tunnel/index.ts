@@ -13,10 +13,6 @@ export class TunnelService {
 }
 
 export interface SendRequest {
-  // method of the request e.g GET, POST, DELETE
-  method?: string;
-  // request params to include
-  params?: { [key: string]: string };
   // path to request e.g /news
   path?: string;
   // alternatively specify a full url e.g https://www.google.com/news
@@ -27,6 +23,10 @@ export interface SendRequest {
   headers?: { [key: string]: string };
   // host to send to e.g www.google.com
   host?: string;
+  // method of the request e.g GET, POST, DELETE
+  method?: string;
+  // request params to include
+  params?: { [key: string]: string };
 }
 
 export interface SendResponse {

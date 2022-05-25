@@ -133,10 +133,10 @@ export interface ReadResponse {
 }
 
 export interface RenameTableRequest {
-  // new table name
-  to?: string;
   // current table name
   from?: string;
+  // new table name
+  to?: string;
 }
 
 export interface RenameTableResponse {}
@@ -148,12 +148,12 @@ export interface TruncateRequest {
 export interface TruncateResponse {}
 
 export interface UpdateRequest {
+  // The id of the record. If not specified it is inferred from the 'id' field of the record
+  id?: string;
   // record, JSON object
   record?: { [key: string]: any };
   // Optional table name. Defaults to 'default'
   table?: string;
-  // The id of the record. If not specified it is inferred from the 'id' field of the record
-  id?: string;
 }
 
 export interface UpdateResponse {}

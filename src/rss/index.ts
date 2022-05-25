@@ -42,6 +42,8 @@ export interface AddRequest {
 export interface AddResponse {}
 
 export interface Entry {
+  // title of the entry
+  title?: string;
   // article content
   content?: string;
   // data of the entry
@@ -54,21 +56,19 @@ export interface Entry {
   link?: string;
   // article summary
   summary?: string;
-  // title of the entry
-  title?: string;
 }
 
 export interface Feed {
-  // category of the feed e.g news
-  category?: string;
-  // unique id
-  id?: string;
   // rss feed name
   // eg. a16z
   name?: string;
   // rss feed url
   // eg. http://a16z.com/feed/
   url?: string;
+  // category of the feed e.g news
+  category?: string;
+  // unique id
+  id?: string;
 }
 
 export interface FeedRequest {

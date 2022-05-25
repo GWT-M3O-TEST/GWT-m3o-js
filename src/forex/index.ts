@@ -72,12 +72,12 @@ export interface QuoteRequest {
 }
 
 export interface QuoteResponse {
-  // the bidding price
-  bid_price?: number;
-  // the forex symbol
-  symbol?: string;
   // the UTC timestamp of the quote
   timestamp?: string;
   // the asking price
   ask_price?: number;
+  // the bidding price
+  bid_price?: number;
+  // the forex symbol
+  symbol?: string;
 }

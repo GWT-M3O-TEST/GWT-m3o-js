@@ -72,10 +72,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface Field {
-  // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-  name?: string;
   // The type of the field - string, number
   type?: string;
+  // The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
+  name?: string;
 }
 
 export interface IndexRequest {
