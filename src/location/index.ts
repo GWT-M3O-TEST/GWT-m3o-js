@@ -33,9 +33,9 @@ export class LocationService {
 }
 
 export interface Entity {
-  type?: string;
   id?: string;
   location?: Point;
+  type?: string;
 }
 
 export interface Point {
@@ -60,14 +60,14 @@ export interface SaveRequest {
 export interface SaveResponse {}
 
 export interface SearchRequest {
-  // Central position to search from
-  center?: Point;
-  // Maximum number of entities to return
-  numEntities?: number;
   // radius in meters
   radius?: number;
   // type of entities to filter
   type?: string;
+  // Central position to search from
+  center?: Point;
+  // Maximum number of entities to return
+  numEntities?: number;
 }
 
 export interface SearchResponse {

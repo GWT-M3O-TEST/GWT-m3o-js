@@ -94,10 +94,10 @@ export interface EventsRequest {
 }
 
 export interface EventsResponse {
-  // the comment which the operation occured on
-  comment?: Comment;
   // the event which occured; create, delete, update
   event?: string;
+  // the comment which the operation occured on
+  comment?: Comment;
 }
 
 export interface ListRequest {}

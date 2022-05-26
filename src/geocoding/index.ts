@@ -38,23 +38,23 @@ export interface Location {
 }
 
 export interface LookupRequest {
+  city?: string;
   country?: string;
   postcode?: string;
   address?: string;
-  city?: string;
 }
 
 export interface LookupResponse {
-  address?: Address;
   location?: Location;
+  address?: Address;
 }
 
 export interface ReverseRequest {
-  latitude?: number;
   longitude?: number;
+  latitude?: number;
 }
 
 export interface ReverseResponse {
-  address?: Address;
   location?: Location;
+  address?: Address;
 }

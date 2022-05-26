@@ -56,10 +56,10 @@ export interface DecrementRequest {
 }
 
 export interface DecrementResponse {
-  // The new value
-  value?: number;
   // The key decremented
   key?: string;
+  // The new value
+  value?: number;
 }
 
 export interface DeleteRequest {
@@ -87,10 +87,10 @@ export interface GetResponse {
 }
 
 export interface IncrementRequest {
-  // The amount to increment the value by
-  value?: number;
   // The key to increment
   key?: string;
+  // The amount to increment the value by
+  value?: number;
 }
 
 export interface IncrementResponse {

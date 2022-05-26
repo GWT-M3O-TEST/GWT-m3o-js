@@ -87,16 +87,16 @@ export interface ListResponse {
 }
 
 export interface Note {
-  // time at which the note was created
-  created?: string;
-  // unique id for the note, generated if not specified
-  id?: string;
   // text within the note
   text?: string;
   // title of the note
   title?: string;
   // time at which the note was updated
   updated?: string;
+  // time at which the note was created
+  created?: string;
+  // unique id for the note, generated if not specified
+  id?: string;
 }
 
 export interface ReadRequest {

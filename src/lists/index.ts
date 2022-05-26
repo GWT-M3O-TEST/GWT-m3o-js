@@ -73,10 +73,10 @@ export interface EventsRequest {
 }
 
 export interface EventsResponse {
-  // the list which the operation occured on
-  list?: List;
   // the event which occured; create, delete, update
   event?: string;
+  // the list which the operation occured on
+  list?: List;
 }
 
 export interface List {

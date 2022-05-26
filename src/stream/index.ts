@@ -93,10 +93,10 @@ export interface Message {
 }
 
 export interface SendMessageRequest {
-  // The channel to send to
-  channel?: string;
   // The message text to send
   text?: string;
+  // The channel to send to
+  channel?: string;
 }
 
 export interface SendMessageResponse {}
