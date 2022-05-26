@@ -17,6 +17,8 @@ export class PasswordService {
 }
 
 export interface GenerateRequest {
+  // include special characters (!@#$%&*)
+  special?: boolean;
   // include uppercase letters
   uppercase?: boolean;
   // password length; defaults to 8 chars
@@ -25,8 +27,6 @@ export interface GenerateRequest {
   lowercase?: boolean;
   // include numbers
   numbers?: boolean;
-  // include special characters (!@#$%&*)
-  special?: boolean;
 }
 
 export interface GenerateResponse {

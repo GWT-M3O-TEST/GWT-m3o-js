@@ -64,8 +64,6 @@ export interface BooksRequest {
 }
 
 export interface BooksResponse {
-  // Name of the collection
-  collection?: string;
   // The limit specified
   limit?: number;
   // The page requested
@@ -74,6 +72,8 @@ export interface BooksResponse {
   total?: number;
   // A list of books
   books?: Book[];
+  // Name of the collection
+  collection?: string;
 }
 
 export interface Chapter {
@@ -90,21 +90,17 @@ export interface Chapter {
 }
 
 export interface ChaptersRequest {
-  // number of the book
-  book?: number;
-  // name of the collection
-  collection?: string;
   // Limit the number of chapters returned
   limit?: number;
   // The page in the pagination
   page?: number;
+  // number of the book
+  book?: number;
+  // name of the collection
+  collection?: string;
 }
 
 export interface ChaptersResponse {
-  // The page in the pagination
-  page?: number;
-  // Total chapters in the book
-  total?: number;
   // number of the book
   book?: number;
   // The chapters of the book
@@ -113,6 +109,10 @@ export interface ChaptersResponse {
   collection?: string;
   // Limit the number of chapters returned
   limit?: number;
+  // The page in the pagination
+  page?: number;
+  // Total chapters in the book
+  total?: number;
 }
 
 export interface Collection {
@@ -140,6 +140,8 @@ export interface CollectionsResponse {
 }
 
 export interface Hadith {
+  // hadith text
+  text?: string;
   // the arabic chapter title
   arabic_chapter_title?: string;
   // the arabic text
@@ -152,8 +154,6 @@ export interface Hadith {
   chapter_title?: string;
   // hadith id
   id?: number;
-  // hadith text
-  text?: string;
 }
 
 export interface HadithsRequest {
@@ -168,8 +168,6 @@ export interface HadithsRequest {
 }
 
 export interface HadithsResponse {
-  // name of the collection
-  collection?: string;
   // The hadiths of the book
   hadiths?: Hadith[];
   // Limit the number of hadiths returned
@@ -180,4 +178,6 @@ export interface HadithsResponse {
   total?: number;
   // number of the book
   book?: number;
+  // name of the collection
+  collection?: string;
 }

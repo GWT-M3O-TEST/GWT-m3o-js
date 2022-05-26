@@ -38,8 +38,6 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // e.g -0.127695
-  longitude?: number;
   // UK postcode e.g SW1A 2AA
   postcode?: string;
   // related region e.g London
@@ -52,11 +50,17 @@ export interface LookupResponse {
   district?: string;
   // e.g 51.50354
   latitude?: number;
+  // e.g -0.127695
+  longitude?: number;
 }
 
 export interface RandomRequest {}
 
 export interface RandomResponse {
+  // country e.g United Kingdom
+  country?: string;
+  // e.g Westminster
+  district?: string;
   // e.g 51.50354
   latitude?: number;
   // e.g -0.127695
@@ -67,10 +71,6 @@ export interface RandomResponse {
   region?: string;
   // e.g St James's
   ward?: string;
-  // country e.g United Kingdom
-  country?: string;
-  // e.g Westminster
-  district?: string;
 }
 
 export interface ValidateRequest {

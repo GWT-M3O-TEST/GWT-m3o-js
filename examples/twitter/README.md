@@ -4,26 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/Twitter/api](h
 
 Endpoints:
 
-## Trends
-
-Get the current global trending topics
-
-[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
-
-```js
-const { TwitterService } = require("m3o/twitter");
-
-const twitterService = new TwitterService(process.env.M3O_API_TOKEN);
-
-// Get the current global trending topics
-async function getTheCurrentGlobalTrendingTopics() {
-  const rsp = await twitterService.trends({});
-  console.log(rsp);
-}
-
-getTheCurrentGlobalTrendingTopics();
-```
-
 ## User
 
 Get a user's twitter profile
@@ -89,4 +69,24 @@ async function searchForTweets() {
 }
 
 searchForTweets();
+```
+
+## Trends
+
+Get the current global trending topics
+
+[https://m3o.com/twitter/api#Trends](https://m3o.com/twitter/api#Trends)
+
+```js
+const { TwitterService } = require("m3o/twitter");
+
+const twitterService = new TwitterService(process.env.M3O_API_TOKEN);
+
+// Get the current global trending topics
+async function getTheCurrentGlobalTrendingTopics() {
+  const rsp = await twitterService.trends({});
+  console.log(rsp);
+}
+
+getTheCurrentGlobalTrendingTopics();
 ```

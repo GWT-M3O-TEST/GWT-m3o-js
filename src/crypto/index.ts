@@ -63,6 +63,10 @@ export interface HistoryRequest {
 }
 
 export interface HistoryResponse {
+  // the low price
+  low?: number;
+  // the open price
+  open?: number;
   // the crypto symbol
   symbol?: string;
   // the volume
@@ -73,10 +77,6 @@ export interface HistoryResponse {
   date?: string;
   // the peak price
   high?: number;
-  // the low price
-  low?: number;
-  // the open price
-  open?: number;
 }
 
 export interface NewsRequest {

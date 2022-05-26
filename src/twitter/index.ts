@@ -41,26 +41,26 @@ export class TwitterService {
 }
 
 export interface Profile {
-  // the account creation date
-  created_at?: string;
-  // the user description
-  description?: string;
-  // the follower count
-  followers?: number;
   // if the account is private
   private?: boolean;
-  // the user id
-  id?: number;
-  // The user's profile picture
-  image_url?: string;
+  // if the account is verified
+  verified?: boolean;
   // the user's location
   location?: string;
   // display name of the user
   name?: string;
   // the username
   username?: string;
-  // if the account is verified
-  verified?: boolean;
+  // the account creation date
+  created_at?: string;
+  // the user description
+  description?: string;
+  // the follower count
+  followers?: number;
+  // the user id
+  id?: number;
+  // The user's profile picture
+  image_url?: string;
 }
 
 export interface SearchRequest {
@@ -76,10 +76,10 @@ export interface SearchResponse {
 }
 
 export interface TimelineRequest {
-  // the username to request the timeline for
-  username?: string;
   // number of tweets to return. default: 20
   limit?: number;
+  // the username to request the timeline for
+  username?: string;
 }
 
 export interface TimelineResponse {
@@ -104,18 +104,18 @@ export interface TrendsResponse {
 }
 
 export interface Tweet {
-  // time of tweet
-  created_at?: string;
-  // number of times favourited
-  favourited_count?: number;
-  // id of the tweet
-  id?: number;
   // number of times retweeted
   retweeted_count?: number;
   // text of the tweet
   text?: string;
   // username of the person who tweeted
   username?: string;
+  // time of tweet
+  created_at?: string;
+  // number of times favourited
+  favourited_count?: number;
+  // id of the tweet
+  id?: number;
 }
 
 export interface UserRequest {
@@ -124,8 +124,8 @@ export interface UserRequest {
 }
 
 export interface UserResponse {
-  // the current user status
-  status?: Tweet;
   // The requested user profile
   profile?: Profile;
+  // the current user status
+  status?: Tweet;
 }

@@ -54,8 +54,8 @@ export interface UrlRequest {
 }
 
 export interface UrlResponse {
-  // the response status
-  status?: string;
   // the response code
   code?: number;
+  // the response status
+  status?: string;
 }

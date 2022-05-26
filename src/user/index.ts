@@ -136,6 +136,10 @@ export class UserService {
 }
 
 export interface Account {
+  // unix timestamp
+  created?: number;
+  // an email address
+  email?: string;
   // unique account id
   id?: string;
   // Store any custom data you want about your users in this fields.
@@ -148,13 +152,11 @@ export interface Account {
   verification_date?: number;
   // if the account is verified
   verified?: boolean;
-  // unix timestamp
-  created?: number;
-  // an email address
-  email?: string;
 }
 
 export interface CreateRequest {
+  // optional user profile as map<string,string>
+  profile?: { [key: string]: string };
   // the username
   username?: string;
   // the email address
@@ -163,8 +165,6 @@ export interface CreateRequest {
   id?: string;
   // the user password
   password?: string;
-  // optional user profile as map<string,string>
-  profile?: { [key: string]: string };
 }
 
 export interface CreateResponse {
@@ -190,12 +190,12 @@ export interface ListResponse {
 }
 
 export interface LoginRequest {
-  // The email address of the user
-  email?: string;
   // The password of the user
   password?: string;
   // The username of the user
   username?: string;
+  // The email address of the user
+  email?: string;
 }
 
 export interface LoginResponse {
@@ -241,14 +241,14 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
+  // confirm new password
+  confirm_password?: string;
   // the email to reset the password for
   email?: string;
   // the new password
   new_password?: string;
   // The code from the verification email
   code?: string;
-  // confirm new password
-  confirm_password?: string;
 }
 
 export interface ResetPasswordResponse {}
@@ -273,8 +273,6 @@ export interface SendMagicLinkRequest {
 export interface SendMagicLinkResponse {}
 
 export interface SendPasswordResetEmailRequest {
-  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
-  expiration?: number;
   // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
   from_name?: string;
   // subject of the email
@@ -284,15 +282,13 @@ export interface SendPasswordResetEmailRequest {
   text_content?: string;
   // email address to send reset for
   email?: string;
+  // Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
+  expiration?: number;
 }
 
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // The url to redirect to incase of failure
-  failure_redirect_url?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
   // The url to redirect to after successful verification
   redirect_url?: string;
   // subject of the email
@@ -301,6 +297,10 @@ export interface SendVerificationEmailRequest {
   text_content?: string;
   // email address to send the verification code
   email?: string;
+  // The url to redirect to incase of failure
+  failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -317,27 +317,27 @@ export interface Session {
 }
 
 export interface UpdatePasswordRequest {
+  // the account id
+  userId?: string;
   // confirm new password
   confirm_password?: string;
   // the new password
   new_password?: string;
   // the old password
   old_password?: string;
-  // the account id
-  userId?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
+  // the new email address
+  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
-  // the new email address
-  email?: string;
 }
 
 export interface UpdateResponse {}

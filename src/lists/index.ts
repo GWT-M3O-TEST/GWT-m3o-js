@@ -80,6 +80,8 @@ export interface EventsResponse {
 }
 
 export interface List {
+  // time at which the list was updated
+  updated?: string;
   // time at which the list was created
   created?: string;
   // unique id for the list, generated if not specified
@@ -88,8 +90,6 @@ export interface List {
   items?: string[];
   // name of the list
   name?: string;
-  // time at which the list was updated
-  updated?: string;
 }
 
 export interface ListRequest {}

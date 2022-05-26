@@ -32,13 +32,13 @@ export interface Char {
 }
 
 export interface Guess {
+  // the full guess word
+  word?: string;
   // individual characters
   chars?: Char[];
   // the highlighted word e.g n[o]is{e}
   // where [ ] is correct, { } is in word
   highlight?: string;
-  // the full guess word
-  word?: string;
 }
 
 export interface GuessRequest {
@@ -49,6 +49,8 @@ export interface GuessRequest {
 }
 
 export interface GuessResponse {
+  // informational message
+  status?: string;
   // number of tries left
   tries_left?: number;
   // the actual word if failed
@@ -57,8 +59,6 @@ export interface GuessResponse {
   correct?: boolean;
   // the guess words tried
   guesses?: Guess[];
-  // informational message
-  status?: string;
 }
 
 export interface NextRequest {}
