@@ -108,10 +108,10 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // user id joining
-  user_id?: string;
   // chat room to join
   room_id?: string;
+  // user id joining
+  user_id?: string;
 }
 
 export interface JoinResponse {
@@ -167,6 +167,10 @@ export interface Message {
 }
 
 export interface Room {
+  // time of creation
+  created_at?: string;
+  // description of the that
+  description?: string;
   // unique room id
   id?: string;
   // name of the chat
@@ -175,13 +179,11 @@ export interface Room {
   private?: boolean;
   // list of users
   user_ids?: string[];
-  // time of creation
-  created_at?: string;
-  // description of the that
-  description?: string;
 }
 
 export interface SendRequest {
+  // id of the user who sent the message
+  user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the chat room the message is being sent to / from
@@ -190,8 +192,6 @@ export interface SendRequest {
   subject?: string;
   // text of the message
   text?: string;
-  // id of the user who sent the message
-  user_id?: string;
 }
 
 export interface SendResponse {

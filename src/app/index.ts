@@ -100,8 +100,6 @@ export interface RegionsResponse {
 }
 
 export interface Reservation {
-  // name of the app
-  name?: string;
   // owner id
   owner?: string;
   // associated token
@@ -110,6 +108,8 @@ export interface Reservation {
   created?: string;
   // time reservation expires
   expires?: string;
+  // name of the app
+  name?: string;
 }
 
 export interface ReserveRequest {
@@ -133,10 +133,6 @@ export interface ResolveResponse {
 }
 
 export interface RunRequest {
-  // region to run in
-  region?: string;
-  // source repository
-  repo?: string;
   // branch. defaults to master
   branch?: string;
   // associated env vars to pass in
@@ -145,6 +141,10 @@ export interface RunRequest {
   name?: string;
   // port to run on
   port?: number;
+  // region to run in
+  region?: string;
+  // source repository
+  repo?: string;
 }
 
 export interface RunResponse {
@@ -153,30 +153,30 @@ export interface RunResponse {
 }
 
 export interface Service {
+  // unique id
+  id?: string;
+  // name of the app
+  name?: string;
   // region running in
   region?: string;
-  // status of the app
-  status?: string;
+  // source repository
+  repo?: string;
   // last updated
   updated?: string;
   // branch of code
   branch?: string;
   // time of creation
   created?: string;
-  // name of the app
-  name?: string;
-  // port running on
-  port?: number;
-  // source repository
-  repo?: string;
+  // associated env vars
+  env_vars?: { [key: string]: string };
   // app url
   url?: string;
   // custom domains
   custom_domains?: string[];
-  // associated env vars
-  env_vars?: { [key: string]: string };
-  // unique id
-  id?: string;
+  // port running on
+  port?: number;
+  // status of the app
+  status?: string;
 }
 
 export interface StatusRequest {

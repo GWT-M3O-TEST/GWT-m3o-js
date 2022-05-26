@@ -48,26 +48,26 @@ export interface NearbyResponse {
 }
 
 export interface Result {
+  // type of location
+  type?: string;
+  // simplified address
+  vicinity?: string;
   // address of place
   address?: string;
   // url of an icon
   icon_url?: string;
-  // lat/lng of place
-  location?: string;
   // name of the place
   name?: string;
-  // rating from 1.0 to 5.0
-  rating?: number;
   // open now
   open_now?: boolean;
+  // lat/lng of place
+  location?: string;
   // opening hours
   opening_hours?: string[];
-  // type of location
-  type?: string;
+  // rating from 1.0 to 5.0
+  rating?: number;
   // feature types
   types?: string[];
-  // simplified address
-  vicinity?: string;
 }
 
 export interface SearchRequest {

@@ -73,13 +73,15 @@ export interface EventsRequest {
 }
 
 export interface EventsResponse {
-  // the event which occured; create, delete, update
-  event?: string;
   // the list which the operation occured on
   list?: List;
+  // the event which occured; create, delete, update
+  event?: string;
 }
 
 export interface List {
+  // time at which the list was created
+  created?: string;
   // unique id for the list, generated if not specified
   id?: string;
   // items within the list
@@ -88,8 +90,6 @@ export interface List {
   name?: string;
   // time at which the list was updated
   updated?: string;
-  // time at which the list was created
-  created?: string;
 }
 
 export interface ListRequest {}

@@ -25,23 +25,23 @@ export class GeocodingService {
 }
 
 export interface Address {
+  line_two?: string;
   postcode?: string;
   city?: string;
   country?: string;
   line_one?: string;
-  line_two?: string;
 }
 
 export interface Location {
-  longitude?: number;
   latitude?: number;
+  longitude?: number;
 }
 
 export interface LookupRequest {
-  city?: string;
   country?: string;
   postcode?: string;
   address?: string;
+  city?: string;
 }
 
 export interface LookupResponse {
@@ -55,6 +55,6 @@ export interface ReverseRequest {
 }
 
 export interface ReverseResponse {
-  location?: Location;
   address?: Address;
+  location?: Location;
 }

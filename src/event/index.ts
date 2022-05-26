@@ -27,23 +27,23 @@ export class EventService {
 }
 
 export interface ConsumeRequest {
-  // Optional group for the subscription
-  group?: string;
   // Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
   offset?: string;
   // The topic to subscribe to
   topic?: string;
+  // Optional group for the subscription
+  group?: string;
 }
 
 export interface ConsumeResponse {
-  // The next json message on the topic
-  message?: { [key: string]: any };
   // Timestamp of publishing
   timestamp?: string;
   // The topic subscribed to
   topic?: string;
   // Unique message id
   id?: string;
+  // The next json message on the topic
+  message?: { [key: string]: any };
 }
 
 export interface Ev {
@@ -56,10 +56,10 @@ export interface Ev {
 }
 
 export interface PublishRequest {
-  // The topic to publish to
-  topic?: string;
   // The json message to publish
   message?: { [key: string]: any };
+  // The topic to publish to
+  topic?: string;
 }
 
 export interface PublishResponse {}
