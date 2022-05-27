@@ -34,6 +34,8 @@ export interface Record {
   postcode?: string;
   // the premise
   premise?: string;
+  // the complete address
+  summary?: string;
   // post town
   town?: string;
   // the county
@@ -48,6 +50,4 @@ export interface Record {
   organisation?: string;
   // street name
   street?: string;
-  // the complete address
-  summary?: string;
 }

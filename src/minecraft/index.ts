@@ -22,6 +22,10 @@ export interface PingRequest {
 }
 
 export interface PingResponse {
+  // Number of players online
+  players?: number;
+  // Protocol number of the server
+  protocol?: number;
   // List of connected players
   sample?: PlayerSample[];
   // Version of the server
@@ -34,10 +38,6 @@ export interface PingResponse {
   max_players?: number;
   // Message of the day
   motd?: string;
-  // Number of players online
-  players?: number;
-  // Protocol number of the server
-  protocol?: number;
 }
 
 export interface PlayerSample {

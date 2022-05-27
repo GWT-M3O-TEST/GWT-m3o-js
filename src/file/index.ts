@@ -38,13 +38,13 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface ListRequest {
+  // Project, required for listing.
+  project?: string;
   // Defaults to '/', ie. lists all files in a project.
   // Supply path to a folder if you want to list
   // files inside that folder
   // eg. '/docs'
   path?: string;
-  // Project, required for listing.
-  project?: string;
 }
 
 export interface ListResponse {
@@ -64,6 +64,10 @@ export interface ReadResponse {
 }
 
 export interface Record {
+  // Any other associated metadata as a map of key-value pairs
+  metadata?: { [key: string]: string };
+  // Path to file or folder eg. '/documents/text-files/file.txt'.
+  path?: string;
   // A custom project to group files
   // eg. file-of-mywebsite.com
   project?: string;
@@ -73,10 +77,6 @@ export interface Record {
   content?: string;
   // Time the file was created e.g 2021-05-20T13:37:21Z
   created?: string;
-  // Any other associated metadata as a map of key-value pairs
-  metadata?: { [key: string]: string };
-  // Path to file or folder eg. '/documents/text-files/file.txt'.
-  path?: string;
 }
 
 export interface SaveRequest {

@@ -37,8 +37,8 @@ export interface SubscribeRequest {
 }
 
 export interface SubscribeResponse {
-  // The next json message on the topic
-  message?: { [key: string]: any };
   // The topic subscribed to
   topic?: string;
+  // The next json message on the topic
+  message?: { [key: string]: any };
 }

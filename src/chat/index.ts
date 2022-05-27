@@ -62,14 +62,14 @@ export class ChatService {
 }
 
 export interface CreateRequest {
+  // name of the room
+  name?: string;
   // whether its a private room
   private?: boolean;
   // optional list of user ids
   user_ids?: string[];
   // chat description
   description?: string;
-  // name of the room
-  name?: string;
 }
 
 export interface CreateResponse {
@@ -108,10 +108,10 @@ export interface InviteResponse {
 }
 
 export interface JoinRequest {
-  // chat room to join
-  room_id?: string;
   // user id joining
   user_id?: string;
+  // chat room to join
+  room_id?: string;
 }
 
 export interface JoinResponse {
@@ -150,6 +150,12 @@ export interface ListResponse {
 }
 
 export interface Message {
+  // subject of the message
+  subject?: string;
+  // text of the message
+  text?: string;
+  // id of the user who sent the message
+  user_id?: string;
   // a client side id, should be validated by the server to make the request retry safe
   client?: string;
   // id of the message, allocated by the server
@@ -158,12 +164,6 @@ export interface Message {
   room_id?: string;
   // time the message was sent in RFC3339 format
   sent_at?: string;
-  // subject of the message
-  subject?: string;
-  // text of the message
-  text?: string;
-  // id of the user who sent the message
-  user_id?: string;
 }
 
 export interface Room {
@@ -182,6 +182,8 @@ export interface Room {
 }
 
 export interface SendRequest {
+  // a client side id, should be validated by the server to make the request retry safe
+  client?: string;
   // id of the chat room the message is being sent to / from
   room_id?: string;
   // subject of the message
@@ -190,8 +192,6 @@ export interface SendRequest {
   text?: string;
   // id of the user who sent the message
   user_id?: string;
-  // a client side id, should be validated by the server to make the request retry safe
-  client?: string;
 }
 
 export interface SendResponse {

@@ -51,16 +51,16 @@ export class ImageService {
 }
 
 export interface ConvertRequest {
+  // The image file to convert
+  file?: string;
+  // output name of the image including extension, ie. "cat.png"
+  name?: string;
   // make output a URL and not a base64 response
   outputURL?: boolean;
   // url of the image to resize
   url?: string;
   // base64 encoded image to resize,
   base64?: string;
-  // The image file to convert
-  file?: string;
-  // output name of the image including extension, ie. "cat.png"
-  name?: string;
 }
 
 export interface ConvertResponse {
@@ -69,6 +69,8 @@ export interface ConvertResponse {
 }
 
 export interface CropOptions {
+  // width to crop to
+  width?: number;
   // Crop anchor point: "top", "top left", "top right",
   // "left", "center", "right"
   // "bottom left", "bottom", "bottom right".
@@ -76,8 +78,6 @@ export interface CropOptions {
   anchor?: string;
   // height to crop to
   height?: number;
-  // width to crop to
-  width?: number;
 }
 
 export interface DeleteRequest {
@@ -98,6 +98,9 @@ export interface Rectangle {
 }
 
 export interface ResizeRequest {
+  // The image file to resize
+  file?: string;
+  height?: number;
   // output name of the image including extension, ie. "cat.png"
   name?: string;
   // make output a URL and not a base64 response
@@ -111,9 +114,6 @@ export interface ResizeRequest {
   // if provided, after resize, the image
   // will be cropped
   cropOptions?: CropOptions;
-  // The image file to resize
-  file?: string;
-  height?: number;
 }
 
 export interface ResizeResponse {
@@ -122,14 +122,14 @@ export interface ResizeResponse {
 }
 
 export interface UploadRequest {
+  // URL of the image to upload
+  url?: string;
   // Base64 encoded image to upload,
   base64?: string;
   // The image file to upload
   file?: string;
   // Output name of the image including extension, ie. "cat.png"
   name?: string;
-  // URL of the image to upload
-  url?: string;
 }
 
 export interface UploadResponse {

@@ -17,20 +17,20 @@ export class MovieService {
 }
 
 export interface MovieInfo {
-  original_title?: string;
-  overview?: string;
-  popularity?: number;
   poster_path?: string;
-  vote_count?: number;
   adult?: boolean;
-  vote_average?: number;
-  title?: string;
-  video?: boolean;
   backdrop_path?: string;
   genre_ids?: number[];
-  id?: number;
-  original_language?: string;
   release_date?: string;
+  title?: string;
+  vote_average?: number;
+  vote_count?: number;
+  id?: number;
+  original_title?: string;
+  popularity?: number;
+  video?: boolean;
+  original_language?: string;
+  overview?: string;
 }
 
 export interface SearchRequest {

@@ -93,10 +93,10 @@ export interface IndexResponse {
 }
 
 export interface Record {
-  // The JSON contents of the record
-  data?: { [key: string]: any };
   // The ID for this record. If blank, one will be generated
   id?: string;
+  // The JSON contents of the record
+  data?: { [key: string]: any };
 }
 
 export interface SearchRequest {

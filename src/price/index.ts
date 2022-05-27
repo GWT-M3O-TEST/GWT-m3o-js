@@ -37,6 +37,8 @@ export class PriceService {
 }
 
 export interface AddRequest {
+  // name of the thing e.g bitcoin
+  name?: string;
   // price of the thing e.g 10001.00
   price?: number;
   // source of the price
@@ -47,8 +49,6 @@ export interface AddRequest {
   author?: string;
   // currency e.g USD
   currency?: string;
-  // name of the thing e.g bitcoin
-  name?: string;
 }
 
 export interface AddResponse {
@@ -97,24 +97,26 @@ export interface ListResponse {
 }
 
 export interface Report {
-  symbol?: string;
   author?: string;
   comment?: string;
   name?: string;
+  symbol?: string;
 }
 
 export interface ReportRequest {
+  // symbol of value
+  symbol?: string;
   // additional comment
   comment?: string;
   // name of value
   name?: string;
-  // symbol of value
-  symbol?: string;
 }
 
 export interface ReportResponse {}
 
 export interface Value {
+  // price of thing
+  price?: number;
   // where it came from
   source?: string;
   // symbol of value
@@ -127,6 +129,4 @@ export interface Value {
   currency?: string;
   // name of thing
   name?: string;
-  // price of thing
-  price?: number;
 }

@@ -47,10 +47,10 @@ export class ListsService {
 }
 
 export interface CreateRequest {
-  // list name
-  name?: string;
   // list items
   items?: string[];
+  // list name
+  name?: string;
 }
 
 export interface CreateResponse {

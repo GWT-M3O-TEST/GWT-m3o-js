@@ -136,12 +136,6 @@ export class UserService {
 }
 
 export interface Account {
-  // an email address
-  email?: string;
-  // unique account id
-  id?: string;
-  // Store any custom data you want about your users in this fields.
-  profile?: { [key: string]: string };
   // unix timestamp
   updated?: number;
   // alphanumeric username
@@ -152,9 +146,17 @@ export interface Account {
   verified?: boolean;
   // unix timestamp
   created?: number;
+  // an email address
+  email?: string;
+  // unique account id
+  id?: string;
+  // Store any custom data you want about your users in this fields.
+  profile?: { [key: string]: string };
 }
 
 export interface CreateRequest {
+  // optional account id
+  id?: string;
   // the user password
   password?: string;
   // optional user profile as map<string,string>
@@ -163,8 +165,6 @@ export interface CreateRequest {
   username?: string;
   // the email address
   email?: string;
-  // optional account id
-  id?: string;
 }
 
 export interface CreateResponse {
@@ -179,10 +179,10 @@ export interface DeleteRequest {
 export interface DeleteResponse {}
 
 export interface ListRequest {
-  offset?: number;
   // Maximum number of records to return. Default limit is 25.
   // Maximum limit is 1000. Anything higher will return an error.
   limit?: number;
+  offset?: number;
 }
 
 export interface ListResponse {
@@ -218,12 +218,12 @@ export interface LogoutRequest {
 export interface LogoutResponse {}
 
 export interface ReadRequest {
-  // the account email
-  email?: string;
   // the account id
   id?: string;
   // the account username
   username?: string;
+  // the account email
+  email?: string;
 }
 
 export interface ReadResponse {
@@ -241,21 +241,19 @@ export interface ReadSessionResponse {
 }
 
 export interface ResetPasswordRequest {
+  // the new password
+  new_password?: string;
   // The code from the verification email
   code?: string;
   // confirm new password
   confirm_password?: string;
   // the email to reset the password for
   email?: string;
-  // the new password
-  new_password?: string;
 }
 
 export interface ResetPasswordResponse {}
 
 export interface SendMagicLinkRequest {
-  // Your web site address, example www.example.com or user.example.com
-  address?: string;
   // the email address of the user
   email?: string;
   // Endpoint name where your http request handler handles MagicLink by
@@ -268,6 +266,8 @@ export interface SendMagicLinkRequest {
   // Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
   // HTML emails are not available currently.
   text_content?: string;
+  // Your web site address, example www.example.com or user.example.com
+  address?: string;
 }
 
 export interface SendMagicLinkResponse {}
@@ -289,18 +289,18 @@ export interface SendPasswordResetEmailRequest {
 export interface SendPasswordResetEmailResponse {}
 
 export interface SendVerificationEmailRequest {
-  // email address to send the verification code
-  email?: string;
-  // The url to redirect to incase of failure
-  failure_redirect_url?: string;
-  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-  from_name?: string;
   // The url to redirect to after successful verification
   redirect_url?: string;
   // subject of the email
   subject?: string;
   // Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
   text_content?: string;
+  // email address to send the verification code
+  email?: string;
+  // The url to redirect to incase of failure
+  failure_redirect_url?: string;
+  // Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+  from_name?: string;
 }
 
 export interface SendVerificationEmailResponse {}
@@ -317,27 +317,27 @@ export interface Session {
 }
 
 export interface UpdatePasswordRequest {
-  // the old password
-  old_password?: string;
-  // the account id
-  userId?: string;
   // confirm new password
   confirm_password?: string;
   // the new password
   new_password?: string;
+  // the old password
+  old_password?: string;
+  // the account id
+  userId?: string;
 }
 
 export interface UpdatePasswordResponse {}
 
 export interface UpdateRequest {
+  // the new email address
+  email?: string;
   // the account id
   id?: string;
   // the user profile as map<string,string>
   profile?: { [key: string]: string };
   // the new username
   username?: string;
-  // the new email address
-  email?: string;
 }
 
 export interface UpdateResponse {}
