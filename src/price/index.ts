@@ -37,6 +37,8 @@ export class PriceService {
 }
 
 export interface AddRequest {
+  // price of the thing e.g 10001.00
+  price?: number;
   // source of the price
   source?: string;
   // symbol of value
@@ -47,8 +49,6 @@ export interface AddRequest {
   currency?: string;
   // name of the thing e.g bitcoin
   name?: string;
-  // price of the thing e.g 10001.00
-  price?: number;
 }
 
 export interface AddResponse {
@@ -56,12 +56,12 @@ export interface AddResponse {
 }
 
 export interface GetRequest {
-  // symbol of value
-  symbol?: string;
   // currency to get
   currency?: string;
   // name of the value
   name?: string;
+  // symbol of value
+  symbol?: string;
 }
 
 export interface GetResponse {
@@ -84,12 +84,12 @@ export interface IndexResponse {
 }
 
 export interface ListRequest {
-  // offset to read from
-  offset?: number;
   // currency to get
   currency?: string;
   // limit number of values
   limit?: number;
+  // offset to read from
+  offset?: number;
 }
 
 export interface ListResponse {
@@ -97,10 +97,10 @@ export interface ListResponse {
 }
 
 export interface Report {
+  symbol?: string;
   author?: string;
   comment?: string;
   name?: string;
-  symbol?: string;
 }
 
 export interface ReportRequest {
@@ -115,6 +115,12 @@ export interface ReportRequest {
 export interface ReportResponse {}
 
 export interface Value {
+  // where it came from
+  source?: string;
+  // symbol of value
+  symbol?: string;
+  // time it was added
+  timestamp?: string;
   // who added it
   author?: string;
   // currency of thing
@@ -123,10 +129,4 @@ export interface Value {
   name?: string;
   // price of thing
   price?: number;
-  // where it came from
-  source?: string;
-  // symbol of value
-  symbol?: string;
-  // time it was added
-  timestamp?: string;
 }

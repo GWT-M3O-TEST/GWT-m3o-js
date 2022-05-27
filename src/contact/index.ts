@@ -56,28 +56,28 @@ export interface Address {
 }
 
 export interface ContactInfo {
-  // the phone numbers
-  phones?: Phone[];
-  // the social media username
-  social_medias?: SocialMedia[];
   // the emails
   emails?: Email[];
-  // contact id
-  id?: string;
   // the contact name
   name?: string;
   // note of the contact
   note?: string;
+  // the phone numbers
+  phones?: Phone[];
   // update date string in RFC3339
   updated_at?: string;
-  // the address
-  addresses?: Address[];
   // the birthday
   birthday?: string;
   // create date string in RFC3339
   created_at?: string;
   // the contact links
   links?: Link[];
+  // the social media username
+  social_medias?: SocialMedia[];
+  // the address
+  addresses?: Address[];
+  // contact id
+  id?: string;
 }
 
 export interface CreateRequest {
@@ -158,24 +158,24 @@ export interface SocialMedia {
 }
 
 export interface UpdateRequest {
+  // optional, addresses
+  addresses?: Address[];
   // optional, birthday
   birthday?: string;
-  // optional, links
-  links?: Link[];
+  // optional, emails
+  emails?: Email[];
+  // required, the name
+  name?: string;
   // optional, note
   note?: string;
   // optional, phone number
   phones?: Phone[];
-  // optional, social media
-  social_medias?: SocialMedia[];
-  // optional, addresses
-  addresses?: Address[];
-  // optional, emails
-  emails?: Email[];
   // required, the contact id
   id?: string;
-  // required, the name
-  name?: string;
+  // optional, links
+  links?: Link[];
+  // optional, social media
+  social_medias?: SocialMedia[];
 }
 
 export interface UpdateResponse {

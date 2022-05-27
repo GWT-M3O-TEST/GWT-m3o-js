@@ -38,8 +38,6 @@ export interface LookupRequest {
 }
 
 export interface LookupResponse {
-  // UK postcode e.g SW1A 2AA
-  postcode?: string;
   // related region e.g London
   region?: string;
   // e.g St James's
@@ -52,11 +50,17 @@ export interface LookupResponse {
   latitude?: number;
   // e.g -0.127695
   longitude?: number;
+  // UK postcode e.g SW1A 2AA
+  postcode?: string;
 }
 
 export interface RandomRequest {}
 
 export interface RandomResponse {
+  // related region e.g London
+  region?: string;
+  // e.g St James's
+  ward?: string;
   // country e.g United Kingdom
   country?: string;
   // e.g Westminster
@@ -67,10 +71,6 @@ export interface RandomResponse {
   longitude?: number;
   // UK postcode e.g SW1A 2AA
   postcode?: string;
-  // related region e.g London
-  region?: string;
-  // e.g St James's
-  ward?: string;
 }
 
 export interface ValidateRequest {

@@ -22,6 +22,8 @@ export interface NowRequest {
 }
 
 export interface NowResponse {
+  // timestamp as 2006-01-02T15:04:05.999999999Z07:00
+  timestamp?: string;
   // the timezone as BST
   timezone?: string;
   // the unix timestamp
@@ -30,8 +32,6 @@ export interface NowResponse {
   localtime?: string;
   // the location as Europe/London
   location?: string;
-  // timestamp as 2006-01-02T15:04:05.999999999Z07:00
-  timestamp?: string;
 }
 
 export interface ZoneRequest {
@@ -40,12 +40,18 @@ export interface ZoneRequest {
 }
 
 export interface ZoneResponse {
+  // UTC offset in hours
+  offset?: number;
+  // region of timezone
+  region?: string;
+  // the abbreviated code e.g BST
+  abbreviation?: string;
   // location requested
   location?: string;
   // e.g -0.37
   longitude?: number;
-  // region of timezone
-  region?: string;
+  // the local time
+  localtime?: string;
   // the timezone e.g Europe/London
   timezone?: string;
   // country of the timezone
@@ -54,10 +60,4 @@ export interface ZoneResponse {
   dst?: boolean;
   // e.g 51.42
   latitude?: number;
-  // the local time
-  localtime?: string;
-  // the abbreviated code e.g BST
-  abbreviation?: string;
-  // UTC offset in hours
-  offset?: number;
 }

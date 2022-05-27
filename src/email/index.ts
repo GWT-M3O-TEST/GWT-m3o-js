@@ -41,10 +41,6 @@ export interface ParseResponse {
 }
 
 export interface SendRequest {
-  // the text body
-  text_body?: string;
-  // the email address of the recipient
-  to?: string;
   // the display name of the sender
   from?: string;
   // the html body
@@ -53,6 +49,10 @@ export interface SendRequest {
   reply_to?: string;
   // the email subject
   subject?: string;
+  // the text body
+  text_body?: string;
+  // the email address of the recipient
+  to?: string;
 }
 
 export interface SendResponse {}

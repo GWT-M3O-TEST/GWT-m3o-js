@@ -17,11 +17,11 @@ export class JokeService {
 }
 
 export interface JokeInfo {
+  title?: string;
+  body?: string;
   category?: string;
   id?: string;
   source?: string;
-  title?: string;
-  body?: string;
 }
 
 export interface RandomRequest {

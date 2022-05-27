@@ -182,8 +182,6 @@ export interface Room {
 }
 
 export interface SendRequest {
-  // a client side id, should be validated by the server to make the request retry safe
-  client?: string;
   // id of the chat room the message is being sent to / from
   room_id?: string;
   // subject of the message
@@ -192,6 +190,8 @@ export interface SendRequest {
   text?: string;
   // id of the user who sent the message
   user_id?: string;
+  // a client side id, should be validated by the server to make the request retry safe
+  client?: string;
 }
 
 export interface SendResponse {

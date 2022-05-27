@@ -87,8 +87,6 @@ export interface ListResponse {
 }
 
 export interface Note {
-  // title of the note
-  title?: string;
   // time at which the note was updated
   updated?: string;
   // time at which the note was created
@@ -97,6 +95,8 @@ export interface Note {
   id?: string;
   // text within the note
   text?: string;
+  // title of the note
+  title?: string;
 }
 
 export interface ReadRequest {

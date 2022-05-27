@@ -29,8 +29,6 @@ export class RoutingService {
 }
 
 export interface Direction {
-  // human readable instruction
-  instruction?: string;
   // intersections on route
   intersections?: Intersection[];
   // maneuver to take
@@ -43,6 +41,8 @@ export interface Direction {
   distance?: number;
   // duration to travel in seconds
   duration?: number;
+  // human readable instruction
+  instruction?: string;
 }
 
 export interface DirectionsRequest {
@@ -53,25 +53,25 @@ export interface DirectionsRequest {
 }
 
 export interface DirectionsResponse {
+  // Turn by turn directions
+  directions?: Direction[];
   // Estimated distance of the route in meters
   distance?: number;
   // Estimated duration of the route in seconds
   duration?: number;
   // The waypoints on the route
   waypoints?: Waypoint[];
-  // Turn by turn directions
-  directions?: Direction[];
 }
 
 export interface EtaRequest {
+  // The end point for the eta calculation
+  destination?: Point;
   // The starting point for the eta calculation
   origin?: Point;
   // speed in kilometers
   speed?: number;
   // type of transport. Only "car" is supported currently.
   type?: string;
-  // The end point for the eta calculation
-  destination?: Point;
 }
 
 export interface EtaResponse {
@@ -85,11 +85,11 @@ export interface Intersection {
 }
 
 export interface Maneuver {
+  action?: string;
   bearing_after?: number;
   bearing_before?: number;
   direction?: string;
   location?: Point;
-  action?: string;
 }
 
 export interface Point {
@@ -116,8 +116,8 @@ export interface RouteResponse {
 }
 
 export interface Waypoint {
-  // street name or related reference
-  name?: string;
   // gps point coordinates
   location?: Point;
+  // street name or related reference
+  name?: string;
 }
